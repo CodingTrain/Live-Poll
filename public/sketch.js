@@ -1,4 +1,3 @@
-
 let a = 0;
 
 function setup() {
