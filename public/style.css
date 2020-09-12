@@ -7,7 +7,7 @@ body {
     flex-direction: column;
     place-content: center;
     place-items: center;
-    background: linear-gradient(to bottom, rgb(158, 222, 247) 0%, rgb(201, 109, 236) 100%);
+    background-color: rgb(255,255,255);
     height: 100vh;
     margin: 0px;
     padding: 0px;
