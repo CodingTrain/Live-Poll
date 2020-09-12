@@ -1,0 +1,24 @@
+{
+  "name": "Live-Poll",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodingTrain/Live-Poll.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CodingTrain/Live-Poll/issues"
+  },
+  "homepage": "https://github.com/CodingTrain/Live-Poll#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
