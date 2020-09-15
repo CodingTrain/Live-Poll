@@ -1,14 +1,17 @@
-
-let a = 0;
+let trains = [10, 40, 50];
 
 function setup() {
-  createCanvas(400, 300);
+  createCanvas(500, 600);
 }
 
 function draw() {
   clear();
-  const w = map(sin(a), -1, 1, 0, 300);
-  fill(255, 0, 100);
-  rect(10, 10, w, 20);
-  a += 0.05;
+  for (let [index, train] of trains.entries()) {
+    for (let i = 0; i < train; i += 10) {
+      textSize(50);
+      text("🚂", i * 5, (index + 1) * 100);
+    }
+  }
+
+  if (random(1) > 0.9) trains[floor(random(trains.length))] = random(100);
 }
