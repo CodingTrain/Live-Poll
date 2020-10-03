@@ -20,7 +20,8 @@ app.get("/vote/:pollId/:choice", async (request, response) => {
 
   poll[choice]++;
   await database.update({ _id }, poll);
-  response.send(poll); // A better response maybe?
+  delete poll.id // is this a good idea?
+  response.send(poll);
 });
 
 app.get("/votes/:pollId", async (request, response) => {
