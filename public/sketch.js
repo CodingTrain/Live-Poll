@@ -1,17 +1,37 @@
-let trains = [10, 40, 50];
+let votes = {};
+
+async function countVotes() {
+  const response = await fetch("votes/5oti06Es2eIFgnep");
+  votes = await response.json();
+}
 
 function setup() {
-  createCanvas(500, 600);
+  createCanvas(400, 300);
+  countVotes();
+  setInterval(countVotes, 500);
 }
 
 function draw() {
   clear();
-  for (let [index, train] of trains.entries()) {
-    for (let i = 0; i < train; i += 10) {
-      textSize(50);
-      text("🚂", i * 5, (index + 1) * 100);
-    }
+
+  let choices = Object.keys(votes);
+  choices = choices.filter((elt) => /^[abcd]$/.test(elt));
+
+  let maxVotes = 0;
+  for (let choice of choices) {
+    let count = votes[choice];
+    maxVotes = max(count, maxVotes);
   }
 
-  if (random(1) > 0.9) trains[floor(random(trains.length))] = random(100);
+  for (let i = 0; i < choices.length; i++) {
+    let choice = choices[i];
+    let w = map(votes[choice], 0, maxVotes, 0, 100);
+    let x = 10;
+    let y = 20 + i * 20;
+    fill(0);
+    noStroke();
+    text(choice, x, y + 10);
+    for (let j = 1; j <= floor(w / 10); j++) text("🚂", x + 16 * j, y, 10);
+    //resize as per requirements.
+  }
 }
