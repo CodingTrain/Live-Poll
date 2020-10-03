@@ -1,6 +1,9 @@
 const express = require("express");
 const app = express();
-app.listen(3000, () => console.log("listening at 3000"));
+
+const port = process.env.PORT || 3000
+
+app.listen(port, () => console.log(`listening at ${port}`));
 app.use(express.static("public"));
 
 const Datastore = require("nedb-promises");
@@ -10,9 +13,14 @@ app.get("/vote/:pollId/:choice", async (request, response) => {
   const _id = request.params.pollId;
   const choice = request.params.choice;
   const poll = await database.findOne({ _id });
+
+  if (!poll) return response.send({ status: "error", message: "Invalid Poll ID" })
+  if (!Object.keys(poll).filter(val => val !== "_id").includes(choice))
+    return response.send({ status: "error", message: "Invalid Choice" })
+
   poll[choice]++;
   await database.update({ _id }, poll);
-  response.send(poll);
+  response.send(poll); // A better response maybe?
 });
 
 app.get("/votes/:pollId", async (request, response) => {
@@ -20,3 +28,8 @@ app.get("/votes/:pollId", async (request, response) => {
   const poll = await database.findOne({ _id });
   response.send(poll);
 });
+
+
+function createNewPoll() {
+  database.insert({ a: 0, b: 0, c: 0, d: 0 });
+}
