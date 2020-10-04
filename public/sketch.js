@@ -23,11 +23,11 @@ function draw() {
     maxVotes = max(count, maxVotes);
   }
 
-  for (let i = 0; i < choices.length; i++) {
-    let choice = choices[i];
-    let w = map(votes[choice], 0, maxVotes, 0, 100);
-    let x = 10;
-    let y = 20 + i * 20;
+  for (let i in choices) {
+    const choice = choices[i];
+    const w = map(votes[choice], 0, maxVotes, 0, 100);
+    const x = 10;
+    const y = 20 + i * 20;
     fill(0);
     noStroke();
     text(choice, x, y + 10);
