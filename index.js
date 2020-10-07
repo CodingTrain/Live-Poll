@@ -13,7 +13,11 @@ const database = Datastore.create("database.db");
 
 app.get("/vote/:pollId/:choice", async (request, response) => {
     const { pollId: _id, choice } = request.params;
-    await database.update({ _id }, { $inc: { [choice]: 1 } });
+    const poll = await database.update(
+        { _id },
+        { $inc: { [choice]: 1 } },
+        { returnUpdatedDocs: true }
+    );
     response.send(poll);
 });
 
