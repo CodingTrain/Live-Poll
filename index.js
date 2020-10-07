@@ -20,8 +20,9 @@ app.get("/vote/:pollId/:choice", async (request, response) => {
 
   poll[choice]++;
   await database.update({ _id }, poll);
-  delete poll._id // is this a bad idea?
-  response.send(poll);
+
+  const { _id: ID, ...votes } = poll; // This creates a new object 'votes' which doesn't have the _id property
+  response.send(votes);
 });
 
 app.get("/votes/:pollId", async (request, response) => {
