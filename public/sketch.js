@@ -31,6 +31,7 @@ function draw() {
     fill(0);
     noStroke();
     text(choice, x, y + 10);
-    rect(x + 20, 20 + i * 20, w, 10);
+    for (let j = 1; j <= floor(w / 10); j++) text("🚂", x + 16 * j, y, 10);
+    //resize as per requirements.
   }
 }

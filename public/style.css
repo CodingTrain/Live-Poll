@@ -2,6 +2,7 @@
     font-family: "cubanoregular";
     src: url("https://thecodingtrain.com/assets/fonts/cubano-regular-webfont.woff2");
 }
+
 body {
     display: flex;
     flex-direction: column;
