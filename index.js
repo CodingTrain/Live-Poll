@@ -6,8 +6,10 @@ const port = process.env.PORT || 3000
 app.listen(port, () => console.log(`listening at ${port}`));
 app.use(express.static("public"));
 
+
 const Datastore = require("nedb-promises");
 const database = Datastore.create("database.db");
+createNewPoll();
 
 app.get("/vote/:pollId/:choice", async (request, response) => {
   const _id = request.params.pollId;
