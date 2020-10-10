@@ -15,6 +15,7 @@ function draw() {
   clear();
 
   let choices = Object.keys(votes);
+  // The check is no longer needed and also now it will support >4 options
   choices = choices.filter((elt) => /^[abcd]$/.test(elt));
 
   let maxVotes = 0;
