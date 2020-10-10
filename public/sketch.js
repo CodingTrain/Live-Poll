@@ -1,4 +1,5 @@
 let votes = {};
+const maxEmojis = 40;
 
 async function countVotes() {
   const response = await fetch("votes/5oti06Es2eIFgnep");
@@ -23,16 +24,20 @@ function draw() {
     let count = votes[choice];
     maxVotes = max(count, maxVotes);
   }
-
+  let divisor = 1;
+  while (maxVotes / divisor > maxEmojis) {
+    divisor *= 5;
+  }
+  
   for (let i = 0; i < choices.length; i++) {
     let choice = choices[i];
-    let w = map(votes[choice], 0, maxVotes, 0, 100);
+    let numEmojis = votes[choice] / divisor;
     let x = 10;
     let y = 20 + i * 20;
     fill(0);
     noStroke();
     text(choice, x, y + 10);
-    for (let j = 1; j <= floor(w / 10); j++) text("🚂", x + 16 * j, y, 10);
+    text("🚂".repeat(numEmojis), x, y, 10);
     //resize as per requirements.
   }
 }
