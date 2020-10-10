@@ -6,7 +6,7 @@ let voteButton;
 
 async function countVotes() {
   // TODO this page should be for a specific poll
-  const response = await fetch("poll/xGclteY1Lfu2q9DP");
+  const response = await fetch("votes/xGclteY1Lfu2q9DP");
   votes = await response.json();
 }
 
