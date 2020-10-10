@@ -1,14 +1,36 @@
+let votes = {};
 
-let a = 0;
+async function countVotes() {
+  const response = await fetch("votes/5oti06Es2eIFgnep");
+  votes = await response.json();
+}
 
 function setup() {
   createCanvas(400, 300);
+  countVotes();
+  setInterval(countVotes, 500);
 }
 
 function draw() {
   clear();
-  const w = map(sin(a), -1, 1, 0, 300);
-  fill(255, 0, 100);
-  rect(10, 10, w, 20);
-  a += 0.05;
+
+  let choices = Object.keys(votes);
+  choices = choices.filter((elt) => /^[abcd]$/.test(elt));
+
+  let maxVotes = 0;
+  for (let choice of choices) {
+    let count = votes[choice];
+    maxVotes = max(count, maxVotes);
+  }
+
+  for (let i = 0; i < choices.length; i++) {
+    let choice = choices[i];
+    let w = map(votes[choice], 0, maxVotes, 0, 100);
+    let x = 10;
+    let y = 20 + i * 20;
+    fill(0);
+    noStroke();
+    text(choice, x, y + 10);
+    rect(x + 20, 20 + i * 20, w, 10);
+  }
 }
