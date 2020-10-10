@@ -3,25 +3,30 @@
     src: url("https://thecodingtrain.com/assets/fonts/cubano-regular-webfont.woff2");
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 body {
     display: flex;
     flex-direction: column;
     place-content: center;
     place-items: center;
-    background-color: rgb(0,255,0);
+    background-color: rgb(0, 255, 0);
     height: 100vh;
     margin: 0px;
     padding: 0px;
 }
+
 h1 {
     font-family: "cubanoregular";
 }
-h1::before{
+
+h1::before {
     content: "🚂";
 }
-h1::after{
+
+h1::after {
     content: "🌈";
 }
-main{
+
+main {
     width: min-content;
 }

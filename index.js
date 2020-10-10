@@ -6,6 +6,9 @@ const port = process.env.PORT || 3000
 app.listen(port, () => console.log(`listening at ${port}`));
 app.use(express.static("public"));
 
+// For parsing JSON in POST requests
+app.use(express.json())
+
 
 const Datastore = require("nedb-promises");
 const database = Datastore.create("database.db");
@@ -33,7 +36,12 @@ app.get("/votes/:pollId", async (request, response) => {
   response.send(poll);
 });
 
-
-function createNewPoll() {
-  database.insert({ a: 0, b: 0, c: 0, d: 0 });
-}
+// the poll creation interface will be at GET /create
+app.post("/create", async (request, response) => {
+  let poll = request.body;
+  const { _id } = await database.insert(poll)
+  response.send({
+    status: "success",
+    id: _id
+  })
+});
