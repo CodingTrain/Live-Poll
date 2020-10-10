@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/CodingTrain/Live-Poll#readme",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "nedb": "^1.8.0",
     "nedb-promises": "^4.0.4"
