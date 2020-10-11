@@ -1,15 +1,15 @@
 const express = require("express");
 const app = express();
 
-const port = process.env.PORT || 3000
+app.use(express.json()); // for parsing application/json
+
+const port = process.env.PORT || 3000;
 
 app.listen(port, () => console.log(`listening at ${port}`));
 app.use(express.static("public"));
 
-
 const Datastore = require("nedb-promises");
 const database = Datastore.create("database.db");
-// createNewPoll();
 
 app.get("/vote/:pollId/:choice", async (request, response) => {
   const _id = request.params.pollId;
@@ -33,7 +33,25 @@ app.get("/votes/:pollId", async (request, response) => {
   response.send(poll);
 });
 
-
-function createNewPoll() {
-  database.insert({ a: 0, b: 0, c: 0, d: 0 });
-}
+/**
+ * Test with cURL:
+ *
+ * curl -X POST http://127.0.0.1:3000/new \
+ * --header 'Content-Type: application/json' \
+ * --data '{ "a": 0, "b": 0, "c": 0, "d": 0}'
+ */
+app.post("/new", async (request, response) => {
+  const poll = request.body;
+  database
+    .insert(poll)
+    .then((newPoll) => {
+      console.info(`Created new poll with id "${newPoll._id}"`);
+      response.status(200).send(newPoll._id);
+    })
+    .catch((err) => {
+      console.error(err);
+      response
+        .status(500)
+        .send(`Oh crap, insert failed with message: "${err.message}"`);
+    });
+});
