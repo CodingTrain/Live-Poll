@@ -6,8 +6,8 @@ let voteButton;
 
 async function countVotes() {
   // TODO this page should be for a specific poll
-  const response = await fetch("votes/xGclteY1Lfu2q9DP");
-  votes = await response.json();
+  const response = await fetch(`/votes/${poll_id}`);
+  votes = await response.json().catch(err => console.warn(err));
 }
 
 function setup() {
@@ -29,8 +29,8 @@ async function submitVote() {
   let choice = radio.value();
   // TODO: select poll id somehow
   if (choice) {
-    let response = await fetch(`vote/xGclteY1Lfu2q9DP/${choice}`);
-    let status = await response.json();
+    let response = await fetch(`/vote/${poll_id}/${choice}`);
+    let status = await response.json().catch(err => console.error(err));
     console.log(status);
   } else {
     console.log('no choice selected');
