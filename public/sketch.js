@@ -3,6 +3,13 @@
 
 let votes = {};
 let voteButton;
+let trainEngin;
+let trainPart;
+
+function preload(){
+  trainEngin = loadImage('assets/engin.png')
+  trainPart = loadImage('assets/part.png')
+}
 
 async function countVotes() {
   // TODO this page should be for a specific poll
@@ -20,7 +27,7 @@ function setup() {
   radio.option('b');
   radio.option('c');
   radio.option('d');
-  radio.style('width', '60px');
+  radio.style('width', '50px');
   voteButton = createButton('vote');
   voteButton.mousePressed(submitVote);
 }
@@ -59,7 +66,13 @@ function draw() {
     fill(0);
     noStroke();
     text(choice, x, y + 10);
-    for (let j = 1; j <= floor(w / 10); j++) text("🚂", x + 16 * j, y, 10);
-    //resize as per requirements.
+    let lastJ;
+    for (let j = 1; j <= floor(w / 10); j++)
+    {
+      image(trainPart, x + 16 * j,y-10);//, y, 10);
+      lastJ=j;
+    }
+      image(trainEngin, x + 16 * (lastJ+1),y-15);
+      //resize as per requirements.
   }
 }
