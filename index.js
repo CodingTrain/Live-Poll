@@ -11,7 +11,7 @@ const Datastore = require("nedb-promises");
 const database = Datastore.create("database.db");
 // createNewPoll();
 
-app.get("/vote/:pollId/:choice", async (request, response) => {
+app.get("/Vote/vote/:pollId/:choice", async (request, response) => {
   const _id = request.params.pollId;
   const choice = request.params.choice;
   const poll = await database.findOne({ _id });
@@ -27,11 +27,18 @@ app.get("/vote/:pollId/:choice", async (request, response) => {
   response.send(votes);
 });
 
-app.get("/votes/:pollId", async (request, response) => {
+app.get("/Vote/votes/:pollId", async (request, response) => {
   const _id = request.params.pollId;
   const poll = await database.findOne({ _id });
   response.send(poll);
 });
+
+app.get("/view/votes/:pollId", async (request, response) => {
+  const _id = request.params.pollId;
+  const poll = await database.findOne({ _id });
+  response.send(poll);
+});
+
 
 
 function createNewPoll() {

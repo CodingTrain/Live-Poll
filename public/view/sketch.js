@@ -7,8 +7,8 @@ let trainEngin;
 let trainPart;
 
 function preload(){
-  trainEngin = loadImage('assets/engin.png')
-  trainPart = loadImage('assets/part.png')
+  trainEngin = loadImage('../assets/engin.png')
+  trainPart = loadImage('../assets/part.png')
 }
 
 async function countVotes() {
@@ -21,27 +21,6 @@ function setup() {
   createCanvas(400, 100);
   countVotes();
   setInterval(countVotes, 500);
-
-  radio = createRadio();
-  radio.option('a');
-  radio.option('b');
-  radio.option('c');
-  radio.option('d');
-  radio.style('width', '50px');
-  voteButton = createButton('vote');
-  voteButton.mousePressed(submitVote);
-}
-
-async function submitVote() {
-  let choice = radio.value();
-  // TODO: select poll id somehow
-  if (choice) {
-    let response = await fetch(`vote/xGclteY1Lfu2q9DP/${choice}`);
-    let status = await response.json();
-    console.log(status);
-  } else {
-    console.log('no choice selected');
-  }
 }
 
 function draw() {
@@ -58,6 +37,13 @@ function draw() {
     maxVotes = max(count, maxVotes);
   }
 
+  /**
+  for (let i = 0; i < choices.length; i++) {
+    choice=choices[i];
+    text(choice + ` (${votes[choice]})`,100*i,10)
+  }
+  */
+
   for (let i = 0; i < choices.length; i++) {
     let choice = choices[i];
     let w = map(votes[choice], 0, maxVotes, 0, 220);
@@ -65,7 +51,7 @@ function draw() {
     let y = 20 + i * 20;
     fill(0);
     noStroke();
-    text(choice, x, y + 10);
+    text(choice, x-10, y + 10);
     let lastJ;
     for (let j = 1; j <= floor(w / 10); j++)
     {
