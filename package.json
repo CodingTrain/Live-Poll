@@ -21,6 +21,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "nedb": "^1.8.0",
-    "nedb-promises": "^4.0.4"
+    "nedb-promises": "^4.0.4",
+    "pug": "^3.0.0"
   }
 }
