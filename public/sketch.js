@@ -1,35 +1,35 @@
 // TODO create a poll creation page
 // Different pages for voting, viewing, and poll creation
 
-let votes = {};
+let poll = {};
 let voteButton;
 
 async function countVotes() {
   // TODO this page should be for a specific poll
-  const response = await fetch("votes/xGclteY1Lfu2q9DP");
-  votes = await response.json();
+  const response = await fetch("/poll/U3qjK9DpPTwwguHg");
+  poll = await response.json();
+  return poll
 }
 
-function setup() {
+async function setup() {
   createCanvas(400, 100);
-  countVotes();
+  await countVotes();
   setInterval(countVotes, 500);
 
   radio = createRadio();
-  radio.option('a');
-  radio.option('b');
-  radio.option('c');
-  radio.option('d');
-  radio.style('width', '60px');
+  for (let i = 0; i < poll.options.length; i++) {
+    radio.option(i, poll.options[i]) // first arg is index, second arg is what is visible to user 
+  }
+  radio.style('width', '100px'); // change this for width of radio 
   voteButton = createButton('vote');
   voteButton.mousePressed(submitVote);
 }
 
 async function submitVote() {
-  let choice = radio.value();
-  // TODO: select poll id somehow
-  if (choice) {
-    let response = await fetch(`vote/xGclteY1Lfu2q9DP/${choice}`);
+  let choice = radio.value(); // choice is a number
+  // TODO: select poll id somehow => URL query parameters?
+  if (!isNaN(choice)) {
+    let response = await fetch(`vote/U3qjK9DpPTwwguHg/${choice}`);
     let status = await response.json();
     console.log(status);
   } else {
@@ -41,25 +41,31 @@ function draw() {
   clear();
   // background(255);
 
-  let choices = Object.keys(votes);
-  // The check is no longer needed and also now it will support >4 options
-  choices = choices.filter((elt) => /^[abcd]$/.test(elt));
+  if (poll.options) {
+    let maxVotes = 0;
+    for (let i = 0; i < poll.options.length; i++) {
+      let count = poll.votes[i];
+      maxVotes = max(count, maxVotes);
+    }
 
-  let maxVotes = 0;
-  for (let choice of choices) {
-    let count = votes[choice];
-    maxVotes = max(count, maxVotes);
-  }
+    for (let i = 0; i < poll.options.length; i++) {
 
-  for (let i = 0; i < choices.length; i++) {
-    let choice = choices[i];
-    let w = map(votes[choice], 0, maxVotes, 0, 220);
-    let x = 10;
-    let y = 20 + i * 20;
-    fill(0);
-    noStroke();
-    text(choice, x, y + 10);
-    for (let j = 1; j <= floor(w / 10); j++) text("🚂", x + 16 * j, y, 10);
-    //resize as per requirements.
+      // Variables Breakdown: 
+      // i = index (before it was choice which was an alphabet)
+      // poll.options[i] = the actual option
+      // poll.votes[i]   = number of votes for this option
+
+      let w = map(poll.votes[i], 0, maxVotes, 0, 220);
+      let x = 10;
+      let y = 20 + i * 20;
+      fill(0);
+      noStroke();
+      textAlign(RIGHT)
+      // text(poll.options[i], x, y + 10)
+      text(i, x, y + 10); // to show option as alphabet, change i to String.fromCharCode(i+97)
+      textAlign(LEFT)
+      for (let j = 1; j <= floor(w / 10); j++) text("🚂", x + 16 * j, y, 10);
+      //resize as per requirements.
+    }
   }
 }
