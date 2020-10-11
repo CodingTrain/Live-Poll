@@ -9,6 +9,7 @@ app.use(express.json())
 
 const Datastore = require("nedb-promises");
 const database = Datastore.create("database.db");
+
 // createNewPoll();
 
 app.get("/vote/:pollId/:choice", async (request, response) => {

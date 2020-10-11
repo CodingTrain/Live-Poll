@@ -8,6 +8,7 @@ async function countVotes() {
   // TODO this page should be for a specific poll
   const response = await fetch("/poll/U3qjK9DpPTwwguHg");
   poll = await response.json();
+  if (poll.message) throw new Error(poll.message)
   return poll
 }
 
@@ -20,7 +21,7 @@ async function setup() {
   for (let i = 0; i < poll.options.length; i++) {
     radio.option(i, poll.options[i]) // first arg is index, second arg is what is visible to user 
   }
-  radio.style('width', '100px'); // change this for width of radio 
+  // radio.style('width', '180px'); // change this for width of radio 
   voteButton = createButton('vote');
   voteButton.mousePressed(submitVote);
 }
