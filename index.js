@@ -71,7 +71,7 @@ async function createNewPoll(question, options) {
   let { _id } = await database.insert({
     question: question || "What should we do now?",
     options: options || ["Live Poll", "Everyday Calendar"],
-    votes: new Array(options.length).fill(0)
+    votes: new Array(options ? options.length : 2).fill(0)
   });
   return _id
 }
