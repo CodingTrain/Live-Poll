@@ -70,7 +70,7 @@ async function createNewPoll(question, options) {
   // if no values passed then we put default values
   let { _id } = await database.insert({
     question: question || "What should we do now?",
-    options: options || ["Live Poll", "Everyday Calendar"],
+    options: options || ["Live Poll 📄", "Everyday Calendar 📅"],
     votes: new Array(options ? options.length : 2).fill(0)
   });
   return _id
