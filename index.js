@@ -38,8 +38,8 @@ app.get("/poll/:pollId", async (request, response) => {
 
 // TODO: make './public/create/index.html' the UI for creating polls
 // so  GET  /create will be UI
-// and POST /create will be creating the poll
-app.post("/create", async (request, response) => {
+// and POST /new    will be creating the poll
+app.post("/new", async (request, response) => {
   /*
     request body should be in this form
     {
