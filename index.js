@@ -29,7 +29,9 @@ app.get("/vote/:pollId/:choice", async (request, response) => {
 
 app.get("/votes/:pollId", async (request, response) => {
   const _id = request.params.pollId;
-  const poll = await database.findOne({ _id });
+  let poll = await database.findOne({ _id });
+  //Filter our _id as this is not needed in the frontend
+  delete poll["_id"];
   response.send(poll);
 });
 

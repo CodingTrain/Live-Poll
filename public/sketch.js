@@ -4,14 +4,60 @@
 let votes = {};
 let voteButton;
 
+let firstRender = true;
+
 async function countVotes() {
   // TODO this page should be for a specific poll
   const response = await fetch("votes/xGclteY1Lfu2q9DP");
   votes = await response.json();
+  displayResults(votes);
+}
+
+function displayResults(votes) {
+
+  let resultsDiv = document.getElementById('results');
+
+  let maxVotes = 0;
+  let totalVotes = 0;
+  for (let option of Object.keys(votes)) {
+    let count = votes[option];
+    maxVotes = max(count, maxVotes);
+    totalVotes += count;
+  }
+
+  let index = 0;
+  for(const [option, count] of Object.entries(votes)) {
+    let width = map(count, 0, maxVotes, 0, 100);
+    if (firstRender) {
+      //Container div per option
+      let optionDiv = document.createElement('div');
+      optionDiv.classList.add('option');
+      // Add option text on a seperate line, so it can get any length
+      let optionText = document.createElement('span');
+      optionText.innerHTML = option;
+      optionDiv.append(optionText);
+      resultsDiv.append(optionDiv);
+
+      //Add option progress bar
+      let progressBar = document.createElement('div');
+      progressBar.id = 'progressBar_' + index;
+      progressBar.classList.add('progressBar');
+      progressBar.style.setProperty('width', width + '%');
+      progressBar.innerHTML = Math.round(count/totalVotes*100) + '%';
+      resultsDiv.append(progressBar);
+    } else {
+      let progressBar = document.getElementById("progressBar_" + index);
+      progressBar.style.setProperty('width', width + '%');
+      progressBar.innerHTML = Math.round(count/totalVotes*100) + '%';
+    }
+    index++;
+  }
+
+  firstRender = false;
 }
 
 function setup() {
-  createCanvas(400, 100);
+  noCanvas();
   countVotes();
   setInterval(countVotes, 500);
 
@@ -34,32 +80,5 @@ async function submitVote() {
     console.log(status);
   } else {
     console.log('no choice selected');
-  }
-}
-
-function draw() {
-  clear();
-  // background(255);
-
-  let choices = Object.keys(votes);
-  // The check is no longer needed and also now it will support >4 options
-  choices = choices.filter((elt) => /^[abcd]$/.test(elt));
-
-  let maxVotes = 0;
-  for (let choice of choices) {
-    let count = votes[choice];
-    maxVotes = max(count, maxVotes);
-  }
-
-  for (let i = 0; i < choices.length; i++) {
-    let choice = choices[i];
-    let w = map(votes[choice], 0, maxVotes, 0, 220);
-    let x = 10;
-    let y = 20 + i * 20;
-    fill(0);
-    noStroke();
-    text(choice, x, y + 10);
-    for (let j = 1; j <= floor(w / 10); j++) text("🚂", x + 16 * j, y, 10);
-    //resize as per requirements.
   }
 }
