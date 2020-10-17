@@ -3,6 +3,15 @@
 
 import {check, deltaSecondsFlushID, deltaSecondsFlushScan} from './antipollspam.js'
 
+console.log(`
+    Note:   Make sure to reduce <deltaSecondsFlushID> and
+            <deltaSecondsFlushScan> in './antipollspam.js'
+            to a low integer before running this test.
+            Not doing so will make this test time-expensive.
+
+            Current <deltaSecondsFlushID>  : ${deltaSecondsFlushID}
+            Current <deltaSecondsFlushScan>: ${deltaSecondsFlushScan}
+`)
 
 // # Generic sleep func.
 function sleep(ms) {
