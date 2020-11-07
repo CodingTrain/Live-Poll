@@ -1,7 +1,8 @@
 const express = require("express");
 const app = express();
+require("dotenv").config()
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3000;
 
 app.listen(port, () => console.log(`Server running at http://localhost:${port}`));
 app.use(express.static("public"));
@@ -13,27 +14,24 @@ const database = Datastore.create("database.db");
 // createNewPoll();
 
 app.get("/vote/:pollId/:choice", async (request, response) => {
-  const _id = request.params.pollId;
-  const choice = request.params.choice; // choice is a number (index)
+  const { pollId: _id, choice } = request.params;
   const poll = await database.findOne({ _id });
-
   if (!poll) return response.send({ status: "error", message: "Invalid Poll ID" })
   if (choice < 0 || choice >= poll.options.length)
     return response.send({ status: "error", message: "Invalid Choice" })
-
   poll.votes[choice]++;
   await database.update({ _id }, poll);
-
   response.send(poll);
 });
 
 // Changed name to avoid confusion
 app.get("/poll/:pollId", async (request, response) => {
-  const _id = request.params.pollId;
-  const poll = await database.findOne({ _id });
-  response.send(poll || {
-    status: "error", message: "Poll not found"
-  });
+  const { _id: ID, ...votes } = await database.update(
+        { _id },
+        { $inc: { [choice]: 1 } },
+        { returnUpdatedDocs: true }
+    );  // This creates a new object 'votes' which doesn't have the _id property
+  response.send(votes);
 });
 
 // TODO: make './public/create/index.html' the UI for creating polls
