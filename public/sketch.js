@@ -56,6 +56,7 @@ function draw() {
     let w = map(votes[choice], 0, maxVotes, 0, 220);
     let x = 10;
     let y = 20 + i * 20;
+    
     fill(0);
     noStroke();
     text(choice, x, y + 10);
