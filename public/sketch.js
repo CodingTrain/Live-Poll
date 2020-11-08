@@ -7,7 +7,7 @@ let voteButton;
 
 async function countVotes() {
   // TODO this page should be for a specific poll
-  const response = await fetch("/poll/U3qjK9DpPTwwguHg");
+  const response = await fetch("/poll/6pKgCWCV06Rp2rF5");
   poll = await response.json();
   if (poll.message) throw new Error(poll.message)
   return poll
@@ -31,7 +31,7 @@ async function submitVote() {
   let choice = radio.value(); // choice is a number
   // TODO: select poll id somehow => URL query parameters?
   if (!isNaN(choice)) {
-    let response = await fetch(`vote/U3qjK9DpPTwwguHg/${choice}`);
+    let response = await fetch(`vote/6pKgCWCV06Rp2rF5/${choice}`);
     let status = await response.json();
     console.log(status);
   } else {
