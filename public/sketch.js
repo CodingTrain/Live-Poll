@@ -44,28 +44,30 @@ function draw() {
   // background(255);
 
   if (poll.options) {
-  let maxVotes = 0;
-  for (let i = 0; i < poll.options.length; i++) {
-    let count = poll.votes[i];
-    maxVotes = max(count, maxVotes);
-  }
-  let divisor = 1;
-  while (maxVotes / divisor > maxEmojis) {
-    divisor *= 5;
-  }
+    let maxVotes = 0;
+    for (let i = 0; i < poll.options.length; i++) {
+      let count = poll.votes[i];
+      maxVotes = max(count, maxVotes);
+    }
+    let divisor = 1;
+    while (maxVotes / divisor > maxEmojis) {
+      divisor *= 5;
+    }
     for (let i = 0; i < poll.options.length; i++) {
       // Variables Breakdown: 
       // i = index (before it was choice which was an alphabet)
       // poll.options[i] = the actual option
-      // poll.votes[i]   = number of votes for this option    let choice = choices[i];
-    let numEmojis = poll.votes[i] / divisor;
-    let x = 10;
-    let y = 20 + i * 20;
-    
-    fill(0);
-    noStroke();
-    text(choice, x, y + 10);
-    text("🚂".repeat(numEmojis), x, y, 10);
-    //resize as per requirements.
+      // poll.votes[i]   = number of votes for this option    
+      let choice = poll.options[i];
+      let numEmojis = poll.votes[i] / divisor;
+      let x = 10;
+      let y = 20 + i * 20;
+
+      fill(0);
+      noStroke();
+      text("🚂".repeat(numEmojis), x, y, 10);
+      text(choice, x, y + 10);
+      //resize as per requirements.
+    }
   }
 }
