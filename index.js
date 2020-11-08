@@ -16,26 +16,37 @@ const database = Datastore.create("database.db");
 app.get("/vote/:pollId/:choice", async (request, response) => {
   const { pollId: _id, choice } = request.params;
   const poll = await database.findOne({ _id });
+
   if (!poll) return response.send({ status: "error", message: "Invalid Poll ID" })
   if (choice < 0 || choice >= poll.options.length)
     return response.send({ status: "error", message: "Invalid Choice" })
-  poll.votes[choice]++;
-  await database.update({ _id }, poll);
-  response.send(poll);
+
+  poll.votes[choice]++
+
+  database.update({ _id }, poll)
+  response.send(poll)
+
+  // This was the suggested way to update the db (PR#7)
+  // Doesn't work as the poll structure had been updated.
+  // const { _id: ID, ...votes } = await database.update(
+  //   { _id },
+  //   { $inc: { [choice]: 1 } },
+  //   { returnUpdatedDocs: true }
+  // );
+  // response.send(votes);
 });
 
 // Changed name to avoid confusion
 app.get("/poll/:pollId", async (request, response) => {
-  const { _id: ID, ...votes } = await database.update(
-        { _id },
-        { $inc: { [choice]: 1 } },
-        { returnUpdatedDocs: true }
-    );  // This creates a new object 'votes' which doesn't have the _id property
-  response.send(votes);
+  const _id = request.params.pollId;
+  const poll = await database.findOne({ _id });
+  response.send(poll || {
+    status: "error", message: "Poll not found"
+  });
 });
 
 // TODO: make './public/create/index.html' the UI for creating polls
-// so  GET  /create will be UI
+// so  GET  /create will be UI for new poll
 // and POST /new    will be creating the poll
 app.post("/new", async (request, response) => {
   /*
@@ -69,8 +80,8 @@ async function createNewPoll(question, options) {
   // if no values passed then we put default values
   let { _id } = await database.insert({
     question: question || "What should we do now?",
-    options: options || ["Live Poll 📄", "Everyday Calendar 📅"],
-    votes: new Array(options ? options.length : 2).fill(0)
+    options: options || ["Live Poll 📄", "Community Contributions 🎡", "Bots 🤖"],
+    votes: new Array(options ? options.length : 3).fill(0)
   });
   return _id
 }
