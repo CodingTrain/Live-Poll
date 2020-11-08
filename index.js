@@ -21,12 +21,19 @@ app.get("/vote/:pollId/:choice", async (request, response) => {
   if (choice < 0 || choice >= poll.options.length)
     return response.send({ status: "error", message: "Invalid Choice" })
 
-  const { _id: ID, ...votes } = await database.update(
-    { _id },
-    { $inc: { [choice]: 1 } },
-    { returnUpdatedDocs: true }
-  );
-  response.send(votes);
+  poll.votes[choice]++
+
+  database.update({ _id }, poll)
+  response.send(poll)
+
+  // This was the suggested way to update the db (PR#7)
+  // Doesn't work as the poll structure had been updated.
+  // const { _id: ID, ...votes } = await database.update(
+  //   { _id },
+  //   { $inc: { [choice]: 1 } },
+  //   { returnUpdatedDocs: true }
+  // );
+  // response.send(votes);
 });
 
 // Changed name to avoid confusion
