@@ -5,9 +5,16 @@ let poll = {};
 const maxEmojis = 40;
 let voteButton;
 
+function getPollID() {
+  const { pollId } = getURLParams();
+  // TODO: instead of default poll add a separate page for user to input poll id?
+  if(!pollId) return '6pKgCWCV06Rp2rF5'
+  return pollId
+}
+
 async function countVotes() {
   // TODO this page should be for a specific poll
-  const response = await fetch("/poll/6pKgCWCV06Rp2rF5");
+  const response = await fetch(`/poll/${getPollID()}`);
   poll = await response.json();
   if (poll.message) throw new Error(poll.message)
   return poll
@@ -31,7 +38,7 @@ async function submitVote() {
   let choice = radio.value(); // choice is a number
   // TODO: select poll id somehow => URL query parameters?
   if (!isNaN(choice)) {
-    let response = await fetch(`vote/6pKgCWCV06Rp2rF5/${choice}`);
+    let response = await fetch(`vote/${getPollID()}/${choice}`);
     let status = await response.json();
     console.log(status);
   } else {
