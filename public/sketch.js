@@ -4,7 +4,7 @@
 let poll = {};
 const maxEmojis = 40;
 let voteButton;
-let poll_id = "Change this to your poll id"
+let poll_id = "WyoIpKjiTkF8wM18"
 
 async function countVotes() {
   // TODO this page should be for a specific poll
