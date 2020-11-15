@@ -4,10 +4,11 @@
 let poll = {};
 const maxEmojis = 40;
 let voteButton;
+let poll_id = "Change this to your poll id"
 
 async function countVotes() {
   // TODO this page should be for a specific poll
-  const response = await fetch("/poll/6pKgCWCV06Rp2rF5");
+  const response = await fetch(`/poll/${poll_id}`);
   poll = await response.json();
   if (poll.message) throw new Error(poll.message)
   return poll
@@ -31,7 +32,7 @@ async function submitVote() {
   let choice = radio.value(); // choice is a number
   // TODO: select poll id somehow => URL query parameters?
   if (!isNaN(choice)) {
-    let response = await fetch(`vote/6pKgCWCV06Rp2rF5/${choice}`);
+    let response = await fetch(`vote/${poll_id}/${choice}`);
     let status = await response.json();
     console.log(status);
   } else {
