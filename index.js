@@ -6,7 +6,7 @@ const port = process.env.PORT || 3000;
 
 app.listen(port, () => console.log(`Server running at http://localhost:${port}`));
 app.use(express.static("public"));
-app.use(express.json())
+app.use(express.json())// for parsing application/json
 
 const Datastore = require("nedb-promises");
 const database = Datastore.create("database.db");
@@ -25,15 +25,6 @@ app.get("/vote/:pollId/:choice", async (request, response) => {
 
   database.update({ _id }, poll)
   response.send(poll)
-
-  // This was the suggested way to update the db (PR#7)
-  // Doesn't work as the poll structure had been updated.
-  // const { _id: ID, ...votes } = await database.update(
-  //   { _id },
-  //   { $inc: { [choice]: 1 } },
-  //   { returnUpdatedDocs: true }
-  // );
-  // response.send(votes);
 });
 
 // Changed name to avoid confusion
@@ -51,10 +42,7 @@ app.get("/poll/:pollId", async (request, response) => {
 app.post("/new", async (request, response) => {
   /*
     request body should be in this form
-    {
-      question: string,
-      options: string[]
-    }
+    {question: string, options: string[]}
   */
   let { question, options } = request.body;
   console.log(request.body)
@@ -71,11 +59,7 @@ app.post("/new", async (request, response) => {
 async function createNewPoll(question, options) {
   /*
   poll structure (in database): 
-  {
-    question: string,
-    options: string[],
-    votes: number[]
-  }
+  {question: string, options: string[], votes: number[]}
    */
   // if no values passed then we put default values
   let { _id } = await database.insert({

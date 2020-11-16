@@ -2,7 +2,7 @@
 // Different pages for voting, viewing, and poll creation
 
 let poll = {};
-let poll_id ='p7PqWACbsGVnSMQK'  // copy the _id from database.db
+let poll_id ='p7PqWACbsGVnSMQK' // copy the _id from database.db
 const maxEmojis = 40;
 let voteButton;
 let trainEngin;
@@ -13,6 +13,7 @@ function preload(){
   trainPart = loadImage('assets/part.png')
 }
 
+// function currently not in use
 function getPollID() {
   const { pollId } = getURLParams();
   // TODO: instead of default poll add a separate page for user to input poll id?
