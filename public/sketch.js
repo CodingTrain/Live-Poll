@@ -33,13 +33,15 @@ async function setup() {
   createCanvas(400, 100);
   await countVotes();
   setInterval(countVotes, 500);
-createElement('p', poll.question)
+let pollQ = createElement('p', poll.question)
+pollQ.addClass("question")
   radio = createRadio();
   for (let i = 0; i < poll.options.length; i++) {
     radio.option(i, poll.options[i]) // first arg is index, second arg is what is visible to user 
   }
   // radio.style('width', '50px'); // change this for width of radio 
   voteButton = createButton('vote');
+  voteButton.addClass("VoteBTN")
   voteButton.mousePressed(submitVote);
 }
 

@@ -25,6 +25,6 @@ main{
     width: min-content;
 }
 
-p {
+.question {
     font-size: 10pt;
 }
