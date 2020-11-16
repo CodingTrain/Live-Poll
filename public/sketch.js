@@ -4,14 +4,7 @@
 let poll = {};
 const maxEmojis = 40;
 let voteButton;
-let poll_id ='p7PqWACbsGVnSMQK'
-
-function getPollID() {
-  const { pollId } = getURLParams();
-  // TODO: instead of default poll add a separate page for user to input poll id?
-  if(!pollId) return '6pKgCWCV06Rp2rF5'
-  return pollId
-}
+let poll_id ='p7PqWACbsGVnSMQK'  // copy the _id from database.db
 
 function getPollID() {
   const { pollId } = getURLParams();
@@ -32,7 +25,7 @@ async function setup() {
   createCanvas(400, 100);
   await countVotes();
   setInterval(countVotes, 500);
-
+createElement('p', poll.question)
   radio = createRadio();
   for (let i = 0; i < poll.options.length; i++) {
     radio.option(i, poll.options[i]) // first arg is index, second arg is what is visible to user 

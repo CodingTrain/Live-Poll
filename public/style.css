@@ -17,12 +17,13 @@ body {
 h1 {
     font-family: "cubanoregular";
 }
-h1::before{
-    content: "🚂";
-}
-h1::after{
-    content: "🌈";
-}
+h1::before{content: "🚂";}
+h1::after{content: "🌈";}
+
 main{
     width: min-content;
+}
+
+p {
+    font-size: 10pt;
 }
