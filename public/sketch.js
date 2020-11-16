@@ -13,6 +13,13 @@ function getPollID() {
   return pollId
 }
 
+function getPollID() {
+  const { pollId } = getURLParams();
+  // TODO: instead of default poll add a separate page for user to input poll id?
+  if(!pollId) return '6pKgCWCV06Rp2rF5'
+  return pollId
+}
+
 async function countVotes() {
   // TODO this page should be for a specific poll
   const response = await fetch(`/poll/${poll_id}`);
