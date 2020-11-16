@@ -2,9 +2,16 @@
 // Different pages for voting, viewing, and poll creation
 
 let poll = {};
+let poll_id ='p7PqWACbsGVnSMQK'  // copy the _id from database.db
 const maxEmojis = 40;
 let voteButton;
-let poll_id ='p7PqWACbsGVnSMQK'  // copy the _id from database.db
+let trainEngin;
+let trainPart;
+
+function preload(){
+  trainEngin = loadImage('assets/engin.png')
+  trainPart = loadImage('assets/part.png')
+}
 
 function getPollID() {
   const { pollId } = getURLParams();
@@ -30,7 +37,7 @@ createElement('p', poll.question)
   for (let i = 0; i < poll.options.length; i++) {
     radio.option(i, poll.options[i]) // first arg is index, second arg is what is visible to user 
   }
-  // radio.style('width', '180px'); // change this for width of radio 
+  // radio.style('width', '50px'); // change this for width of radio 
   voteButton = createButton('vote');
   voteButton.mousePressed(submitVote);
 }
@@ -73,9 +80,15 @@ function draw() {
 
       fill(0);
       noStroke();
-      text("🚂".repeat(numEmojis), x, y, 10);
+      // text("🚂".repeat(numEmojis), x, y, 10);
       text(choice, x, y + 10);
-      //resize as per requirements.
-    }
+      let lastJ;
+      for (let j = 1; j <= numEmojis; j++) {
+        image(trainPart, x + 16 * j,y-10);//, y, 10);
+        lastJ=j;
+      }
+        image(trainEngin, x + 16 * (lastJ+1),y-15);
+        //resize as per requirements.
+      }
   }
 }

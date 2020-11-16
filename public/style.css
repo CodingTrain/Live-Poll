@@ -4,19 +4,20 @@
 }
 
 body {
+    font-family: "cubanoregular";
+
     display: flex;
     flex-direction: column;
     place-content: center;
     place-items: center;
+    
     background-color: rgba(0,0,0,0);
     height: 100vh;
     margin: 0px;
     padding: 0px;
     color: rgb(127, 127, 127);
 }
-h1 {
-    font-family: "cubanoregular";
-}
+/* h1 {} */
 h1::before{content: "🚂";}
 h1::after{content: "🌈";}
 
