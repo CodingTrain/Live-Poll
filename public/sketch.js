@@ -1,20 +1,21 @@
-// TODO create a poll creation page
+// TODO: create a poll creation page
 // Different pages for voting, viewing, and poll creation
 
 let poll = {};
 const maxEmojis = 40;
 let voteButton;
-let poll_id = 'Xyk1rXxIbDfFA0hy';
+const default_poll_id = 'Xyk1rXxIbDfFA0hy';
 
 function getPollID() {
 	const { pollId } = getURLParams();
 	// TODO: instead of default poll add a separate page for user to input poll id?
-	if (!pollId) return '6pKgCWCV06Rp2rF5';
+	if (!pollId) return prompt('Poll id') || default_poll_id;
 	return pollId;
 }
 
 async function countVotes() {
-	// TODO this page should be for a specific poll
+	// TODO: this page should be for a specific poll
+	const poll_id = getPollID();
 	const response = await fetch(`/poll/${poll_id}`);
 	poll = await response.json();
 	if (poll.message) throw new Error(poll.message);
@@ -28,17 +29,18 @@ async function setup() {
 
 	radio = createRadio();
 	for (let i = 0; i < poll.options.length; i++) {
-		radio.option(i, poll.options[i]); // first arg is index, second arg is what is visible to user 
+		radio.option(i, poll.options[i]); // First arg is index, second arg is what is visible to user 
 	}
-	// radio.style('width', '180px'); // change this for width of radio 
+	// radio.style('width', '180px'); // Change this for width of radio 
 	voteButton = createButton('vote');
 	voteButton.mousePressed(submitVote);
 }
 
 async function submitVote() {
-	let choice = radio.value(); // choice is a number
+	let choice = radio.value(); // Choice is a number
 	// TODO: select poll id somehow => URL query parameters?
 	if (!isNaN(choice)) {
+		const poll_id = getPollID();
 		let response = await fetch(`vote/${poll_id}/${choice}`);
 		let status = await response.json();
 		console.log(status);
@@ -53,15 +55,14 @@ function draw() {
 
 	if (poll.options) {
 		let maxVotes = 0;
-		/* 
-		// Old code
-		for (let i = 0; i < poll.options.length; i++) {
-			let count = poll.votes[i];
-			maxVotes = max(count, maxVotes);
-		}
-		*/
-		// New code
+		// Old code:
+		// for (let i = 0; i < poll.options.length; i++) {
+		// 	let count = poll.votes[i];
+		// 	maxVotes = max(count, maxVotes);
+		// }
+		// New code:
 		for (let count of poll.votes)
+			// For the vote count of each option do:
 			maxVotes = max(count, maxVotes);
 
 		let divisor = 1;
@@ -82,7 +83,7 @@ function draw() {
 			noStroke();
 			text("🚂".repeat(numEmojis), x, y, 10);
 			text(choice, x, y + 10);
-			//resize as per requirements.
+			// Resize as per requirements.
 		}
 	}
 }
