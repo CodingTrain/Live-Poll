@@ -33,7 +33,11 @@ function getPollID() {
 }
 =======
 const default_poll_id = 'Xyk1rXxIbDfFA0hy';
+<<<<<<< HEAD
 >>>>>>> ca7cd40... some minor poll_id refactor
+=======
+let poll_id = undefined;
+>>>>>>> 27cee40... fixed poll-id
 
 function getPollID() {
   const { pollId } = getURLParams();
@@ -43,7 +47,11 @@ function getPollID() {
 =======
 	const { pollId } = getURLParams();
 	// TODO: instead of default poll add a separate page for user to input poll id?
-	if (!pollId) return prompt('Poll id') || default_poll_id;
+	if (!pollId) {
+		if (poll_id == undefined)
+			poll_id = prompt('Poll id') || default_poll_id
+		return poll_id;
+	};
 	return pollId;
 >>>>>>> b2df93c... some cleanup in sketch.js
 }
@@ -135,8 +143,12 @@ async function submitVote() {
 	// TODO this page should be for a specific poll
 =======
 	// TODO: this page should be for a specific poll
+<<<<<<< HEAD
 	const poll_id = getPollID();
 >>>>>>> ca7cd40... some minor poll_id refactor
+=======
+	poll_id = getPollID();
+>>>>>>> 27cee40... fixed poll-id
 	const response = await fetch(`/poll/${poll_id}`);
 	poll = await response.json();
 	if (poll.message) throw new Error(poll.message);
@@ -161,7 +173,7 @@ async function submitVote() {
 	let choice = radio.value(); // Choice is a number
 	// TODO: select poll id somehow => URL query parameters?
 	if (!isNaN(choice)) {
-		const poll_id = getPollID();
+		poll_id = getPollID();
 		let response = await fetch(`vote/${poll_id}/${choice}`);
 		let status = await response.json();
 		console.log(status);
