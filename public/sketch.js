@@ -1,27 +1,34 @@
-// TODO create a poll creation page
+// TODO: create a poll creation page
 // Different pages for voting, viewing, and poll creation
 
 let poll = {};
+let poll_id = undefined; // copy the _id from database.db
+const default_poll_id = 'p7PqWACbsGVnSMQK'
 const maxEmojis = 40;
 let voteButton;
-let poll_id ='p7PqWACbsGVnSMQK'
+let trainEngin;
+let trainPart;
 
-function getPollID() {
-  const { pollId } = getURLParams();
-  // TODO: instead of default poll add a separate page for user to input poll id?
-  if(!pollId) return '6pKgCWCV06Rp2rF5'
-  return pollId
+function preload(){
+  trainEngin = loadImage('assets/engin.png')
+  trainPart = loadImage('assets/part.png')
 }
 
+// function currently not in use
 function getPollID() {
   const { pollId } = getURLParams();
   // TODO: instead of default poll add a separate page for user to input poll id?
-  if(!pollId) return '6pKgCWCV06Rp2rF5'
-  return pollId
+  if (!pollId) {
+		if (poll_id == undefined)
+			poll_id = prompt('Poll id') || default_poll_id
+		return poll_id;
+	};
+	return pollId;
 }
 
 async function countVotes() {
   // TODO this page should be for a specific poll
+  poll_id = getPollID();
   const response = await fetch(`/poll/${poll_id}`);
   poll = await response.json();
   if (poll.message) throw new Error(poll.message)
@@ -33,12 +40,16 @@ async function setup() {
   await countVotes();
   setInterval(countVotes, 500);
 
+let pollQ = createElement('p', poll.question)
+pollQ.addClass("question")
+
   radio = createRadio();
   for (let i = 0; i < poll.options.length; i++) {
-    radio.option(i, poll.options[i]) // first arg is index, second arg is what is visible to user 
+    radio.option(i, poll.options[i]) // First arg is index, second arg is what is visible to user 
   }
-  // radio.style('width', '180px'); // change this for width of radio 
+  // radio.style('width', '50px'); // Change this for width of radio 
   voteButton = createButton('vote');
+  voteButton.addClass("VoteBTN")
   voteButton.mousePressed(submitVote);
 }
 
@@ -80,9 +91,15 @@ function draw() {
 
       fill(0);
       noStroke();
-      text("🚂".repeat(numEmojis), x, y, 10);
+      // text("🚂".repeat(numEmojis), x, y, 10);
       text(choice, x, y + 10);
-      //resize as per requirements.
-    }
+      let lastJ;
+      for (let j = 1; j <= numEmojis; j++) {
+        image(trainPart, x + 16 * j,y-10);//, y, 10);
+        lastJ=j;
+      }
+        image(trainEngin, x + 16 * (lastJ+1),y-15);
+        //Resize as per requirements.
+      }
   }
 }
