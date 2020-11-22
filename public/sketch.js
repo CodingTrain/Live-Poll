@@ -1,4 +1,4 @@
-// TODO create a poll creation page
+// TODO: create a poll creation page
 // Different pages for voting, viewing, and poll creation
 
 let poll = {};
@@ -37,9 +37,9 @@ let pollQ = createElement('p', poll.question)
 pollQ.addClass("question")
   radio = createRadio();
   for (let i = 0; i < poll.options.length; i++) {
-    radio.option(i, poll.options[i]) // first arg is index, second arg is what is visible to user 
+    radio.option(i, poll.options[i]) // First arg is index, second arg is what is visible to user 
   }
-  // radio.style('width', '50px'); // change this for width of radio 
+  // radio.style('width', '50px'); // Change this for width of radio 
   voteButton = createButton('vote');
   voteButton.addClass("VoteBTN")
   voteButton.mousePressed(submitVote);
@@ -91,7 +91,7 @@ function draw() {
         lastJ=j;
       }
         image(trainEngin, x + 16 * (lastJ+1),y-15);
-        //resize as per requirements.
+        //Resize as per requirements.
       }
   }
 }
