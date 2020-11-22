@@ -1,6 +1,6 @@
 # Live-Poll
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ## Set Up
@@ -24,6 +24,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="https://github.com/crunchypi"><img src="https://avatars2.githubusercontent.com/u/53178205?v=4" width="100px;" alt=""/><br /><sub><b>crunchypi</b></sub></a><br /><a href="https://github.com/CodingTrain/Live-Poll/commits?author=crunchypi" title="Code">💻</a> <a href="#ideas-crunchypi" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://github.com/manthanabc"><img src="https://avatars2.githubusercontent.com/u/48511543?v=4" width="100px;" alt=""/><br /><sub><b>Manthan</b></sub></a><br /><a href="https://github.com/CodingTrain/Live-Poll/commits?author=manthanabc" title="Code">💻</a> <a href="#design-manthanabc" title="Design">🎨</a></td>
   </tr>
 </table>
 
