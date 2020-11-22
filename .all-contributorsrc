@@ -54,6 +54,16 @@
         "design",
         "code"
       ]
+    },
+    {
+      "login": "D-T-666",
+      "name": "Dimitri Tabatadze",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/35934791?v=4",
+      "profile": "https://github.com/D-T-666",
+      "contributions": [
+        "code",
+        "ideas"
+      ]
     }
   ],
   "contributorsPerLine": 7,
