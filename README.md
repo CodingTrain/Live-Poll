@@ -25,6 +25,8 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://github.com/crunchypi"><img src="https://avatars2.githubusercontent.com/u/53178205?v=4" width="100px;" alt=""/><br /><sub><b>crunchypi</b></sub></a><br /><a href="https://github.com/CodingTrain/Live-Poll/commits?author=crunchypi" title="Code">💻</a> <a href="#ideas-crunchypi" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://github.com/jriegraf"><img src="https://avatars1.githubusercontent.com/u/16071323?v=4" width="100px;" alt=""/><br /><sub><b>Julian</b></sub></a><br /><a href="https://github.com/CodingTrain/Live-Poll/commits?author=jriegraf" title="Code">💻</a> <a href="#ideas-jriegraf" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://github.com/manthanabc"><img src="https://avatars2.githubusercontent.com/u/48511543?v=4" width="100px;" alt=""/><br /><sub><b>Manthan</b></sub></a><br /><a href="https://github.com/CodingTrain/Live-Poll/commits?author=manthanabc" title="Code">💻</a> <a href="#design-manthanabc" title="Design">🎨</a></td>
+    <td align="center"><a href="https://simontiger.com"><img src="https://avatars1.githubusercontent.com/u/21979673?v=4" width="100px;" alt=""/><br /><sub><b>Simon Tiger</b></sub></a><br /><a href="https://github.com/CodingTrain/Live-Poll/commits?author=simon-tiger" title="Code">💻</a> <a href="#ideas-simon-tiger" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
 </table>
 
