@@ -6,6 +6,7 @@
 2. run `npm install`
 3. run `npm run dev`
 4. un comment **/index.js** line 14 `// createNewPoll();`, save.
-5. change **/public/sketch.js** line 5 `let poll_id = "changeThis"`
-to the one found in **/database.db**
-6. comment **/index.js** line 14 `createNewPoll();`, save.
+5. comment **/index.js** line 14 `createNewPoll();`, save.
+6. On loading page input poll id.  _id can be found found in **/database.db**
+
+
