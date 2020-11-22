@@ -1,0 +1,44 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "crunchypi",
+      "name": "crunchypi",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/53178205?v=4",
+      "profile": "https://github.com/crunchypi",
+      "contributions": [
+        "code",
+        "ideas"
+      ]
+    },
+    {
+      "login": "manthanabc",
+      "name": "Manthan",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/48511543?v=4",
+      "profile": "https://github.com/manthanabc",
+      "contributions": [
+        "code",
+        "design"
+      ]
+    },
+      "login": "simon-tiger",
+      "name": "Simon Tiger",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/21979673?v=4",
+      "profile": "https://simontiger.com",
+      "contributions": [
+        "code",
+        "ideas"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "Live-Poll",
+  "projectOwner": "CodingTrain",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}

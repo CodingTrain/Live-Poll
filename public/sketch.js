@@ -26,6 +26,18 @@ function getPollID() {
 	return pollId;
 }
 
+// function currently not in use
+function getPollID() {
+  const { pollId } = getURLParams();
+  // TODO: instead of default poll add a separate page for user to input poll id?
+  if (!pollId) {
+		if (poll_id == undefined)
+			poll_id = prompt('Poll id') || default_poll_id
+		return poll_id;
+	};
+	return pollId;
+}
+
 async function countVotes() {
   // TODO this page should be for a specific poll
   poll_id = getPollID();
@@ -55,7 +67,6 @@ pollQ.addClass("question")
 
 async function submitVote() {
   let choice = radio.value(); // choice is a number
-  // TODO: select poll id somehow => URL query parameters?
   if (!isNaN(choice)) {
     let response = await fetch(`vote/${poll_id}/${choice}`);
     let status = await response.json();
