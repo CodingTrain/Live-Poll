@@ -29,26 +29,71 @@ function getPollID() {
 function getPollID() {
   const { pollId } = getURLParams();
   // TODO: instead of default poll add a separate page for user to input poll id?
-  if(!pollId) return '6pKgCWCV06Rp2rF5'
+  if(!pollId) return '1m325LWz9t1eX2fT'
   return pollId
 }
+
+let firstRender = true;
 
 async function countVotes() {
   // TODO this page should be for a specific poll
   poll_id = getPollID();
   const response = await fetch(`/poll/${poll_id}`);
   poll = await response.json();
-  if (poll.message) throw new Error(poll.message)
-  return poll
+  if (poll.message) {
+    throw new Error(poll.message);
+  }
+  displayResults(poll);
+}
+
+function displayResults(poll) {
+
+  let resultsDiv = document.getElementById('results');
+
+  let maxVotes = 0;
+  let totalVotes = 0;
+  for (let count of poll.votes) {
+    maxVotes = max(count, maxVotes);
+    totalVotes += count;
+  }
+
+  for(const [index, option] of Object.entries(poll.options)) {
+    let count = poll.votes[index];
+    let width = map(count, 0, maxVotes, 0, 100);
+    if (firstRender) {
+      //Container div per option
+      let optionDiv = document.createElement('div');
+      optionDiv.classList.add('option');
+      // Add option text on a separate line, so it can get any length
+      let optionText = document.createElement('span');
+      optionText.innerHTML = option;
+      optionDiv.append(optionText);
+      resultsDiv.append(optionDiv);
+
+      //Add option progress bar
+      let progressBar = document.createElement('div');
+      progressBar.id = 'progressBar_' + index;
+      progressBar.classList.add('progressBar');
+      progressBar.style.setProperty('width', width + '%');
+      progressBar.innerHTML = Math.round(count/totalVotes*100) + '%';
+      resultsDiv.append(progressBar);
+    } else {
+      let progressBar = document.getElementById("progressBar_" + index);
+      progressBar.style.setProperty('width', width + '%');
+      progressBar.innerHTML = Math.round(count/totalVotes*100) + '%';
+    }
+  }
+
+  firstRender = false;
 }
 
 async function setup() {
-  createCanvas(400, 100);
+  noCanvas();
   await countVotes();
   setInterval(countVotes, 500);
 
-let pollQ = createElement('p', poll.question)
-pollQ.addClass("question")
+  let pollQ = createElement('p', poll.question)
+  pollQ.addClass("question")
 
   radio = createRadio();
   for (let i = 0; i < poll.options.length; i++) {
@@ -69,43 +114,3 @@ async function submitVote() {
   } else {
     console.log('no choice selected');
   }
-}
-
-function draw() {
-  clear();
-  // background(255);
-
-  if (poll.options) {
-    let maxVotes = 0;
-    for (let i = 0; i < poll.options.length; i++) {
-      let count = poll.votes[i];
-      maxVotes = max(count, maxVotes);
-    }
-    let divisor = 1;
-    while (maxVotes / divisor > maxEmojis) {
-      divisor *= 5;
-    }
-    for (let i = 0; i < poll.options.length; i++) {
-      // Variables Breakdown: 
-      // i = index (before it was choice which was an alphabet)
-      // poll.options[i] = the actual option
-      // poll.votes[i]   = number of votes for this option    
-      let choice = poll.options[i];
-      let numEmojis = poll.votes[i] / divisor;
-      let x = 10;
-      let y = 20 + i * 20;
-
-      fill(0);
-      noStroke();
-      // text("🚂".repeat(numEmojis), x, y, 10);
-      text(choice, x, y + 10);
-      let lastJ;
-      for (let j = 1; j <= numEmojis; j++) {
-        image(trainPart, x + 16 * j,y-10);//, y, 10);
-        lastJ=j;
-      }
-        image(trainEngin, x + 16 * (lastJ+1),y-15);
-        //Resize as per requirements.
-      }
-  }
-}

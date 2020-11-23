@@ -30,7 +30,9 @@ app.get("/vote/:pollId/:choice", async (request, response) => {
 // Changed name to avoid confusion
 app.get("/poll/:pollId", async (request, response) => {
   const _id = request.params.pollId;
+
   const poll = await database.findOne({ _id });
+
   response.send(poll || {
     status: "error", message: "Poll not found"
   });
