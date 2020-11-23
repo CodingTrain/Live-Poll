@@ -1,11 +1,12 @@
 {
-  "name": "Live-Poll",
+  "name": "live-poll",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -19,8 +20,12 @@
   },
   "homepage": "https://github.com/CodingTrain/Live-Poll#readme",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "nedb": "^1.8.0",
     "nedb-promises": "^4.0.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
   }
 }
