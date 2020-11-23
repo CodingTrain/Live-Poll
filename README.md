@@ -1,6 +1,6 @@
 # Live-Poll
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-10-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ## Set Up
@@ -9,7 +9,6 @@
 2. run `npm install`
 3. run `npm run dev`
 4. un comment **/index.js** line 14 `// createNewPoll();`, save.
-<<<<<<< HEAD
 5. comment **/index.js** line 14 `createNewPoll();`, save.
 6. On loading page input poll id.  _id can be found found in **/database.db**
 
@@ -32,6 +31,11 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/D-T-666"><img src="https://avatars1.githubusercontent.com/u/35934791?v=4" width="100px;" alt=""/><br /><sub><b>Dimitri Tabatadze</b></sub></a><br /><a href="https://github.com/CodingTrain/Live-Poll/commits?author=D-T-666" title="Code">💻</a> <a href="#ideas-D-T-666" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://github.com/ShawKai91"><img src="https://avatars3.githubusercontent.com/u/66273574?v=4" width="100px;" alt=""/><br /><sub><b>Shaw Kai</b></sub></a><br /><a href="https://github.com/CodingTrain/Live-Poll/commits?author=ShawKai91" title="Code">💻</a> <a href="#ideas-ShawKai91" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/BeeryShklar"><img src="https://avatars3.githubusercontent.com/u/52495055?v=4" width="100px;" alt=""/><br /><sub><b>Beery Shklar</b></sub></a><br /><a href="#ideas-BeeryShklar" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://github.com/dipamsen"><img src="https://avatars2.githubusercontent.com/u/59444569?v=4" width="100px;" alt=""/><br /><sub><b>Fun Planet</b></sub></a><br /><a href="#ideas-dipamsen" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://smartineau.me"><img src="https://avatars3.githubusercontent.com/u/44237969?v=4" width="100px;" alt=""/><br /><sub><b>Samuel Martineau</b></sub></a><br /><a href="#ideas-Samuel-Martineau" title="Ideas, Planning, & Feedback">🤔</a></td>
+  </tr>
 </table>
 
 <!-- markdownlint-enable -->
@@ -39,8 +43,3 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
-=======
-5. change **/public/sketch.js** line 7 `let poll_id = "changeThis"`
-to the one found in **/database.db**
-6. comment **/index.js** line 14 `createNewPoll();`, save.
->>>>>>> c769729... Minor refactoring in README.md
