@@ -1,6 +1,6 @@
 # Live-Poll
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-9-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-10-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ## Set Up
@@ -34,6 +34,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://github.com/BeeryShklar"><img src="https://avatars3.githubusercontent.com/u/52495055?v=4" width="100px;" alt=""/><br /><sub><b>Beery Shklar</b></sub></a><br /><a href="#ideas-BeeryShklar" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://github.com/dipamsen"><img src="https://avatars2.githubusercontent.com/u/59444569?v=4" width="100px;" alt=""/><br /><sub><b>Fun Planet</b></sub></a><br /><a href="#ideas-dipamsen" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://smartineau.me"><img src="https://avatars3.githubusercontent.com/u/44237969?v=4" width="100px;" alt=""/><br /><sub><b>Samuel Martineau</b></sub></a><br /><a href="#ideas-Samuel-Martineau" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
 </table>
 
