@@ -1,12 +1,12 @@
 const express = require("express");
 const app = express();
-require("dotenv").config()
+require("dotenv").config();
 
 const port = process.env.PORT || 3000;
 
 app.listen(port, () => console.log(`Server running at http://localhost:${port}`));
 app.use(express.static("public"));
-app.use(express.json())// for parsing application/json
+app.use(express.json()); // For parsing application/json
 
 const Datastore = require("nedb-promises");
 const database = Datastore.create("database.db");
@@ -15,17 +15,38 @@ const database = Datastore.create("database.db");
 
 app.get("/vote/:pollId/:choice", async (request, response) => {
   const { pollId: _id, choice } = request.params;
+
+  // Query the database for the requested id  
   const poll = await database.findOne({ _id });
 
-  if (!poll) return response.send({ status: "error", message: "Invalid Poll ID" })
-  if (choice < 0 || choice >= poll.options.length)
-    return response.send({ status: "error", message: "Invalid Choice" })
+  // If there is no poll found in the database,
+  // send and error response
+  if (!poll) {
+    return response.send({
+      status: "error",
+      message: "Invalid Poll ID"
+    });
+  }
 
-  poll.votes[choice]++
+  // If the choice is out of range from the possible options,
+  // send and error response
+  if (choice < 0 || choice >= poll.options.length) {
+    return response.send({
+      status: "error",
+      message: "Invalid Choice"
+    });
+  }
 
-  database.update({ _id }, poll)
-  response.send(poll)
-});
+  // Update the votes 
+  poll.votes[choice]++;
+
+  // Push the update to the database
+  database.update({ _id }, poll);
+
+  // Send the response back
+  response.send(poll);
+
+}); // End of app.get("/vote/:pollId/:choice")
 
 // Changed name to avoid confusion
 app.get("/poll/:pollId", async (request, response) => {
@@ -34,40 +55,53 @@ app.get("/poll/:pollId", async (request, response) => {
   const poll = await database.findOne({ _id });
 
   response.send(poll || {
-    status: "error", message: "Poll not found"
+    status: "error",
+    message: "Poll not found"
   });
 });
 
 // TODO: make './public/create/index.html' the UI for creating polls
-// so  GET  /create will be UI for new poll
-// and POST /new    will be creating the poll
+//       so  GET  /create will be UI for new poll
+//       and POST /new    will be creating the poll
 app.post("/new", async (request, response) => {
-  /*
-    request body should be in this form
-    {question: string, options: string[]}
-  */
+  // request body should be in this form
+  // {
+  //   question: string, 
+  //   options:  string[]
+  // }
+
   let { question, options } = request.body;
-  console.log(request.body)
-  options = options.filter(x => x) // Truthy filter (falsy values will be removed from the array)
-  let pollID = await createNewPoll(question, options)
+
+  console.log(request.body);
+
+  // Truthy filter (falsy values will be removed from the array)
+  options = options.filter(x => x);
+
+  // Create a poll object, insert it in the database and get the ID back
+  let pollID = await createNewPoll(question, options);
+
+  // Send a response carryinh the poll id
   response.send({
     status: "success",
     message: "Poll created successfully!",
     id: pollID
-  })
-})
+  });
+});
 
 
 async function createNewPoll(question, options) {
-  /*
-  poll structure (in database): 
-  {question: string, options: string[], votes: number[]}
-   */
-  // if no values passed then we put default values
+  // Poll structure (in database): 
+  // {
+  //   question: string, 
+  //   options:  string[], 
+  //   votes:    number[]
+  // }
+
+  // If no values passed then we put default values
   let { _id } = await database.insert({
     question: question || "What should we do now?",
     options: options || ["Live Poll 📄", "Community Contributions 🎡", "Bots 🤖"],
     votes: new Array(options ? options.length : 3).fill(0)
   });
-  return _id
+  return _id;
 }
