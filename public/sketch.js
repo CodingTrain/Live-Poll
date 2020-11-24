@@ -58,7 +58,7 @@ function displayResults(poll) {
       doTheFirstRender(index, option, resultsDiv);
 
     // Get the progress bar element
-    let progressBar = select("#progressBar_" + index);
+    let progressBar = select("#progress-bar-" + index);
     // Set the width
     progressBar.style('width', width + '%');
     // Set the text
@@ -84,7 +84,7 @@ function doTheFirstRender(index, option, resultsDiv) {
   // Add option progress bar
   let progressBar = createDiv();
 
-  progressBar.id('progressBar_' + index);
+  progressBar.id('progress-bar-' + index);
   progressBar.addClass('progressBar');
   resultsDiv.child(progressBar.elt);
 };
