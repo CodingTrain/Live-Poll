@@ -69,7 +69,7 @@ function displayResults(poll) {
 
 
 // Feel free to rename. couldn't come up with a good name so...  - D-T-666
-const doTheFirstRender = (index, option, resultsDiv) => {
+function doTheFirstRender(index, option, resultsDiv) {
   // Container div per option
   let optionDiv = createDiv();
   // console.log(optionDiv);
