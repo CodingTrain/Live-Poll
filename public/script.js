@@ -11,6 +11,7 @@ function getPollID() {
 }
 
 function getPollID() {
+  // NOTE: maybe rename this to something smaller like "id" or "ID"
   const { pollId } = getURLParams();
   // TODO: instead of default poll add a separate page for user to input poll id?
   if (!pollId) return default_poll_id;
@@ -37,11 +38,15 @@ async function countVotes() {
 }
 
 async function submitVote() {
-  let choice = radio.value(); // Choice is a number
+  const choice = radio.value(); // Choice is a number
 
+  // If choice is not undefined
   if (choice) {
-    let response = await fetch(`vote/${poll_id}/${choice}`);
-    let status = await response.json();
+    // Store the result of a GET request 
+    const response = await fetch(`vote/${poll_id}/${choice}`);
+    // Extract the json frome the response
+    const status = await response.json();
+
     console.log(status);
   } else {
     console.log('no choice selected');
