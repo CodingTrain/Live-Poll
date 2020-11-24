@@ -8,17 +8,21 @@ let trainEngin;
 let trainPart;
 let firstRender = true;
 
+
+
 function preload() {
   trainEngin = loadImage('assets/engin.png');
   trainPart = loadImage('assets/part.png');
 }
+
+
 
 async function setup() {
   noCanvas();
   await countVotes();
   setInterval(countVotes, 500);
 
-  let pollQ = createElement('p', poll.question);
+  let pollQ = createP(poll.question);
   pollQ.addClass("question");
 
   radio = createRadio();
@@ -34,9 +38,11 @@ async function setup() {
   voteButton.mousePressed(submitVote);
 }
 
+
+
 function displayResults(poll) {
   // Create 
-  let resultsDiv = document.getElementById('results');
+  let resultsDiv = select('#results');
 
   // Get the number of votes that the most voted option has.
   let maxVotes = poll.votes.reduce((a, b) => (a > b ? a : b));
@@ -46,37 +52,39 @@ function displayResults(poll) {
 
   for (const [index, option] of Object.entries(poll.options)) {
     let count = poll.votes[index];
-    let width = map(count, 0, maxVotes, 0, 100);
+    let width = round(map(count, 0, maxVotes, 0, 100));
 
     if (firstRender)
       doTheFirstRender(index, option, resultsDiv);
 
     // Get the progress bar element
-    let progressBar = document.getElementById("progressBar_" + index);
+    let progressBar = select("#progressBar_" + index);
     // Set the width
-    progressBar.style.setProperty('width', width + '%');
+    progressBar.style('width', width + '%');
     // Set the text
-    progressBar.innerHTML = Math.round(count / totalVotes * 100) + '%';
+    progressBar.html(Math.round(count / totalVotes * 100) + '%');
   }
   firstRender = false;
 }
 
+
+// Feel free to rename. couldn't come up with a good name so...  - D-T-666
 const doTheFirstRender = (index, option, resultsDiv) => {
   // Container div per option
-  let optionDiv = document.createElement('div');
-  optionDiv.classList.add('option');
+  let optionDiv = createDiv();
+  // console.log(optionDiv);
+  optionDiv.addClass('option');
 
   // Add option text on a separate line, so it can get any length
-  let optionText = document.createElement('span');
+  let optionText = createSpan(option);
 
-  optionText.innerHTML = option;
-  optionDiv.append(optionText);
-  resultsDiv.append(optionDiv);
+  optionDiv.child(optionText);
+  resultsDiv.child(optionDiv);
 
   // Add option progress bar
-  let progressBar = document.createElement('div');
+  let progressBar = createDiv();
 
-  progressBar.id = 'progressBar_' + index;
-  progressBar.classList.add('progressBar');
-  resultsDiv.append(progressBar);
+  progressBar.id('progressBar_' + index);
+  progressBar.addClass('progressBar');
+  resultsDiv.child(progressBar.elt);
 };
