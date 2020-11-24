@@ -1,0 +1,112 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "crunchypi",
+      "name": "crunchypi",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/53178205?v=4",
+      "profile": "https://github.com/crunchypi",
+      "contributions": [
+        "code",
+        "ideas"
+      ]
+    },
+    {
+      "login": "jriegraf",
+      "name": "Julian",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/16071323?v=4",
+      "profile": "https://github.com/jriegraf",
+      "contributions": [
+        "code",
+        "ideas"
+      ]
+    },
+    {
+      "login": "manthanabc",
+      "name": "Manthan",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/48511543?v=4",
+      "profile": "https://github.com/manthanabc",
+      "contributions": [
+        "code",
+        "design"
+      ]
+    },
+    {
+      "login": "simon-tiger",
+      "name": "Simon Tiger",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/21979673?v=4",
+      "profile": "https://simontiger.com",
+      "contributions": [
+        "code",
+        "ideas"
+      ]
+    },
+    {
+      "login": "pieterdeschepper",
+      "name": "Pieter De Schepper",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/4106097?v=4",
+      "profile": "https://github.com/pieterdeschepper",
+      "contributions": [
+        "design",
+        "code"
+      ]
+    },
+    {
+      "login": "D-T-666",
+      "name": "Dimitri Tabatadze",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/35934791?v=4",
+      "profile": "https://github.com/D-T-666",
+      "contributions": [
+        "code",
+        "ideas"
+      ]
+    },
+    {
+      "login": "ShawKai91",
+      "name": "Shaw Kai",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/66273574?v=4",
+      "profile": "https://github.com/ShawKai91",
+      "contributions": [
+        "code",
+        "ideas"
+      ]
+    },
+    {
+      "login": "BeeryShklar",
+      "name": "Beery Shklar",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/52495055?v=4",
+      "profile": "https://github.com/BeeryShklar",
+      "contributions": [
+        "ideas"
+      ]
+    },
+    {
+      "login": "dipamsen",
+      "name": "Fun Planet",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/59444569?v=4",
+      "profile": "https://github.com/dipamsen",
+      "contributions": [
+        "ideas"
+      ]
+    },
+    {
+      "login": "Samuel-Martineau",
+      "name": "Samuel Martineau",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/44237969?v=4",
+      "profile": "https://smartineau.me",
+      "contributions": [
+        "ideas"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "Live-Poll",
+  "projectOwner": "CodingTrain",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}

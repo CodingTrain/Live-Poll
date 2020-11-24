@@ -3,26 +3,44 @@
     src: url("https://thecodingtrain.com/assets/fonts/cubano-regular-webfont.woff2");
 }
 
+html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
 body {
-    display: flex;
-    flex-direction: column;
-    place-content: center;
-    place-items: center;
-    background-color: rgba(0,0,0,0);
-    height: 100vh;
-    margin: 0px;
-    padding: 0px;
-    color: rgb(127, 127, 127);
-}
-h1 {
+    background-color: rgb(0,255,0);
     font-family: "cubanoregular";
+    width: calc(100% - 20px);
+    margin: 10px;
 }
-h1::before{
-    content: "🚂";
+h1::before {
+    content: "🚂 ";
 }
-h1::after{
-    content: "🌈";
+h1::after {
+    content: " 🌈";
 }
+
+#results {
+    width: calc(100% - 20px);
+}
+
+.progressBar {
+    margin: 0 5px 5px 0;
+    padding: 0 10px;
+    background: linear-gradient(90deg,red,orange,yellow,green,blue,indigo,violet);
+    color: white;
+    transition: width 1s;
+}
+
+/* h1 {} */
+h1::before{content: "🚂";}
+h1::after{content: "🌈";}
+
 main{
     width: min-content;
+}
+
+.question {
+    font-size: 10pt;
 }
