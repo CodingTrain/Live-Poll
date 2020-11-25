@@ -1,21 +1,20 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
+
 // TODO: create different pages for voting, viewing, and poll creation
 
 let poll = {};
 let poll_id = undefined; // Copy the _id from database.db
-const default_poll_id = 'p7PqWACbsGVnSMQK';
+const default_poll_id = "p7PqWACbsGVnSMQK";
 let voteButton;
 let trainEngin;
 let trainPart;
 let firstRender = true;
 
-
-
 function preload() {
-  trainEngin = loadImage('assets/engin.png');
-  trainPart = loadImage('assets/part.png');
+  trainEngin = loadImage("assets/engin.png");
+  trainPart = loadImage("assets/part.png");
 }
-
-
 
 async function setup() {
   noCanvas();
@@ -27,53 +26,49 @@ async function setup() {
 
   radio = createRadio();
   for (let i = 0; i < poll.options.length; i++) {
-    radio.option(i, poll.options[i]); // First arg is index, second arg is what is visible to user 
+    radio.option(i, poll.options[i]); // First arg is index, second arg is what is visible to user
   }
-  // radio.style('width', '50px'); // Change this for width of radio 
+  // radio.style('width', '50px'); // Change this for width of radio
 
   // Create the vote button
-  voteButton = createButton('vote');
+  voteButton = createButton("vote");
   // And add a class and a mouse pressed event listener
   voteButton.addClass("VoteBTN");
   voteButton.mousePressed(submitVote);
 }
 
-
-
 function displayResults(poll) {
-  // Create 
-  let resultsDiv = select('#results');
+  // Create
+  let resultsDiv = select("#results");
 
   // Get the number of votes that the most voted option has.
   let maxVotes = poll.votes.reduce((a, b) => (a > b ? a : b));
 
   // Get the total number of votes.
-  let totalVotes = poll.votes.reduce((a, b) => (a + b));
+  let totalVotes = poll.votes.reduce((a, b) => a + b);
 
   for (const [index, option] of Object.entries(poll.options)) {
     let count = poll.votes[index];
     let width = round(map(count, 0, maxVotes, 0, 100));
 
-    if (firstRender)
-      doTheFirstRender(index, option, resultsDiv);
+    if (firstRender) doTheFirstRender(index, option, resultsDiv);
 
     // Get the progress bar element
     let progressBar = select("#progress-bar-" + index);
     // Set the width
-    progressBar.style('width', width + '%');
+    progressBar.style("width", width + "%");
     // Set the text
-    progressBar.html(Math.round(count / totalVotes * 100) + '%');
+    progressBar.html(Math.round((count / totalVotes) * 100) + "%");
   }
   firstRender = false;
 }
-
 
 // Feel free to rename. couldn't come up with a good name so...  - D-T-666
 function doTheFirstRender(index, option, resultsDiv) {
   // Container div per option
   let optionDiv = createDiv();
   // console.log(optionDiv);
-  optionDiv.addClass('option');
+  optionDiv.addClass("option");
 
   // Add option text on a separate line, so it can get any length
   let optionText = createSpan(option);
@@ -84,7 +79,7 @@ function doTheFirstRender(index, option, resultsDiv) {
   // Add option progress bar
   let progressBar = createDiv();
 
-  progressBar.id('progress-bar-' + index);
-  progressBar.addClass('progressBar');
+  progressBar.id("progress-bar-" + index);
+  progressBar.addClass("progressBar");
   resultsDiv.child(progressBar.elt);
-};
+}

@@ -1,10 +1,13 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-redeclare */
+/* eslint-disable no-undef */
+
 // Function currently not in use
 function getPollID() {
   const { pollId } = getURLParams();
   // TODO: instead of default poll add a separate page for user to input poll id?
   if (!pollId) {
-    if (poll_id == undefined)
-      poll_id = prompt('Poll id') || default_poll_id;
+    if (poll_id == undefined) poll_id = prompt("Poll id") || default_poll_id;
     return poll_id;
   }
   return pollId;
@@ -30,8 +33,7 @@ async function countVotes() {
   poll = await response.json();
 
   // Throw an error if the poll has an error message
-  if (poll.message)
-    throw new Error(poll.message);
+  if (poll.message) throw new Error(poll.message);
 
   // After all, display the results
   displayResults(poll);
@@ -42,13 +44,13 @@ async function submitVote() {
 
   // If choice is not undefined
   if (choice) {
-    // Store the result of a GET request 
+    // Store the result of a GET request
     const response = await fetch(`vote/${poll_id}/${choice}`);
     // Extract the json frome the response
     const status = await response.json();
 
     console.log(status);
   } else {
-    console.log('no choice selected');
+    console.log("no choice selected");
   }
 }
