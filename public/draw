@@ -1,0 +1,38 @@
+ function draw() {
+  clear();
+  // background(255);
+
+  if (poll.options) {
+    let maxVotes = 0;
+    for (let i = 0; i < poll.options.length; i++) {
+      let count = poll.votes[i];
+      maxVotes = max(count, maxVotes);
+    }
+    let divisor = 1;
+    while (maxVotes / divisor > maxEmojis) {
+      divisor *= 5;
+    }
+    for (let i = 0; i < poll.options.length; i++) {
+      // Variables Breakdown: 
+      // i = index (before it was choice which was an alphabet)
+      // poll.options[i] = the actual option
+      // poll.votes[i]   = number of votes for this option    
+      let choice = poll.options[i];
+      let numEmojis = poll.votes[i] / divisor;
+      let x = 10;
+      let y = 20 + i * 20;
+
+      fill(0);
+      noStroke();
+      // text("🚂".repeat(numEmojis), x, y, 10);
+      text(choice, x, y + 10);
+      let lastJ;
+      for (let j = 1; j <= numEmojis; j++) {
+        image(trainPart, x + 16 * j,y-10);//, y, 10);
+        lastJ=j;
+      }
+        image(trainEngin, x + 16 * (lastJ+1),y-15);
+        //Resize as per requirements.
+      }
+  }
+}
