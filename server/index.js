@@ -7,11 +7,19 @@ const port = process.env.PORT || 3000;
 app.listen(port, () =>
   console.log(`Server running at http://localhost:${port}`)
 );
+
+app.set("views", "./views");
+app.set("view engine", "pug");
+
 app.use(express.static("public"));
 app.use(express.json()); // For parsing application/json
 
 const Datastore = require("nedb-promises");
 const database = Datastore.create("database.db");
+
+app.get("/", function (req, res) {
+  res.render("index");
+});
 
 // createNewPoll();
 
