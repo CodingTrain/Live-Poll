@@ -5,13 +5,13 @@
 
 let poll = {};
 let poll_id = undefined; 
-const default_poll_id = "dhB9pzdxS9gGsA6o"; // Copy the _id from database.db
+const default_poll_id = "XZuQBoRrmEOBC9Ex"; // Copy the _id from database.db
 let voteButton;
 let trainEngin;
 let trainPart;
 let firstRender = true;
 
-// not being used
+// Not being used
 function preload() {
   trainEngin = loadImage("assets/engin.png");
   trainPart = loadImage("assets/part.png");

@@ -7,12 +7,13 @@
 
 1. clone repository
 2. run `npm install`
+3. run `npm run postinstall`
 3. run `npm run dev`
 4. un comment **server/index.js** line 16 `// createNewPoll();`, save.
 5. comment **server/index.js** line 16 `createNewPoll();`, save.
 6. On loading page input poll id.  _id can be found found in **/database.db**
 
-or change **public/sketch** line 8 'const default_poll_id = "ChangeThis"; // Copy the _id from database.db', save.
+or change **public/sketch** line 8 'const default_poll_id = "ChangeThis"; // Copy the _id from /database.db', save.
 
 
 ## Contributors ✨

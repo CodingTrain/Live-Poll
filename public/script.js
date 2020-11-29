@@ -13,6 +13,7 @@ function getPollID() {
   return pollId;
 }
 
+// Coment this one out to get a prompt on page reload
 function getPollID() {
   // NOTE: maybe rename this to something smaller like "id" or "ID"
   const { pollId } = getURLParams();
