@@ -11,6 +11,7 @@ let trainEngin;
 let trainPart;
 let firstRender = true;
 
+// not being used
 function preload(){
   trainEngin = loadImage('assets/engin.png')
   trainPart = loadImage('assets/part.png')
