@@ -4,36 +4,17 @@
 // TODO: create different pages for voting, viewing, and poll creation
 
 let poll = {};
-let poll_id = undefined;
-const default_poll_id = "p7PqWACbsGVnSMQK";
+let poll_id = undefined; 
+const default_poll_id = "dhB9pzdxS9gGsA6o"; // Copy the _id from database.db
 let voteButton;
 let trainEngin;
 let trainPart;
 let firstRender = true;
 
 // not being used
-function preload(){
-  trainEngin = loadImage('assets/engin.png')
-  trainPart = loadImage('assets/part.png')
-}
-
-function getPollID() {
-  const { pollId } = getURLParams();
-  // TODO: instead of default poll add a separate page for user to input poll id?
-  if (!pollId) {
-		if (poll_id == undefined) poll_id = prompt('Poll id') || default_poll_id
-		return poll_id;
-	};
-	return pollId;
-}
-
-async function countVotes() {
-  // TODO this page should be for a specific poll
-  poll_id = getPollID();
-  const response = await fetch(`/poll/${poll_id}`);
-  poll = await response.json();
-  if (poll.message) throw new Error(poll.message)
-  return poll
+function preload() {
+  trainEngin = loadImage("assets/engin.png");
+  trainPart = loadImage("assets/part.png");
 }
 
 async function setup() {

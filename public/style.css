@@ -15,14 +15,16 @@ body {
     margin: 10px;
 }
 /* h1 {} */
-h1::before { content: "🚂 "; }
-h1::after { content: " 🌈"; }
+h1::before{content: "🚂";}
+h1::after{content: "🌈";}
 
-main{ width: min-content; }
+main{width: min-content;}
 
-.question { font-size: 10pt; }
+.question {font-size: 10pt;}
 
-#results { width: calc(100% - 20px); }
+#results {
+    width: calc(100% - 20px);
+}
 
 .progressBar {
     margin: 0 5px 5px 0;

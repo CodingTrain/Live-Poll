@@ -13,6 +13,14 @@ function getPollID() {
   return pollId;
 }
 
+function getPollID() {
+  // NOTE: maybe rename this to something smaller like "id" or "ID"
+  const { pollId } = getURLParams();
+  // TODO: instead of default poll add a separate page for user to input poll id?
+  if (!pollId) return default_poll_id;
+  return pollId;
+}
+
 async function countVotes() {
   // TODO: this page should be for a specific poll
 
