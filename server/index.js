@@ -15,16 +15,11 @@ app.use(express.static("public"));
 app.use(express.json()); // For parsing application/json
 
 // Routes
+const webRoutes = require("./web");
+app.use("/", webRoutes);
+
 const apiRoutes = require("./api");
 app.use("/api", apiRoutes);
-
-app.get("/", function (req, res) {
-  res.render("index");
-});
-
-app.get("/poll/:pollId", function (req, res) {
-  res.render("poll");
-});
 
 // const createNewPoll = require("./helpers/createNewPoll");
 // createNewPoll();
