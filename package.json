@@ -4,9 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon index.js"
+    "dev": "nodemon server/index.js",
+    "lint": "eslint server/**/*.js public/**/*.js",
+    "lint:fix": "npm run lint --fix",
+    "lint:staged": "lint-staged",
+    "postinstall": "husky install"
   },
   "repository": {
     "type": "git",
@@ -26,6 +30,16 @@
     "nedb-promises": "^4.0.4"
   },
   "devDependencies": {
-    "nodemon": "^2.0.4"
+    "eslint": "^7.14.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "husky": "^5.0.4",
+    "lint-staged": "^10.5.2",
+    "nodemon": "^2.0.4",
+    "prettier": "^2.2.0"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint . --fix"
+    ]
   }
 }
