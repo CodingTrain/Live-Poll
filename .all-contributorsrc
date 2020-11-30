@@ -81,7 +81,7 @@
       "avatar_url": "https://avatars3.githubusercontent.com/u/52495055?v=4",
       "profile": "https://github.com/BeeryShklar",
       "contributions": [
-        "ideas"
+        "code",
       ]
     },
     {
@@ -90,7 +90,8 @@
       "avatar_url": "https://avatars2.githubusercontent.com/u/59444569?v=4",
       "profile": "https://github.com/dipamsen",
       "contributions": [
-        "ideas"
+        "ideas",
+        "code"
       ]
     },
     {
@@ -109,6 +110,15 @@
       "profile": "http://www.shiffman.net",
       "contributions": [
         "code"
+      ]
+    },
+    {
+      "login": "johntalton",
+      "name": "John",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/13648537?v=4",
+      "profile": "https://github.com/johntalton",
+      "contributions": [
+        "ideas"
       ]
     }
   ],
