@@ -1,6 +1,6 @@
 # Live-Poll
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-12-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-13-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ## Set Up
@@ -32,11 +32,12 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/ShawKai91"><img src="https://avatars3.githubusercontent.com/u/66273574?v=4" width="100px;" alt=""/><br /><sub><b>Shaw Kai</b></sub></a><br /><a href="https://github.com/CodingTrain/Live-Poll/commits?author=ShawKai91" title="Code">💻</a> <a href="#ideas-ShawKai91" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
   <tr>
-    <td align="center"><a href="https://github.com/BeeryShklar"><img src="https://avatars3.githubusercontent.com/u/52495055?v=4" width="100px;" alt=""/><br /><sub><b>Beery Shklar</b></sub></a><br /><a href="#ideas-BeeryShklar" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/CodingTrain/Live-Poll/commits?author=BeeryShklar" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/dipamsen"><img src="https://avatars2.githubusercontent.com/u/59444569?v=4" width="100px;" alt=""/><br /><sub><b>Fun Planet</b></sub></a><br /><a href="#ideas-dipamsen" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://github.com/BeeryShklar"><img src="https://avatars3.githubusercontent.com/u/52495055?v=4" width="100px;" alt=""/><br /><sub><b>Beery Shklar</b></sub></a><br /><a href="https://github.com/CodingTrain/Live-Poll/commits?author=BeeryShklar" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/dipamsen"><img src="https://avatars2.githubusercontent.com/u/59444569?v=4" width="100px;" alt=""/><br /><sub><b>Fun Planet</b></sub></a><br /><a href="#ideas-dipamsen" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/CodingTrain/Live-Poll/commits?author=dipamsen" title="Code">💻</a></td>
     <td align="center"><a href="https://smartineau.me"><img src="https://avatars3.githubusercontent.com/u/44237969?v=4" width="100px;" alt=""/><br /><sub><b>Samuel Martineau</b></sub></a><br /><a href="#ideas-Samuel-Martineau" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="http://www.shiffman.net"><img src="https://avatars0.githubusercontent.com/u/191758?v=4" width="100px;" alt=""/><br /><sub><b>Daniel Shiffman</b></sub></a><br /><a href="https://github.com/CodingTrain/Live-Poll/commits?author=shiffman" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/johntalton"><img src="https://avatars1.githubusercontent.com/u/13648537?v=4" width="100px;" alt=""/><br /><sub><b>John</b></sub></a><br /><a href="#ideas-johntalton" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://github.com/adriaan1313"><img src="https://avatars0.githubusercontent.com/u/19620346?v=4" width="100px;" alt=""/><br /><sub><b>Bunnygamers</b></sub></a><br /><a href="#ideas-adriaan1313" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
 </table>
 
