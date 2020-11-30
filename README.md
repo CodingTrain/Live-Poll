@@ -32,7 +32,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/ShawKai91"><img src="https://avatars3.githubusercontent.com/u/66273574?v=4" width="100px;" alt=""/><br /><sub><b>Shaw Kai</b></sub></a><br /><a href="https://github.com/CodingTrain/Live-Poll/commits?author=ShawKai91" title="Code">💻</a> <a href="#ideas-ShawKai91" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
   <tr>
-    <td align="center"><a href="https://github.com/BeeryShklar"><img src="https://avatars3.githubusercontent.com/u/52495055?v=4" width="100px;" alt=""/><br /><sub><b>Beery Shklar</b></sub></a><br /><a href="#ideas-BeeryShklar" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://github.com/BeeryShklar"><img src="https://avatars3.githubusercontent.com/u/52495055?v=4" width="100px;" alt=""/><br /><sub><b>Beery Shklar</b></sub></a><br /><a href="#ideas-BeeryShklar" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/CodingTrain/Live-Poll/commits?author=BeeryShklar" title="Code">💻</a></td>
   </tr>
 </table>
 
