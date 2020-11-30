@@ -1,73 +1,88 @@
-// TODO create a poll creation page
-// Different pages for voting, viewing, and poll creation
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
+
+// TODO: create different pages for voting, viewing, and poll creation
 
 let poll = {};
-const maxEmojis = 40;
+let poll_id; // Copy the _id from database.db
 let voteButton;
+let trainEngin;
+let trainPart;
+let firstRender = true;
 
-async function countVotes() {
-  // TODO this page should be for a specific poll
-  const response = await fetch("/poll/6pKgCWCV06Rp2rF5");
-  poll = await response.json();
-  if (poll.message) throw new Error(poll.message)
-  return poll
+function preload() {
+  trainEngin = loadImage("assets/engine.png");
+  trainPart = loadImage("assets/part.png");
 }
 
 async function setup() {
-  createCanvas(400, 100);
+  noCanvas();
   await countVotes();
   setInterval(countVotes, 500);
 
+  let pollQ = select(".question").html(poll.question);
+
   radio = createRadio();
   for (let i = 0; i < poll.options.length; i++) {
-    radio.option(i, poll.options[i]) // first arg is index, second arg is what is visible to user 
+    radio.option(i, poll.options[i]); // First arg is index, second arg is what is visible to user
   }
-  // radio.style('width', '180px'); // change this for width of radio 
-  voteButton = createButton('vote');
+  // radio.style('width', '50px'); // Change this for width of radio
+
+  // Create the vote button
+  voteButton = createButton("vote");
+  // And add a class and a mouse pressed event listener
+  voteButton.addClass("VoteBTN");
   voteButton.mousePressed(submitVote);
 }
 
-async function submitVote() {
-  let choice = radio.value(); // choice is a number
-  // TODO: select poll id somehow => URL query parameters?
-  if (!isNaN(choice)) {
-    let response = await fetch(`vote/6pKgCWCV06Rp2rF5/${choice}`);
-    let status = await response.json();
-    console.log(status);
-  } else {
-    console.log('no choice selected');
+function displayResults(poll) {
+  // Select DOM elements
+  let resultsDiv = select("#results");
+  let noOfVotesP = select("#total-votes");
+
+  // Get the number of votes that the most voted option has.
+  let maxVotes = poll.votes.reduce((a, b) => (a > b ? a : b));
+
+  // Get the total number of votes.
+  let totalVotes = poll.votes.reduce((a, b) => a + b);
+  noOfVotesP.html(`${totalVotes} votes`);
+
+  for (const [index, option] of Object.entries(poll.options)) {
+    let count = poll.votes[index];
+    let width = round(map(count, 0, maxVotes, 0, 100));
+    if (totalVotes == 0) width = 0;
+
+    if (firstRender) doTheFirstRender(index, option, resultsDiv);
+
+    // Get the progress bar element
+    let progressBar = select("#progress-bar-" + index);
+    // Set the width
+    progressBar.style("width", width + "%");
+    // Set the text
+    let percent = (count / totalVotes) * 100;
+    if (totalVotes == 0) percent = 0;
+    progressBar.html(Math.round(percent) + "%");
   }
+  firstRender = false;
 }
 
-function draw() {
-  clear();
-  // background(255);
+// Feel free to rename. couldn't come up with a good name so...  - D-T-666
+function doTheFirstRender(index, option, resultsDiv) {
+  // Container div per option
+  let optionDiv = createDiv();
+  // console.log(optionDiv);
+  optionDiv.addClass("option");
 
-  if (poll.options) {
-    let maxVotes = 0;
-    for (let i = 0; i < poll.options.length; i++) {
-      let count = poll.votes[i];
-      maxVotes = max(count, maxVotes);
-    }
-    let divisor = 1;
-    while (maxVotes / divisor > maxEmojis) {
-      divisor *= 5;
-    }
-    for (let i = 0; i < poll.options.length; i++) {
-      // Variables Breakdown: 
-      // i = index (before it was choice which was an alphabet)
-      // poll.options[i] = the actual option
-      // poll.votes[i]   = number of votes for this option    
-      let choice = poll.options[i];
-      let numEmojis = poll.votes[i] / divisor;
-      let x = 10;
-      let y = 20 + i * 20;
+  // Add option text on a separate line, so it can get any length
+  let optionText = createSpan(option);
 
-      fill(0);
-      noStroke();
-      text("🚂".repeat(numEmojis), x, y, 10);
-      text(choice, x, y + 10);
-      //resize as per requirements.
-    }
-  }
+  optionDiv.child(optionText);
+  resultsDiv.child(optionDiv);
+
+  // Add option progress bar
+  let progressBar = createDiv();
+
+  progressBar.id("progress-bar-" + index);
+  progressBar.addClass("progressBar");
+  resultsDiv.child(progressBar.elt);
 }
