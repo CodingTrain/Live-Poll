@@ -28,7 +28,7 @@ async function countVotes() {
   poll_id = getPollID();
 
   // Fetch the poll
-  const response = await fetch(`/poll/${poll_id}`);
+  const response = await fetch(`/api/poll/${poll_id}`);
   // Extract the json
   poll = await response.json();
 
@@ -45,7 +45,7 @@ async function submitVote() {
   // If choice is not undefined
   if (choice) {
     // Store the result of a GET request
-    const response = await fetch(`vote/${poll_id}/${choice}`);
+    const response = await fetch(`/api/vote/${poll_id}/${choice}`);
     // Extract the json frome the response
     const status = await response.json();
 
