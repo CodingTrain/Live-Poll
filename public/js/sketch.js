@@ -7,14 +7,7 @@ let poll = {};
 let poll_id = undefined; // Copy the _id from database.db
 const default_poll_id = "1m325LWz9t1eX2fT";
 let voteButton;
-let trainEngin;
-let trainPart;
 let firstRender = true;
-
-function preload() {
-  trainEngin = loadImage("/assets/engin.png");
-  trainPart = loadImage("/assets/part.png");
-}
 
 async function setup() {
   noCanvas();
