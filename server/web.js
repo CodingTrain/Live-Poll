@@ -14,7 +14,7 @@ router.get("/poll/:pollId", function (req, res) {
 });
 
 router.get("/vote/:pollId", function (req, res) {
-  res.render("poll");
+  res.render("vote");
 });
 
 module.exports = router;
