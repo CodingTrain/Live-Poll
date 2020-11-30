@@ -4,16 +4,8 @@
 // TODO: create different pages for voting, viewing, and poll creation
 
 let poll = {};
-let poll_id; // Copy the _id from database.db
 let voteButton;
-let trainEngin;
-let trainPart;
 let firstRender = true;
-
-function preload() {
-  trainEngin = loadImage("assets/engine.png");
-  trainPart = loadImage("assets/part.png");
-}
 
 async function setup() {
   noCanvas();
@@ -63,6 +55,7 @@ function displayResults(poll) {
     if (totalVotes == 0) percent = 0;
     progressBar.html(Math.round(percent) + "%");
   }
+
   firstRender = false;
 }
 

@@ -2,39 +2,25 @@
 /* eslint-disable no-redeclare */
 /* eslint-disable no-undef */
 
-// Function currently not in use
 function getPollID() {
-  const { pollId } = getURLParams();
-  // TODO:  add a separate page for user to input poll id?
-  if (!pollId) {
-    if (poll_id == undefined) poll_id = prompt("Poll id");
-    return poll_id;
-  }
-  return pollId;
-}
+  const matches = /\/poll\/([0-9a-zA-Z]+)/g.exec(location.href);
 
-function getPollID() {
-  // NOTE: maybe rename this to something smaller like "id" or "ID"
-  const { pollId } = getURLParams();
-  // TODO:  add a separate page for user to input poll id?
-  if (!pollId) return;
+  if (!matches || matches.length !== 2) {
+    throw new Error("No pollId found");
+  }
+
+  const pollId = matches[1];
+
   return pollId;
 }
 
 async function countVotes() {
-  // TODO: this page should be for a specific poll
-
   // Get the poll id
-  poll_id = getPollID();
+  pollId = getPollID();
 
-  let response;
-  if (poll_id) {
-    // Fetch the poll
-    response = await fetch(`/api/poll/${poll_id}`);
-  } else {
-    // Use newest poll created
-    response = await fetch(`/api/poll/newest`);
-  }
+  // Fetch the poll
+  const response = await fetch(`/api/poll/${pollId}`);
+
   // Extract the json
   poll = await response.json();
   poll_id = poll._id;

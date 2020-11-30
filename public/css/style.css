@@ -7,10 +7,10 @@ html, body {
     width: 100%;
     margin: 0;
     padding: 0;
+    background-color: rgba(0,0,0,0);
 }
 
 body {
-    /* background-color: rgb(0, 255, 0); */
     font-family: "Open Sans";
     width: calc(100% - 20px);
     margin: 10px;
@@ -39,14 +39,6 @@ h1::after {
 
 h1, button, #total-votes, .question {
     font-family: 'cubanoregular';
-}
-
-h1::before {
-    content: "🚂";
-}
-
-h1::after {
-    content: "🌈";
 }
 
 main {
