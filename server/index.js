@@ -21,10 +21,14 @@ app.get("/", function (req, res) {
   res.render("index");
 });
 
+app.get("/poll/:pollId", function (req, res) {
+  res.render("poll");
+});
+
 // createNewPoll();
 
-app.get("/vote/:pollId/:choice", async (request, response) => {
-  const { pollId: _id, choice } = request.params;
+app.get("/vote/:pollId/:choice", async (req, res) => {
+  const { pollId: _id, choice } = req.params;
 
   // Query the database for the requested id
   const poll = await database.findOne({ _id });
@@ -32,7 +36,7 @@ app.get("/vote/:pollId/:choice", async (request, response) => {
   // If there is no poll found in the database,
   // send and error response
   if (!poll) {
-    return response.send({
+    return res.send({
       status: "error",
       message: "Invalid Poll ID",
     });
@@ -41,7 +45,7 @@ app.get("/vote/:pollId/:choice", async (request, response) => {
   // If the choice is out of range from the possible options,
   // send and error response
   if (choice < 0 || choice >= poll.options.length) {
-    return response.send({
+    return res.send({
       status: "error",
       message: "Invalid Choice",
     });
@@ -54,16 +58,16 @@ app.get("/vote/:pollId/:choice", async (request, response) => {
   database.update({ _id }, poll);
 
   // Send the response back
-  response.send(poll);
+  res.send(poll);
 }); // End of app.get("/vote/:pollId/:choice")
 
 // Changed name to avoid confusion
-app.get("/poll/:pollId", async (request, response) => {
-  const _id = request.params.pollId;
+app.get("/votes/:pollId", async (req, res) => {
+  const _id = req.params.pollId;
 
   const poll = await database.findOne({ _id });
 
-  response.send(
+  res.send(
     poll || {
       status: "error",
       message: "Poll not found",
@@ -74,16 +78,16 @@ app.get("/poll/:pollId", async (request, response) => {
 // TODO: make './public/create/index.html' the UI for creating polls
 //       so  GET  /create will be UI for new poll
 //       and POST /new    will be creating the poll
-app.post("/new", async (request, response) => {
+app.post("/new", async (req, res) => {
   // request body should be in this form
   // {
   //   question: string,
   //   options:  string[]
   // }
 
-  let { question, options } = request.body;
+  let { question, options } = req.body;
 
-  console.log(request.body);
+  console.log(req.body);
 
   // Truthy filter (falsy values will be removed from the array)
   options = options.filter((x) => x);
@@ -92,7 +96,7 @@ app.post("/new", async (request, response) => {
   let pollID = await createNewPoll(question, options);
 
   // Send a response carryinh the poll id
-  response.send({
+  res.send({
     status: "success",
     message: "Poll created successfully!",
     id: pollID,
