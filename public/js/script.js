@@ -20,8 +20,10 @@ async function countVotes() {
 
   // Fetch the poll
   const response = await fetch(`/api/poll/${pollId}`);
+
   // Extract the json
   poll = await response.json();
+  poll_id = poll._id;
 
   // Throw an error if the poll has an error message
   if (poll.message) throw new Error(poll.message);

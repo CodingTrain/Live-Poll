@@ -1,6 +1,8 @@
+/* eslint-disable no-unused-vars */
 const express = require("express");
 const app = express();
 require("dotenv").config();
+const createNewPoll = require("./helpers/createNewPoll");
 
 const port = process.env.PORT || 3000;
 

@@ -81,7 +81,7 @@
       "avatar_url": "https://avatars3.githubusercontent.com/u/52495055?v=4",
       "profile": "https://github.com/BeeryShklar",
       "contributions": [
-        "code",
+        "code"
       ]
     },
     {
@@ -117,6 +117,15 @@
       "name": "John",
       "avatar_url": "https://avatars1.githubusercontent.com/u/13648537?v=4",
       "profile": "https://github.com/johntalton",
+      "contributions": [
+        "ideas"
+      ]
+    },
+    {
+      "login": "adriaan1313",
+      "name": "Bunnygamers",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/19620346?v=4",
+      "profile": "https://github.com/adriaan1313",
       "contributions": [
         "ideas"
       ]

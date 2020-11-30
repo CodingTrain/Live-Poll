@@ -65,7 +65,21 @@ router.post("/new", async (request, response) => {
   });
 });
 
-// Changed name to avoid confusion
+// GET newest poll data
+// Have to put this route before the generic one because of how express uses routes
+router.get("/poll/newest", async (request, response) => {
+  // Get all polls, sort descending by timestamp, get the first poll
+  const poll = (await database.find({}).sort({ timestamp: -1 }))[0];
+
+  response.send(
+    poll || {
+      status: "error",
+      message: "Poll not found",
+    }
+  );
+});
+
+// GET Poll Data for specific POLL ID
 router.get("/poll/:pollId", async (request, response) => {
   const _id = request.params.pollId;
 
