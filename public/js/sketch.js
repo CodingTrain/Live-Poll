@@ -12,7 +12,7 @@ async function setup() {
   await countVotes();
   setInterval(countVotes, 500);
 
-  let pollQ = select(".question").html(poll.question);
+  select("#question").html(poll.question);
 
   radio = createRadio();
   for (let i = 0; i < poll.options.length; i++) {
@@ -30,7 +30,7 @@ async function setup() {
 function displayResults(poll) {
   // Select DOM elements
   let resultsDiv = select("#results");
-  let noOfVotesP = select("#total-votes");
+  let noOfVotesP = select("#totalVotes");
 
   // Get the number of votes that the most voted option has.
   let maxVotes = poll.votes.reduce((a, b) => (a > b ? a : b));
