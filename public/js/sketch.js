@@ -23,4 +23,5 @@ async function setup() {
   // And add a class and a mouse pressed event listener
   // voteButton.addClass("VoteBTN");
   // voteButton.mousePressed(submitVote);
+
 }
