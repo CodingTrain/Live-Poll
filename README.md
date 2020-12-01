@@ -7,6 +7,7 @@
 
 1. clone repository
 2. run `npm install`
+2. run `npm run postinstall`
 3. run `npm start`
 4. open the page in your browser (https://localhost:3000). It will list all the active polls.
 * https://localhost:3000/createPoll for creating Poll
