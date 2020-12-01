@@ -3,7 +3,7 @@
 /* eslint-disable no-undef */
 
 function getPollID() {
-  const matches = /\/poll\/([0-9a-zA-Z]+)/g.exec(location.href);
+  const matches = /\/(?:poll|vote)\/([0-9a-zA-Z]+)/g.exec(location.href);
 
   if (!matches || matches.length !== 2) {
     throw new Error("No pollId found");
@@ -16,14 +16,13 @@ function getPollID() {
 
 async function countVotes() {
   // Get the poll id
-  pollId = getPollID();
+  poll_id = getPollID();
 
   // Fetch the poll
-  const response = await fetch(`/api/poll/${pollId}`);
+  const response = await fetch(`/api/poll/${poll_id}`);
 
   // Extract the json
   poll = await response.json();
-  poll_id = poll._id;
 
   // Throw an error if the poll has an error message
   if (poll.message) throw new Error(poll.message);
@@ -43,6 +42,8 @@ async function submitVote() {
     const status = await response.json();
 
     console.log(status);
+    alert("Your Vote has been successfully submitted.");
+    location.href = `/poll/${poll_id}`;
   } else {
     console.log("no choice selected");
   }

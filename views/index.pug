@@ -5,4 +5,16 @@ html
     title="Live Coding Train Poll"
     script(src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js")
   body
-    h1="Active poll overviews"
+    h1="Coding Train Live Poll"
+    h2="Currently Active Polls"
+    if polls.length
+      ul
+        each poll of polls 
+          li
+            a(href=`/poll/${poll._id}`)=`${poll.question}`
+            br
+            span(class="date")=`Created on: ${new Date(poll.timestamp).toDateString()}`
+      a(href="/createPoll") Create a Poll
+    else
+      p No Polls Found!
+      a(href="/createPoll") Create One Here
