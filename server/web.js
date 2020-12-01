@@ -17,7 +17,12 @@ router.get("/poll/:pollId", async function (req, res) {
   const _id = req.params.pollId;
   const poll = await database.findOne({ _id });
 
-  res.render("poll", { poll });
+  if (!poll) {
+    res.status(404);
+    res.render("notfound");
+  } else {
+    res.render("poll", { poll });
+  }
 });
 
 //Page to add a vote to a poll
