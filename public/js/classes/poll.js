@@ -13,39 +13,7 @@ class Poll {
   }
 
   async startPollingForVotes() {
-    await this.initPollResults();
     setInterval(this.updatePoll.bind(this), 500);
-  }
-
-  async initPollResults() {
-    await this.fetchPollResults();
-
-    //Set title of poll
-    select("#question").html(this.pollDetails.question);
-
-    const resultsDiv = select("#results");
-
-    //Init dom elements
-    for (let i = 0; i < this.pollDetails.votes.length; i++) {
-      // Container div per option
-      const optionDiv = createDiv();
-      optionDiv.addClass("option");
-
-      // Add option text on a separate line, so it can get any length
-      const optionText = createSpan(this.pollDetails.options[i]);
-
-      optionDiv.child(optionText);
-      resultsDiv.child(optionDiv);
-
-      // Add option progress bar
-      const progressBar = createDiv();
-      progressBar.id("progress-bar-" + i);
-      progressBar.addClass("progressBar");
-
-      resultsDiv.child(progressBar.elt);
-    }
-
-    this.updatePollResults();
   }
 
   async updatePoll() {
@@ -56,6 +24,8 @@ class Poll {
   updatePollResults() {
     const pollDetails = this.getPollVotesStats();
 
+    select("#totalVotes").html(pollDetails.totalVotes + "votes");
+
     for (let i = 0; i < this.pollDetails.votes.length; i++) {
       let count = this.pollDetails.votes[i];
       let width =
@@ -64,7 +34,7 @@ class Poll {
           : round(map(count, 0, pollDetails.maxVotes, 0, 100));
 
       // Get the progress bar element
-      const progressBar = select("#progress-bar-" + i);
+      const progressBar = select("#progressBar_" + i);
       // Set the width
       progressBar.style("width", width + "%");
       // Set the text
