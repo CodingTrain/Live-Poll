@@ -25,7 +25,7 @@ let accessState = {};
 
 // # How many seconds before a record becomes
 // # stale and should be deleted.
-const deltaSecondsFlushID = 30;
+const deltaSecondsFlushID = 60 * 60 * 24; //Only 1 vote per day
 
 // # How many seconds before <accessState>
 // # is scanned for stale records. Used to
@@ -60,6 +60,22 @@ function tryFlushStale() {
 }
 
 // # Check if an id has used up its access.
+// # Each call to this func will also remove
+// # all stale records (see <truFlushStale>
+// # in this pkg).
+// #
+// # Recommended usage for this live-poll app:
+// #    id=ip               -- scope: global.
+// #    id=poll/ip          -- scope: poll.
+// #    id=poll/option/ip   -- scope: option.
+function check(id) {
+  // # Remove old.
+  tryFlushStale();
+
+  return accessState[id] == undefined;
+}
+
+// # Check if an id has used up its access.
 // # If it is new, then it will be registered
 // # and true will be returned, else false.
 // #
@@ -71,7 +87,7 @@ function tryFlushStale() {
 // #    id=ip               -- scope: global.
 // #    id=poll/ip          -- scope: poll.
 // #    id=poll/option/ip   -- scope: option.
-function check(id) {
+function checkAndRegister(id) {
   // # Remove old.
   tryFlushStale();
 
@@ -86,4 +102,9 @@ function check(id) {
 }
 
 // # Export of numbers is done for unit testing.
-module.exports = { check, deltaSecondsFlushID, deltaSecondsFlushScan };
+module.exports = {
+  check,
+  checkAndRegister,
+  deltaSecondsFlushID,
+  deltaSecondsFlushScan,
+};

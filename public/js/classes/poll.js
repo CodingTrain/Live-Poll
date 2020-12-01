@@ -13,6 +13,7 @@ class Poll {
   }
 
   async startPollingForVotes() {
+    this.updatePoll();
     setInterval(this.updatePoll.bind(this), 500);
   }
 
@@ -24,7 +25,7 @@ class Poll {
   updatePollResults() {
     const pollDetails = this.getPollVotesStats();
 
-    select("#totalVotes").html(pollDetails.totalVotes + "votes");
+    select("#totalVotes").html(pollDetails.totalVotes + " votes");
 
     for (let i = 0; i < this.pollDetails.votes.length; i++) {
       let count = this.pollDetails.votes[i];
