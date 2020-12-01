@@ -37,9 +37,6 @@ router.get("/vote/:pollId/:choice", async (request, response) => {
   response.send(poll);
 }); // End of app.get("/vote/:pollId/:choice")
 
-// TODO: make './public/create/index.html' the UI for creating polls
-//       so  GET  /create will be UI for new poll
-//       and POST /new    will be creating the poll
 router.post("/new", async (request, response) => {
   // request body should be in this form
   // {
@@ -48,8 +45,6 @@ router.post("/new", async (request, response) => {
   // }
 
   let { question, options } = request.body;
-
-  console.log(request.body);
 
   // Truthy filter (falsy values will be removed from the array)
   options = options.filter((x) => x);

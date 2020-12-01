@@ -24,4 +24,4 @@ const apiRoutes = require("./api");
 app.use("/api", apiRoutes);
 
 // const createNewPoll = require("./helpers/createNewPoll");
-// createNewPoll();
+// createNewPoll("Your question here", ["Option A", "Option B", "Option C"]);
