@@ -7,10 +7,11 @@
 
 1. clone repository
 2. run `npm install`
-3. run `npm run dev`
-4. un comment **/index.js** line 19 `// createNewPoll();`, (modify question/options arguments), save.
-5. comment **/index.js** line 19 `createNewPoll();`, save.
-6. open the page in your browser (https://localhost:3000). It will automatically use the last created poll.
+3. run `npm start`
+4. open the page in your browser (https://localhost:3000). It will list all the active polls.
+* https://localhost:3000/createPoll for creating Poll
+* https://localhost:3000/poll/{pollId} for results of specific poll
+* https://localhost:3000/vote/{pollId} for voting in a poll
 
 
 

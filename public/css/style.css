@@ -7,7 +7,7 @@ html, body {
     width: 100%;
     margin: 0;
     padding: 0;
-    background-color: rgba(0,0,0,0);
+    background-color: rgba(0, 0, 0, 0);
 }
 
 body {
@@ -48,4 +48,8 @@ main {
 
 .question {
     font-size: 14pt;
+}
+
+textarea, input {
+    font-family: inherit;
 }
