@@ -2,13 +2,15 @@ doctype html
 html
   head
     link(rel="stylesheet" href="/css/style.css")
-    title="Live Coding Train Poll"
+    title Live Coding Train Poll
     script(src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js")
   body
-    h1="Coding Train Live Poll"
-    h2="Live Poll Results"
-    p(class="question")
-    div(id="results")
-    p(id="total-votes")
-    script(src="/js/script.js")
-    script(src="/js/sketch.js")
+    h1=poll.question
+    div#results
+      each val, index in poll.options
+        div.option
+          div=val
+          div(id="progressBar_" + index class="progressBar")
+    p#totalVotes
+    script(src="/js/classes/poll.js")
+    script(src="/js/sketches/poll.js")

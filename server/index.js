@@ -16,6 +16,10 @@ app.set("view engine", "pug");
 
 app.use(express.static("public"));
 app.use(express.json()); // For parsing application/json
+<<<<<<< HEAD
+>>>>>>> upstream/main
+=======
+app.use(express.urlencoded({ extended: true })); // to support URL-encoded bodies
 >>>>>>> upstream/main
 
 // Routes
