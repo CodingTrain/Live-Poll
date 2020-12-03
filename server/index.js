@@ -16,11 +16,9 @@ app.set("view engine", "pug");
 
 app.use(express.static("public"));
 app.use(express.json()); // For parsing application/json
-<<<<<<< HEAD
->>>>>>> upstream/main
-=======
+
 app.use(express.urlencoded({ extended: true })); // to support URL-encoded bodies
->>>>>>> upstream/main
+
 
 // Routes
 const webRoutes = require("./web");
@@ -29,7 +27,7 @@ app.use("/", webRoutes);
 
 const apiRoutes = require("./api");
 app.use("/api", apiRoutes);
->>>>>>> upstream/main
+
 
 // const createNewPoll = require("./helpers/createNewPoll");
 // createNewPoll("Your question here", ["Option A", "Option B", "Option C"]);

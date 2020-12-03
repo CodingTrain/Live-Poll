@@ -16,17 +16,14 @@ body {
     margin: 10px;
 }
 
-h1::before {
-    content: "🚂 ";
+h1::before {content: "🚂 ";}
+h1::after {content: " 🌈";}
+
+h1, button, #total-votes, .question {
+    font-family: 'cubanoregular';
 }
 
-h1::after {
-    content: " 🌈";
-}
-
-#results {
-    width: calc(100% - 20px);
-}
+#results {width: calc(100% - 20px);}
 
 .progressBar {
     margin: 0 5px 5px 0;
@@ -39,16 +36,8 @@ h1::after {
     border-radius: 100px;
 }
 
-h1, button, #total-votes, .question {
-    font-family: 'cubanoregular';
-}
-
 main {
     width: min-content;
-}
-
-.question {
-    font-size: 14pt;
 }
 
 textarea, input {
