@@ -2,9 +2,14 @@ const express = require("express");
 const router = express.Router();
 const database = require("./helpers/database");
 const floodChecker = require("./validation/antipollspam");
+const basicauth = require("./validation/basicauth");
 
 //Index page to have an overview of active polls (and be able to manage them perhaps) - might need some password protection
 router.get("/", async (req, res) => {
+  if (!basicauth.isAuthenticated(req, res)) {
+    return;
+  }
+
   res.render("index", {
     polls: await database.find({}).sort({ timestamp: -1 }),
   });
