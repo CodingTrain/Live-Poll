@@ -35,7 +35,9 @@ h1::after {
     color: white;
     transition: width 1s;
     font-family: 'cubanoregular';
+    text-shadow: -1px 1px #000;
     border-radius: 100px;
+    min-width: 20px;
 }
 
 h1, button, #total-votes, .question {
