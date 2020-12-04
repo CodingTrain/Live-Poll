@@ -7,10 +7,11 @@
 
 1. clone repository
 2. copy .env.example file to a .env file and make adjustments in the configuration where needed
-2. run `npm install`
-3. run `npm start` (production mode) or `npm run dev` (development mode)
-4. open the page in your browser (https://localhost:3000). It will list all the active polls.
-* https://localhost:3000/createPoll for creating Poll
+3. run `npm install`
+4. run `npm start` (production mode) or `npm run dev` (development mode)
+5. open the page in your browser (https://localhost:3000). It will list all the active polls.
+* https://localhost:3000/ for overview of all polls
+* https://localhost:3000/create for creating Poll
 * https://localhost:3000/poll/{pollId} for results of specific poll
 * https://localhost:3000/vote/{pollId} for voting in a poll
 
