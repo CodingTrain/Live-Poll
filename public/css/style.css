@@ -1,0 +1,45 @@
+@font-face {
+    font-family: "cubanoregular";
+    src: url("https://thecodingtrain.com/assets/fonts/cubano-regular-webfont.woff2");
+}
+
+html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+body {
+    font-family: "Open Sans";
+    width: calc(100% - 20px);
+    margin: 10px;
+}
+
+h1::before {content: "🚂 ";}
+h1::after {content: " 🌈";}
+
+h1, button, #total-votes, .question {
+    font-family: 'cubanoregular';
+}
+
+#results {width: calc(100% - 20px);}
+
+.progressBar {
+    margin: 0 5px 5px 0;
+    padding: 0 10px;
+    background: linear-gradient(90deg, red,  yellow, green, blue,  violet);
+    /* background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet); */
+    color: white;
+    transition: width 1s;
+    font-family: 'cubanoregular';
+    border-radius: 100px;
+}
+
+main {
+    width: min-content;
+}
+
+textarea, input {
+    font-family: inherit;
+}
