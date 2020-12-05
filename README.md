@@ -7,12 +7,14 @@
 
 1. clone repository
 2. run `npm install`
+2. run `npm run postinstall`
 3. run `npm start`
 4. open the page in your browser (https://localhost:3000). It will list all the active polls.
 * https://localhost:3000/createPoll for creating Poll
 * https://localhost:3000/poll/{pollId} for results of specific poll
 * https://localhost:3000/vote/{pollId} for voting in a poll
 
+<!-- or change **public/sketch** line 8 'const default_poll_id = "ChangeThis"; // Copy the _id from /database.db', save. -->
 
 
 ## Contributors ✨
