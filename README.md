@@ -1,21 +1,22 @@
 # Live-Poll
+
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-13-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ## Set Up
 
-1. clone repository
-2. run `npm install`
-2. run `npm run postinstall`
-3. run `npm start`
-4. open the page in your browser (https://localhost:3000). It will list all the active polls.
-* https://localhost:3000/createPoll for creating Poll
-* https://localhost:3000/poll/{pollId} for results of specific poll
-* https://localhost:3000/vote/{pollId} for voting in a poll
+1. Clone the repository
+1. Run `npm install`
+1. Run `npm run postinstall`
+1. Run `npm start`
+1. Open the website in your web browser (http://localhost:3000). It will list all the active polls.
 
-<!-- or change **public/sketch** line 8 'const default_poll_id = "ChangeThis"; // Copy the _id from /database.db', save. -->
+## Available Routes
 
+* http://localhost:3000/create for creating a new poll
+* http://localhost:3000/poll/{pollId} for the results of specific poll
+* http://localhost:3000/vote/{pollId} for voting in a poll
 
 ## Contributors ✨
 
