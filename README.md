@@ -15,7 +15,8 @@
 ## Available Routes
 
 * http://localhost:3000/create for creating a new poll
-* http://localhost:3000/poll/{pollId} for the results of specific poll
+* http://localhost:3000/newest for the results of the newest poll
+* http://localhost:3000/poll/{pollId} for the results of a specific poll
 * http://localhost:3000/vote/{pollId} for voting in a poll
 
 ## Contributors ✨
