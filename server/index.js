@@ -1,28 +1,35 @@
 /* eslint-disable no-unused-vars */
+require("dotenv").config();
 const express = require("express");
 const app = express();
-require("dotenv").config();
-
-const port = process.env.PORT || 3000;
-
-app.listen(port, () =>
-  console.log(`Server running at http://localhost:${port}`)
-);
+const http = require('http').createServer(app)
+const io = require("socket.io")(http);
+global.broadcaster = require("./helpers/broadcaster");
 
 app.set("views", "./views");
 app.set("view engine", "pug");
 
-
 app.use(express.static("public"));
 app.use(express.json()); // For parsing application/json
-
 app.use(express.urlencoded({ extended: true })); // to support URL-encoded bodies
-
 
 // Routes
 const webRoutes = require("./web");
 app.use("/", webRoutes);
 
-
 const apiRoutes = require("./api");
 app.use("/api", apiRoutes);
+
+io.on('connection', (socket) => {
+  socket.on('listenForPoll', (pollId) => {
+    global.broadcaster.registerSocket(pollId, socket);
+  });
+  socket.on('disconnect', () => {
+    global.broadcaster.unregisterSocket(socket.id)
+  })
+});
+
+const port = process.env.PORT || 3000;
+http.listen(port, () =>
+  console.log(`Server running at http://localhost:${port}`)
+);

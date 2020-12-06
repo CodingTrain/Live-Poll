@@ -10,19 +10,25 @@ class Poll {
     }
 
     this.pollId = matches[1];
+
+    this.socket = io({pollId: this.pollId});
+
+    this.socket.on("connect", (function() {
+      this.socket.emit("listenForPoll", this.pollId);
+    }).bind(this))
+
+    this.socket.on("updatePoll", this.updatePollResults.bind(this));
   }
 
-  async startPollingForVotes() {
-    this.updatePoll();
-    setInterval(this.updatePoll.bind(this), 500);
-  }
-
-  async updatePoll() {
+  async initPoll() {
     await this.fetchPollResults();
     this.updatePollResults();
   }
 
-  updatePollResults() {
+  updatePollResults(poll) {
+    if (poll) {
+      this.pollDetails = poll;
+    }
     const pollDetails = this.getPollVotesStats();
 
     select("#totalVotes").html(pollDetails.totalVotes + " votes");

@@ -51,7 +51,7 @@ router.get("/vote/:pollId", async function (req, res) {
   const _id = req.params.pollId;
   const floodCheckId = _id + "_" + req.ip;
 
-  const hasVoted = !floodChecker.check(floodCheckId);
+  const hasVoted = !floodChecker.check(floodCheckId)
 
   //Forward user to poll results page if already voted
   if (hasVoted) {
@@ -104,6 +104,9 @@ router.post("/vote/:pollId", async function (req, res) {
 
   // Push the update to the database
   database.update({ _id }, poll);
+
+  //Push update to all connected clients
+  global.broadcaster.updatePoll(poll);
 
   // Forward user to poll results page
   res.redirect("/poll/" + _id);

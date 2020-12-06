@@ -4,7 +4,7 @@
 async function setup() {
   noCanvas();
   poll = new Poll();
-  poll.startPollingForVotes();
+  poll.initPoll();
   //regex for custom views (overlay and nogradient)
   const altViewRegEx = /(\?|\&)view=(overlay|nogradient)($|\&)/;
   //detect if there is a custom view
