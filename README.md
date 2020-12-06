@@ -5,7 +5,6 @@
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ## Set Up
-
 1. Clone the repository
 1. Run `npm install`
 1. Run `npm run postinstall`
@@ -18,6 +17,8 @@
 * http://localhost:3000/newest to show the results of the newest poll
 * http://localhost:3000/poll/{pollId} to show the results of a poll
 * http://localhost:3000/vote/{pollId} to vote in a poll
+* https://localhost:3000/poll/{pollId}?view=overlay for results of specific poll (semi-transperant white background)
+* https://localhost:3000/poll/{pollId}?view=nogradient for results of specific poll (progress bars without gradients)
 
 ## Contributors ✨
 
