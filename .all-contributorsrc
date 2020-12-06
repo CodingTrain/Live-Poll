@@ -147,6 +147,16 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "GiggioG",
+      "name": "GiggioG",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/47040505?v=4",
+      "profile": "https://giggiog.github.com",
+      "contributions": [
+        "code",
+        "design"
+      ]
     }
   ],
   "contributorsPerLine": 7,
