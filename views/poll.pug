@@ -14,8 +14,11 @@ html
     p#totalVotes
     div#views
       ul
-        li
+        li  
           a(href="?view=overlay") overlay view
+          //- no normal veiw link because links disapered when in overlay mode 
+            maybe move to footer and make it a toggle
+
     script(src="/js/classes/poll.js")
     script(src="/js/sketches/poll.js")
     include footer.pug
