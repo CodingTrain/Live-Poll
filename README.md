@@ -8,10 +8,10 @@
 
 ## Set Up
 
-1. Clone the repository
-1. Run `npm install`
-1. Run `npm run postinstall`
-1. Run `npm start`
+1. Clone the repository.
+1. Run `npm install`.
+1. Run `npm run postinstall`.
+1. Run `npm start`.
 1. Open the website in your web browser ([http://localhost:3000](http://localhost:3000)). It will list all the active polls.
 
 ## Available Routes
