@@ -2,6 +2,13 @@
     font-family: "cubanoregular";
     src: url("https://thecodingtrain.com/assets/fonts/cubano-regular-webfont.woff2");
 }
+:root {
+    --codingtrain-fontface: "cubanoregular";
+    --gradient: linear-gradient(90deg, red, yellow, green, blue, violet);
+    --monochrome-gradient: repeating-linear-gradient(60deg, #A42963, #A42963 10px, #F063A4 10px, #F063A4 20px);
+    --no-gradient: black;
+    --progressbar-color: white;
+}
 
 html,
 body {
@@ -34,8 +41,11 @@ button,
 .progressBar {
     margin: 0 5px 5px 0;
     padding: 5px 20px;
-    color: white;
-    background: purple;
+
+    color: var(--progressbar-color);
+    /* background: repeating-linear-gradient(30deg, #A42963 10px, #F063A4 30px); */
+    background: var(--monochrome-gradient);
+
     transition: width 1s;
     font-family: var(--codingtrain-fontface);
     font-size: larger;
@@ -63,8 +73,8 @@ input {
 }
 
 #options-wrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(min-content, 1fr));
+    justify-items: center;
     
 }
