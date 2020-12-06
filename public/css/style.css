@@ -50,8 +50,9 @@ button,
     transition: width 1s;
     font-family: var(--codingtrain-fontface);
     font-size: larger;
+    text-shadow: -1px 1px #000;
     border-radius: 100px;
-
+    min-width: 20px;
 }
 
 .gradient {
@@ -66,7 +67,6 @@ textarea,
 input {
     font-family: inherit;
 }
-
 #footer {
     position: fixed;
     bottom: 30px;

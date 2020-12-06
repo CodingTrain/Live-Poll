@@ -5,18 +5,20 @@
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ## Set Up
-1. Clone the repository
-1. Run `npm install`
+
+1. clone repository
+1. copy .env.example file to a .env file and make adjustments in the configuration where needed
+1. run `npm install`
 1. Run `npm run postinstall`
-1. Run `npm start`
-1. Open the website in your web browser (http://localhost:3000). It will list all the active polls.
+1. run `npm start` (production mode) or `npm run dev` (development mode)
+1. open the page in your browser (https://localhost:3000). It will list all the active polls.
 
 ## Available Routes
 
 * http://localhost:3000/create to create a new poll
 * http://localhost:3000/newest to show the results of the newest poll
-* http://localhost:3000/poll/{pollId} to show the results of a poll
 * http://localhost:3000/vote/{pollId} to vote in a poll
+* http://localhost:3000/poll/{pollId} to show the results of a poll
 * https://localhost:3000/poll/{pollId}?view=overlay for results of specific poll (semi-transperant white background)
 * https://localhost:3000/poll/{pollId}?view=nogradient for results of specific poll (progress bars without gradients)
 
