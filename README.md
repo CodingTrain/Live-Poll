@@ -16,8 +16,7 @@
 * http://localhost:3000/vote/{pollId} to vote in a poll
 
 * http://localhost:3000/poll/{pollId} to show the results of a poll
-* https://localhost:3000/poll/{pollId}?view=overlay for results of specific poll (semi-transperant white background)
-* https://localhost:3000/poll/{pollId}?view=nogradient for results of specific poll (progress bars without gradients)
+* http://localhost:3000/poll/{pollId}?view=overlay for results of specific poll (semi-transperant white background)
 
 
 ### optional

@@ -3,12 +3,6 @@
     src: url("https://thecodingtrain.com/assets/fonts/cubano-regular-webfont.woff2");
 }
 
-:root {
-    --codingtrain-fontface: "cubanoregular";
-    --gradient: linear-gradient(90deg, red, yellow, green, blue, violet);
-    --no-gradient: black;
-}
-
 html,
 body {
     width: 100%;
@@ -23,12 +17,8 @@ body {
     margin: 10px;
 }
 
-h1::before {
-    content: "🚂 ";
-}
-h1::after {
-    content: " 🌈";
-}
+h1::before { content: "🚂 "; }
+h1::after  { content: " 🌈"; }
 
 h1,
 button,
@@ -45,7 +35,7 @@ button,
     margin: 0 5px 5px 0;
     padding: 5px 20px;
     color: white;
-    background: black;
+    background: purple;
     transition: width 1s;
     font-family: var(--codingtrain-fontface);
     font-size: larger;

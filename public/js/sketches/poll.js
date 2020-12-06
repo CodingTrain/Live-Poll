@@ -14,13 +14,6 @@ async function setup() {
     //get the custom view name into a variable
     const altView = altViewRegEx.exec(location.href)[2];
     switch (altView) {
-      //custom view: no gradient
-      case "nogradient": {
-        //set the progress bars colors to purple
-        document.querySelectorAll("div.progressBar").forEach(p => {
-          p.style.background = "purple";
-        });
-      } break;
       case "overlay": {
         //set the background to semi-transperant white
         document.body.style.background = "rgba(255,255,255,50%)"
