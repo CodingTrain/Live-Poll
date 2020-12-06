@@ -26,7 +26,6 @@ body {
 h1::before {
     content: "🚂 ";
 }
-
 h1::after {
     content: " 🌈";
 }
@@ -78,7 +77,6 @@ div#views {
     bottom: 0px;
     width:98%;
 }
-
 div#views ul{
     list-style: none;
     display: flex;
