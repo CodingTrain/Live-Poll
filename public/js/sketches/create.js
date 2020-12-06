@@ -47,12 +47,15 @@ function setup() {
 
     const voteLink = location.origin + "/vote/" + id;
     const pollLink = location.origin + "/poll/" + id;
+    const pollOverlayLink = location.origin + "/poll/" + id + "?view=overlay";
+    const pollNoGradientLink = location.origin + "/poll/" + id + "?view=nogradient";
     createDiv(`
     Poll Created Successfully.<br>
     Poll ID: ${id}<br>
-    Poll Voting Link: <a href="${voteLink}">
-    ${voteLink}</a><br>
-    Poll Results Link: <a href="${pollLink}">${pollLink}</a>
+    Poll Voting Link: <a href="${voteLink}">${voteLink}</a><br>
+    Poll Results Link: <a href="${pollLink}">${pollLink}</a><br>
+    Poll Results Overlay Link: <a href="${pollOverlayLink}">${pollOverlayLink}</a><br>
+    Poll Results Link (No Gradients): <a href="${pollNoGradientLink}">${pollNoGradientLink}</a>
     `);
   });
 }
