@@ -6,7 +6,9 @@
 :root {
     --codingtrain-fontface: "cubanoregular";
     --gradient: linear-gradient(90deg, red, yellow, green, blue, violet);
+    --monochrome-gradient: repeating-linear-gradient(60deg, #A42963, #A42963 10px, #F063A4 10px, #F063A4 20px);
     --no-gradient: black;
+    --progressbar-color: white;
 }
 
 html,
@@ -45,8 +47,9 @@ button,
 .progressBar {
     margin: 0 5px 5px 0;
     padding: 5px 20px;
-    color: white;
-    background: black;
+    color: var(--progressbar-color);
+    /* background: repeating-linear-gradient(30deg, #A42963 10px, #F063A4 30px); */
+    background: var(--monochrome-gradient);
     transition: width 1s;
     font-family: var(--codingtrain-fontface);
     font-size: larger;
@@ -67,21 +70,19 @@ textarea,
 input {
     font-family: inherit;
 }
-#footer {
-    position: fixed;
-    bottom: 30px;
 
-}
 
 div#views {
     position: absolute;
     bottom: 0px;
-    width:98%;
+    width: 98%;
 }
 
-div#views ul{
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+
+div#views ul {
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(min-content, 1fr));
+    justify-items: center;
+
 }
