@@ -157,6 +157,16 @@
         "code",
         "design"
       ]
+    },
+    {
+      "login": "elunico",
+      "name": "Tom",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/10181211?v=4",
+      "profile": "http://eluni.co",
+      "contributions": [
+        "code",
+        "design"
+      ]
     }
   ],
   "contributorsPerLine": 7,
