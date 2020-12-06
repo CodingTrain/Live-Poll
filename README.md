@@ -1,6 +1,6 @@
 # Live-Poll
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-13-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-14-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ## Set Up
@@ -41,6 +41,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="http://www.shiffman.net"><img src="https://avatars0.githubusercontent.com/u/191758?v=4" width="100px;" alt=""/><br /><sub><b>Daniel Shiffman</b></sub></a><br /><a href="https://github.com/CodingTrain/Live-Poll/commits?author=shiffman" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/johntalton"><img src="https://avatars1.githubusercontent.com/u/13648537?v=4" width="100px;" alt=""/><br /><sub><b>John</b></sub></a><br /><a href="#ideas-johntalton" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://github.com/adriaan1313"><img src="https://avatars0.githubusercontent.com/u/19620346?v=4" width="100px;" alt=""/><br /><sub><b>Bunnygamers</b></sub></a><br /><a href="#ideas-adriaan1313" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="http://cbkm.in"><img src="https://avatars1.githubusercontent.com/u/38382861?v=4" width="100px;" alt=""/><br /><sub><b>Rajaram Joshi</b></sub></a><br /><a href="https://github.com/CodingTrain/Live-Poll/commits?author=TheCBKM" title="Documentation">📖</a></td>
   </tr>
 </table>
 
