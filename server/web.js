@@ -17,6 +17,9 @@ router.get("/", async (req, res) => {
 
 //Page to create a new poll
 router.get("/create", function (req, res) {
+  if (!basicauth.isAuthenticated(req, res)) {
+    return;
+  }
   res.render("create");
 });
 
