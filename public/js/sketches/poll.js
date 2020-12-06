@@ -28,8 +28,6 @@ async function setup() {
   const root = document.documentElement;
   root.style.setProperty('--monochrome-gradient', gradient);
 
-  console.log(green(color(first)))
-  console.log(green(color(second)))
   if (green(color(first)) > 127 && green(color(second)) > 127) {
     root.style.setProperty('--progressbar-color', 'black');
   }

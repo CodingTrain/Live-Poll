@@ -10,6 +10,7 @@
     --progressbar-color: white;
 }
 
+/* main */
 html,
 body {
     width: 100%;
@@ -34,29 +35,6 @@ button,
     font-family: var(--codingtrain-fontface);
 }
 
-#results {
-    width: calc(100% - 20px);
-}
-
-.progressBar {
-    margin: 0 5px 5px 0;
-    padding: 5px 20px;
-
-    color: var(--progressbar-color);
-    /* background: repeating-linear-gradient(30deg, #A42963 10px, #F063A4 30px); */
-    background: var(--monochrome-gradient);
-
-    transition: width 1s;
-    font-family: var(--codingtrain-fontface);
-    font-size: larger;
-    border-radius: 100px;
-
-}
-
-.gradient {
-    background: linear-gradient(90deg, red, yellow, green, blue, violet);
-}
-
 main {
     width: min-content;
 }
@@ -66,6 +44,28 @@ input {
     font-family: inherit;
 }
 
+/* poll */
+#results {
+    width: calc(100% - 20px);
+}
+
+.progressBar {
+    margin: 0 5px 5px 0;
+    padding: 5px 20px;
+
+    color: var(--progressbar-color);
+    background: var(--monochrome-gradient);
+
+    transition: width 1s;
+    font-family: var(--codingtrain-fontface);
+    font-size: larger;
+    border-radius: 100px;
+}
+.gradient {
+    background: var(--gradient);
+}
+
+/* footer */
 #footer {
     position: fixed;
     bottom: 30px;
