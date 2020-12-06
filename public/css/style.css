@@ -3,7 +3,14 @@
     src: url("https://thecodingtrain.com/assets/fonts/cubano-regular-webfont.woff2");
 }
 
-html, body {
+:root {
+    --codingtrain-fontface: "cubanoregular";
+    --gradient: linear-gradient(90deg, red, yellow, green, blue, violet);
+    --no-gradient: black;
+}
+
+html,
+body {
     width: 100%;
     margin: 0;
     padding: 0;
@@ -12,34 +19,69 @@ html, body {
 
 body {
     font-family: "Open Sans";
-    width: calc(100% - 20px);
+    width: calc(100% - 40px);
     margin: 10px;
 }
 
-h1::before {content: "🚂 ";}
-h1::after {content: " 🌈";}
-
-h1, button, #total-votes, .question {
-    font-family: 'cubanoregular';
+h1::before {
+    content: "🚂 ";
 }
 
-#results {width: calc(100% - 20px);}
+h1::after {
+    content: " 🌈";
+}
+
+h1,
+button,
+#total-votes,
+.question {
+    font-family: var(--codingtrain-fontface);
+}
+
+#results {
+    width: calc(100% - 20px);
+}
 
 .progressBar {
     margin: 0 5px 5px 0;
-    padding: 0 10px;
-    background: linear-gradient(90deg, red,  yellow, green, blue,  violet);
-    /* background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet); */
+    padding: 5px 20px;
     color: white;
+    background: black;
     transition: width 1s;
-    font-family: 'cubanoregular';
+    font-family: var(--codingtrain-fontface);
+    font-size: larger;
     border-radius: 100px;
+
+}
+
+.gradient {
+    background: linear-gradient(90deg, red, yellow, green, blue, violet);
 }
 
 main {
     width: min-content;
 }
 
-textarea, input {
+textarea,
+input {
     font-family: inherit;
+}
+
+#footer {
+    position: fixed;
+    bottom: 30px;
+
+}
+
+div#views {
+    position: absolute;
+    bottom: 0px;
+    width:98%;
+}
+
+div#views ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }

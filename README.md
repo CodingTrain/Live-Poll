@@ -1,6 +1,6 @@
 # Live-Poll
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-13-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-17-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ## Set Up
@@ -13,8 +13,12 @@
 ## Available Routes
 * http://localhost:3000/create to create a new poll
 * http://localhost:3000/newest to show the results of the newest poll
-* http://localhost:3000/poll/{pollId} to show the results of a poll
 * http://localhost:3000/vote/{pollId} to vote in a poll
+
+* http://localhost:3000/poll/{pollId} to show the results of a poll
+* https://localhost:3000/poll/{pollId}?view=overlay for results of specific poll (semi-transperant white background)
+* https://localhost:3000/poll/{pollId}?view=nogradient for results of specific poll (progress bars without gradients)
+
 
 ### optional
 Ive had trouble pushing to my repo if thats the case for you try running `npm run postinstall`
@@ -43,6 +47,12 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="http://www.shiffman.net"><img src="https://avatars0.githubusercontent.com/u/191758?v=4" width="100px;" alt=""/><br /><sub><b>Daniel Shiffman</b></sub></a><br /><a href="https://github.com/CodingTrain/Live-Poll/commits?author=shiffman" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/johntalton"><img src="https://avatars1.githubusercontent.com/u/13648537?v=4" width="100px;" alt=""/><br /><sub><b>John</b></sub></a><br /><a href="#ideas-johntalton" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://github.com/adriaan1313"><img src="https://avatars0.githubusercontent.com/u/19620346?v=4" width="100px;" alt=""/><br /><sub><b>Bunnygamers</b></sub></a><br /><a href="#ideas-adriaan1313" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="http://cbkm.in"><img src="https://avatars1.githubusercontent.com/u/38382861?v=4" width="100px;" alt=""/><br /><sub><b>Rajaram Joshi</b></sub></a><br /><a href="https://github.com/CodingTrain/Live-Poll/commits?author=TheCBKM" title="Documentation">📖</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="http://aassila.com"><img src="https://avatars1.githubusercontent.com/u/47226184?v=4" width="100px;" alt=""/><br /><sub><b>Younes Aassila</b></sub></a><br /><a href="https://github.com/CodingTrain/Live-Poll/commits?author=younesaassila" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://giggiog.github.com"><img src="https://avatars3.githubusercontent.com/u/47040505?v=4" width="100px;" alt=""/><br /><sub><b>GiggioG</b></sub></a><br /><a href="https://github.com/CodingTrain/Live-Poll/commits?author=GiggioG" title="Code">💻</a> <a href="#design-GiggioG" title="Design">🎨</a></td>
+    <td align="center"><a href="http://eluni.co"><img src="https://avatars3.githubusercontent.com/u/10181211?v=4" width="100px;" alt=""/><br /><sub><b>Tom</b></sub></a><br /><a href="https://github.com/CodingTrain/Live-Poll/commits?author=elunico" title="Code">💻</a> <a href="#design-elunico" title="Design">🎨</a></td>
   </tr>
 </table>
 
