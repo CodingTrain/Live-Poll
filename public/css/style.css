@@ -61,15 +61,3 @@ input {
     bottom: 30px;
 
 }
-
-div#views {
-    position: absolute;
-    bottom: 0px;
-    width:98%;
-}
-div#views ul{
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-}
