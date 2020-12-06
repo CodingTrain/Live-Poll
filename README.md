@@ -1,24 +1,27 @@
 # Live-Poll
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+
 [![All Contributors](https://img.shields.io/badge/all_contributors-17-orange.svg?style=flat-square)](#contributors-)
+
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ## Set Up
+
 1. Clone the repository
 1. Run `npm install`
 1. Run `npm run postinstall`
 1. Run `npm start`
-1. Open the website in your web browser (http://localhost:3000). It will list all the active polls.
+1. Open the website in your web browser ([http://localhost:3000](http://localhost:3000)). It will list all the active polls.
 
 ## Available Routes
 
-* http://localhost:3000/create to create a new poll
-* http://localhost:3000/newest to show the results of the newest poll
-* http://localhost:3000/poll/{pollId} to show the results of a poll
-* http://localhost:3000/vote/{pollId} to vote in a poll
-* https://localhost:3000/poll/{pollId}?view=overlay for results of specific poll (semi-transperant white background)
-* https://localhost:3000/poll/{pollId}?view=nogradient for results of specific poll (progress bars without gradients)
+- http://localhost:3000/create to create a new poll
+- http://localhost:3000/newest to show the results of the newest poll
+- http://localhost:3000/poll/{pollId} to show the results of a poll
+- http://localhost:3000/vote/{pollId} to vote in a poll
+- https://localhost:3000/poll/{pollId}?view=overlay for results of specific poll (semi-transperant white background)
+- https://localhost:3000/poll/{pollId}?view=nogradient for results of specific poll (progress bars without gradients)
 
 ## Contributors ✨
 
@@ -55,6 +58,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
