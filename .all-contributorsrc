@@ -129,6 +129,44 @@
       "contributions": [
         "ideas"
       ]
+    },
+    {
+      "login": "TheCBKM",
+      "name": "Rajaram Joshi",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/38382861?v=4",
+      "profile": "http://cbkm.in",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "younesaassila",
+      "name": "Younes Aassila",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/47226184?v=4",
+      "profile": "http://aassila.com",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "GiggioG",
+      "name": "GiggioG",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/47040505?v=4",
+      "profile": "https://giggiog.github.com",
+      "contributions": [
+        "code",
+        "design"
+      ]
+    },
+    {
+      "login": "elunico",
+      "name": "Tom",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/10181211?v=4",
+      "profile": "http://eluni.co",
+      "contributions": [
+        "code",
+        "design"
+      ]
     }
   ],
   "contributorsPerLine": 7,
