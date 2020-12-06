@@ -1,0 +1,56 @@
+div(id="footer")
+  h3 View options
+  div
+    input(type="checkbox" id="font-toggle")
+    label(for="font-toggle") Use simplier font
+  div
+    input(type="checkbox" id="gradient-toggle")
+    label(for="gradient-toggle") Disable gradients
+
+  script.
+
+    // checkboxes
+    let fontToggle = document.querySelector('#font-toggle');
+    let gradientToggle = document.querySelector('#gradient-toggle');
+
+    // initial state from localStorage
+    fontToggle.checked = localStorage.getItem('font-simple') == 'true';
+    gradientToggle.checked = localStorage.getItem('no-gradient') == 'true';
+    changeGradient(gradientToggle.checked);
+    changeFonts(fontToggle.checked);
+
+
+    // input handlers
+    fontToggle.oninput = function() {
+      localStorage.setItem('font-simple', fontToggle.checked);
+      changeFonts(fontToggle.checked);
+    };
+
+    gradientToggle.oninput = function() {
+      localStorage.setItem('no-gradient', gradientToggle.checked);
+      changeGradient(gradientToggle.checked);
+    };
+
+    // toggle font by switching the variable in css
+    function changeFonts(simple) {
+      if (simple)
+      document.documentElement.style.setProperty('--codingtrain-fontface', 'Open Sans');
+      else
+      document.documentElement.style.setProperty('--codingtrain-fontface', 'cubanoregular');
+    }
+
+
+    // remove gradient by removing or adding the correct class to the progress bar
+    function changeGradient(off) {
+      if (off)  {
+        let elements = document.getElementsByClassName('progressBar');
+        for (let element of elements) {
+          element.classList.remove('gradient')
+        }
+      } else {
+        let elements = document.getElementsByClassName('progressBar');
+        for (let element of elements) {
+          element.classList.add('gradient')
+        }
+      }
+    }

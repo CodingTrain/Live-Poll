@@ -9,7 +9,7 @@ html
     div#results
       each val, index in poll.options
         div.option
-          div=val
+          div= val
           div(id="progressBar_" + index class="progressBar")
     p#totalVotes
     div#views
@@ -23,3 +23,4 @@ html
           a(href="?view=nogradient") no gradient view
     script(src="/js/classes/poll.js")
     script(src="/js/sketches/poll.js")
+    include footer.pug
