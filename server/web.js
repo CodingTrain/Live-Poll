@@ -44,9 +44,10 @@ router.get("/poll/:pollId", async function (req, res) {
 //Page to add a vote to a poll
 router.get("/vote/:pollId", async function (req, res) {
   const _id = req.params.pollId;
-  const floodCheckId = _id + "_" + req.ip;
 
-  const hasVoted = !floodChecker.check(floodCheckId);
+  const floodCheckId = _id + "_" + req.ip;
+  const hasVoted = false
+  // const hasVoted = !floodChecker.check(floodCheckId);
 
   //Forward user to poll results page if already voted
   if (hasVoted) {
@@ -69,7 +70,8 @@ router.post("/vote/:pollId", async function (req, res) {
   const _id = req.params.pollId;
 
   const floodCheckId = _id + "_" + req.ip;
-  const isValidVote = floodChecker.checkAndRegister(floodCheckId);
+  const isValidVote = true
+  // const isValidVote = floodChecker.checkAndRegister(floodCheckId);
 
   //Forward user to poll results page if already voted
   if (!isValidVote) {
