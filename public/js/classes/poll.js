@@ -43,7 +43,7 @@ class Poll {
         pollDetails.totalVotes == 0
           ? 0
           : (count / pollDetails.totalVotes) * 100;
-      progressBar.html(`${count} votes (${Math.round(percent)}%)`);
+      progressBar.html(`${Math.round(percent)}%`);
     }
   }
 
