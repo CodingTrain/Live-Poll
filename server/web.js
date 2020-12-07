@@ -109,7 +109,7 @@ router.post("/vote/:pollId", async function (req, res) {
   database.update({ _id }, poll);
 
   //Push update to all connected clients
-  global.broadcaster.updatePoll(poll);
+  req.app.get("broadcaster").updatePoll(poll);
 
   // Forward user to poll results page
   res.redirect("/poll/" + _id);

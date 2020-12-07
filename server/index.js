@@ -4,10 +4,11 @@ const express = require("express");
 const app = express();
 const http = require('http').createServer(app)
 const io = require("socket.io")(http);
-global.broadcaster = require("./helpers/broadcaster");
+broadcaster = require("./helpers/broadcaster");
 
 app.set("views", "./views");
 app.set("view engine", "pug");
+app.set("broadcaster", broadcaster);
 
 app.use(express.static("public"));
 app.use(express.json()); // For parsing application/json
@@ -22,10 +23,10 @@ app.use("/api", apiRoutes);
 
 io.on('connection', (socket) => {
   socket.on('listenForPoll', (pollId) => {
-    global.broadcaster.registerSocket(pollId, socket);
+    broadcaster.registerSocket(pollId, socket);
   });
   socket.on('disconnect', () => {
-    global.broadcaster.unregisterSocket(socket.id)
+    broadcaster.unregisterSocket(socket.id)
   })
 });
 
