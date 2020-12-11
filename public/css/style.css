@@ -59,11 +59,16 @@ input {
     transition: width 1s;
     font-family: var(--codingtrain-fontface);
     font-size: larger;
+    text-shadow: -1px 1px #000;
     border-radius: 100px;
+
+    min-width: 20px;
+
 }
 .gradient {
     background: var(--gradient);
 }
+
 
 /* footer */
 #footer {
@@ -77,4 +82,11 @@ input {
     grid-template-columns: repeat(3, minmax(min-content, 1fr));
     justify-items: center;
     
+}
+
+div#views ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }

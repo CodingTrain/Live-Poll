@@ -14,9 +14,7 @@
 * http://localhost:3000/create to create a new poll
 * http://localhost:3000/newest to show the results of the newest poll
 * http://localhost:3000/vote/{pollId} to vote in a poll
-
 * http://localhost:3000/poll/{pollId} to show the results of a poll
-* http://localhost:3000/poll/{pollId}?view=overlay for results of specific poll (semi-transperant white background)
 
 
 ### optional
