@@ -1,23 +1,35 @@
 div(id="footer")
-  h3 View options
-  div
-    input(type="checkbox" id="font-toggle")
-    label(for="font-toggle") Use simplier font
-  div
-    input(type="checkbox" id="gradient-toggle")
-    label(for="gradient-toggle") Disable gradients
+  h3 View options &nbsp;
+   a(style="font-size: 0.7em" onclick="this.parentNode.parentNode.remove()")
+      i [close]
+
+  div#options-wrapper
+    div
+      input(type="checkbox" id="font-toggle")
+      label(for="font-toggle") Use simplier font
+    div
+      input(type="checkbox" id="gradient-toggle")
+      label(for="gradient-toggle") monotone gradient
+    div  
+      input(type="checkbox" id="overlay-toggle")
+      label(for="overlay-toggle") toggle overlay mode
 
   script.
 
     // checkboxes
     let fontToggle = document.querySelector('#font-toggle');
     let gradientToggle = document.querySelector('#gradient-toggle');
+    let overlayToggle = document.querySelector('#overlay-toggle');
 
     // initial state from localStorage
     fontToggle.checked = localStorage.getItem('font-simple') == 'true';
     gradientToggle.checked = localStorage.getItem('no-gradient') == 'true';
-    changeGradient(gradientToggle.checked);
+    overlayToggle.checked = localStorage.getItem('overlay-on') == 'true';
+
     changeFonts(fontToggle.checked);
+    changeGradient(gradientToggle.checked);
+    changeOverlay(overlayToggle.checked);
+    
 
 
     // input handlers
@@ -29,6 +41,11 @@ div(id="footer")
     gradientToggle.oninput = function() {
       localStorage.setItem('no-gradient', gradientToggle.checked);
       changeGradient(gradientToggle.checked);
+    };
+
+    overlayToggle.oninput = function() {
+      localStorage.setItem('overlay-on', overlayToggle.checked);
+      changeOverlay(overlayToggle.checked);
     };
 
     // toggle font by switching the variable in css
@@ -53,4 +70,14 @@ div(id="footer")
           element.classList.add('gradient')
         }
       }
+    }
+
+    // toggle the overlay
+    function changeOverlay(overlay) {
+      if (overlay)
+        //set the background to semi-transperant white
+        document.body.style.background = "rgba(255,255,255,50%)"
+      else
+        //set the background to white
+        document.body.style.background = "rgba(255,255,255,100%)"
     }
