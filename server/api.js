@@ -14,7 +14,6 @@ router.post("/new", async (request, response) => {
     response.send({
       status: 'error',
       message: 'Not authenticated',
-      id: pollID
     });
     return;
   }
