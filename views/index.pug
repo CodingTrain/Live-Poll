@@ -8,17 +8,48 @@ html
   body
     h1 Currently Active Polls
     if polls.length
-      ul
+      ul(id="poll-container")
         each poll in polls
-          li
+          li(id=`poll-${poll._id}`)
             a(href=`/poll/${poll._id}`)=`${poll.question}`
             br
             span(class="date")=`Created on: ${new Date(poll.timestamp).toDateString()}`
+            br
+            input(id=`delete_${poll._id}` class="delete-button" data-poll-id=`${poll._id}` type="button" value="Delete poll")
+
       a(classname='create' href="/create") Create a Poll &nbsp;
-      a(classname='remove' href="/remove") Remove a Poll
     else
       p No Polls Found!
       a(href="/create") Create One Here
-      
+
     include footer.pug
 
+  script.
+    let buttons = document.querySelectorAll('.delete-button');
+
+    for (let button of buttons) {
+      button.onclick = function() {
+
+        let confirmed = confirm('Are you sure you want to delete this poll?');
+        if (!confirmed) {
+          return ;
+        }
+
+        let id = this.getAttribute('data-poll-id');
+        fetch('/api/poll/' + id, {
+          method: 'DELETE'
+        }).then(resp => resp.json()).then(data => {
+          if (data.status == 'success') {
+            alert('Deleted!');
+            let pollContainer = document.querySelector('#poll-container');
+            let pollNode = document.querySelector(`#poll-${id}`);
+            pollContainer.removeChild(pollNode);
+          } else {
+            alert('Failed to delete poll')
+          }
+        }).catch(err => {
+          alert('Failed to delete poll because of error');
+          alert(err);
+        })
+      }
+    }

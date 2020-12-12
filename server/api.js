@@ -14,7 +14,6 @@ router.post("/new", async (request, response) => {
     response.send({
       status: 'error',
       message: 'Not authenticated',
-      id: pollID
     });
     return;
   }
@@ -51,5 +50,45 @@ router.get("/poll/:pollId", async (request, response) => {
     }
   );
 });
+
+
+//End point to delete a poll if authenticated
+router.delete('/poll/:pollId', async function(req, res) {
+  //check for authentication before access
+  if (!basicauth.isAuthenticated(req, res)) {
+    return ;
+  }
+
+  // get poll from url
+  const _id = req.params.pollId;
+  const poll = await database.findOne({ _id });
+
+  if (!poll) {
+    res.status(404);
+    res.json({
+      status: 'error',
+      message: 'Poll not found'
+    })
+    return;
+  }
+
+  let count = await database.remove({ _id });
+
+  if (count == 0) {
+    res.status(500);
+    res.json({
+      status: 'error',
+      message: 'Poll not found'
+    })
+  } else {
+    res.json({
+      status: 'success',
+      message: 'Poll deleted successfully'
+    })
+  }
+
+
+});
+
 
 module.exports = router;
