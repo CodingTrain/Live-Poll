@@ -1,4 +1,5 @@
 const database = require("./helpers/database");
+const basicauth = require("./validation/basicauth");
 const createNewPoll = require("./helpers/createNewPoll");
 const express = require("express");
 const router = express.Router();
@@ -9,6 +10,14 @@ router.post("/new", async (request, response) => {
   //   question: string,
   //   options:  string[]
   // }
+  if (!basicauth.isAuthenticated(request, response)) {
+    response.send({
+      status: 'error',
+      message: 'Not authenticated',
+      id: pollID
+    });
+    return;
+  }
 
   let { question, options } = request.body;
 
