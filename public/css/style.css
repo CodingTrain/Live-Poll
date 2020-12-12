@@ -11,6 +11,7 @@
     --progressbar-color: white;
 }
 
+/* main */
 html,
 body {
     width: 100%;
@@ -40,28 +41,6 @@ button,
     font-family: var(--codingtrain-fontface);
 }
 
-#results {
-    width: calc(100% - 20px);
-}
-
-.progressBar {
-    margin: 0 5px 5px 0;
-    padding: 5px 20px;
-    color: var(--progressbar-color);
-    /* background: repeating-linear-gradient(30deg, #A42963 10px, #F063A4 30px); */
-    background: var(--monochrome-gradient);
-    transition: width 1s;
-    font-family: var(--codingtrain-fontface);
-    font-size: larger;
-    text-shadow: -1px 1px #000;
-    border-radius: 100px;
-    min-width: 20px;
-}
-
-.gradient {
-    background: linear-gradient(90deg, red, yellow, green, blue, violet);
-}
-
 main {
     width: min-content;
 }
@@ -71,11 +50,45 @@ input {
     font-family: inherit;
 }
 
+/* poll */
+#results {
+    width: calc(100% - 20px);
+}
 
-div#views {
-    position: absolute;
-    bottom: 0px;
-    width: 98%;
+.progressBar {
+    margin: 0 5px 5px 0;
+    padding: 5px 20px;
+
+    color: var(--progressbar-color);
+    background: var(--monochrome-gradient);
+
+    transition: width 1s;
+    font-family: var(--codingtrain-fontface);
+    font-size: larger;
+    text-shadow: -1px 1px #000;
+    border-radius: 100px;
+
+    min-width: 20px;
+
+}
+
+.gradient {
+    background: var(--gradient);
+}
+
+
+/* footer */
+#footer {
+    position: fixed;
+    bottom: 30px;
+    width: 50%;
+}
+
+#options-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(min-content, 1fr));
+    justify-items: center;
+
 }
 
 

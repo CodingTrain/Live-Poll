@@ -14,9 +14,11 @@ html
             a(href=`/poll/${poll._id}`)=`${poll.question}`
             br
             span(class="date")=`Created on: ${new Date(poll.timestamp).toDateString()}`
-      a(href="/create") Create a Poll
+      a(classname='create' href="/create") Create a Poll &nbsp;
+      a(classname='remove' href="/remove") Remove a Poll
     else
       p No Polls Found!
       a(href="/create") Create One Here
+      
     include footer.pug
 

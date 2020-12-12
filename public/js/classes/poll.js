@@ -49,7 +49,9 @@ class Poll {
         pollDetails.totalVotes == 0
           ? 0
           : (count / pollDetails.totalVotes) * 100;
-      progressBar.html(`${Math.round(percent)}%`);
+        if (count > 0) { 
+          progressBar.html(`${count} votes (${Math.round(percent)}%)`); } 
+        else { progressBar.html(`${count}`); }
     }
   }
 
