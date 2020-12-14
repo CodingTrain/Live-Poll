@@ -6,8 +6,11 @@
 ## Set Up
 1. clone repository
 2. run `npm install`
-2.  run `npm start` (production mode) or `npm run dev` (development mode)
-3. open the page in your browser (https://localhost:3000). It will list all the active polls.
+2. rename **.env.example** to **.env**
+2. run `npm start` (production mode) or `npm run dev` (development mode)
+3. open the page in your browser (https://localhost:3000).
+It will list all the active polls.
+3. type in the username and password found in **.env**
 
 
 ## Available Routes
