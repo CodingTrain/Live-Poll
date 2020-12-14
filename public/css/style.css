@@ -11,14 +11,12 @@
 }
 
 /* main */
-html,
-body {
+html, body {
     width: 100%;
     margin: 0;
     padding: 0;
     background-color: rgba(0, 0, 0, 0);
 }
-
 body {
     font-family: "Open Sans";
     width: calc(100% - 40px);
@@ -27,11 +25,8 @@ body {
 
 h1::before { content: "🚂 "; }
 h1::after  { content: " 🌈"; }
-
-h1,
-button,
-#total-votes,
-.question {
+h1, button, .question,
+#total-votes {
     font-family: var(--codingtrain-fontface);
 }
 
@@ -39,12 +34,36 @@ main {
     width: min-content;
 }
 
-textarea,
-input {
+textarea, input {
     font-family: inherit;
 }
 
-/* poll */
+/* polls */
+#poll-container li {
+    display: grid;
+    grid-template-columns: [s] 1fr [m] 1fr [e];
+    grid-template-rows: 1fr;
+
+    margin: 2px;
+    padding: 0.3rem;
+    background-color: #0c0;
+    border: solid 1px #0c0;
+    border-radius: 15%;
+}
+.date {
+    grid-column: s/m;
+}
+.delete-button {
+    grid-row: 1;
+    grid-column: m/e;
+    align-self: end;
+    justify-self: end;
+
+    width: 100px;
+    transform: translateY(10px);
+}
+
+/* poll results */
 #results {
     width: calc(100% - 20px);
 }
@@ -63,12 +82,10 @@ input {
     border-radius: 100px;
 
     min-width: 20px;
-
 }
 .gradient {
     background: var(--gradient);
 }
-
 
 /* footer */
 #footer {

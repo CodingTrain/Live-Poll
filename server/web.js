@@ -53,7 +53,6 @@ router.get("/poll/:pollId", async function (req, res) {
 router.get("/vote/:pollId", async function (req, res) {
   const _id = req.params.pollId;
 
-
   const floodCheckId = _id + "_" + req.ip;
   const hasVoted = !floodChecker.check(floodCheckId);
 

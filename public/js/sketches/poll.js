@@ -6,6 +6,7 @@ async function setup() {
   poll = new Poll();
   poll.initPoll();
 
+
   // from https://github.com/CodingTrain/LateNight/issues/1
   const colorPairs = [
     ['#9253a1', '#70327e'],
