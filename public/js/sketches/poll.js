@@ -4,7 +4,7 @@
 async function setup() {
   noCanvas();
   poll = new Poll();
-  poll.startPollingForVotes();
+  poll.initPoll();
 
   // from https://github.com/CodingTrain/LateNight/issues/1
   const colorPairs = [
