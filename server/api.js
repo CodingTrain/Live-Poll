@@ -10,6 +10,13 @@ router.post("/new", async (request, response) => {
   //   question: string,
   //   options:  string[]
   // }
+  if (!basicauth.isAuthenticated(request, response)) {
+    response.send({
+      status: 'error',
+      message: 'Not authenticated',
+    });
+    return;
+  }
 
   let { question, options } = request.body;
 
