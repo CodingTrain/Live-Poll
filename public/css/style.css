@@ -1,3 +1,7 @@
+@import "polls.css";
+@import "poll-results.css";
+@import "footer.css";
+
 @font-face {
     font-family: "cubanoregular";
     src: url("https://thecodingtrain.com/assets/fonts/cubano-regular-webfont.woff2");
@@ -23,87 +27,12 @@ body {
     margin: 10px;
 }
 
+h1, button, .question, #total-votes { 
+    font-family: var(--codingtrain-fontface); 
+}
 h1::before { content: "🚂 "; }
 h1::after  { content: " 🌈"; }
-h1, button, .question,
-#total-votes {
-    font-family: var(--codingtrain-fontface);
-}
 
-main {
-    width: min-content;
-}
+main { width: min-content; }
 
-textarea, input {
-    font-family: inherit;
-}
-
-/* polls */
-#poll-container li {
-    display: grid;
-    grid-template-columns: [s] 1fr [m] 1fr [e];
-    grid-template-rows: 1fr;
-
-    margin: 2px;
-    padding: 0.3rem;
-    background-color: #0c0;
-    border: solid 1px #0c0;
-    border-radius: 15%;
-}
-.date {
-    grid-column: s/m;
-}
-.delete-button {
-    grid-row: 1;
-    grid-column: m/e;
-    align-self: end;
-    justify-self: end;
-
-    width: 100px;
-    transform: translateY(10px);
-}
-
-/* poll results */
-#results {
-    width: calc(100% - 20px);
-}
-
-.progressBar {
-    margin: 0 5px 5px 0;
-    padding: 5px 20px;
-
-    color: var(--progressbar-color);
-    background: var(--monochrome-gradient);
-
-    transition: width 1s;
-    font-family: var(--codingtrain-fontface);
-    font-size: larger;
-    text-shadow: -1px 1px #000;
-    border-radius: 100px;
-
-    min-width: 20px;
-}
-.gradient {
-    background: var(--gradient);
-}
-
-/* footer */
-#footer {
-    position: fixed;
-    bottom: 30px;
-    width: 50%;
-}
-
-#options-wrapper {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(min-content, 1fr));
-    justify-items: center;
-    
-}
-
-div#views ul{
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-}
+textarea, input { font-family: inherit; }

@@ -1,0 +1,24 @@
+/* polls */
+#poll-container li {
+    display: grid;
+    grid-template-columns: [s] 1fr [m] 1fr [e];
+    grid-template-rows: 1fr;
+
+    margin: 2px;
+    padding: 0.3rem;
+    background-color: #0c0;
+    border: solid 1px #0c0;
+    border-radius: 15%;
+}
+.date {
+    grid-column: s/m;
+}
+.delete-button {
+    grid-row: 1;
+    grid-column: m/e;
+    align-self: end;
+    justify-self: end;
+
+    width: 100px;
+    transform: translateY(10px);
+}
