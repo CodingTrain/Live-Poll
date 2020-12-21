@@ -1,0 +1,20 @@
+/* footer */
+#footer {
+    position: fixed;
+    bottom: 30px;
+    width: 50%;
+}
+
+#options-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(min-content, 1fr));
+    justify-items: center;
+    
+}
+
+div#views ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
