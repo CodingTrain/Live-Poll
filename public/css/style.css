@@ -1,7 +1,3 @@
-@import "polls.css";
-@import "poll-results.css";
-@import "footer.css";
-
 @font-face {
     font-family: "cubanoregular";
     src: url("https://thecodingtrain.com/assets/fonts/cubano-regular-webfont.woff2");
