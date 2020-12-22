@@ -7,7 +7,9 @@ html
     script(src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js")
     
   body
-    h1 Currently Active Polls
+    h1 The Coding Train Live Poll
+    h2 Currently Active Polls
+
     if polls.length
       ul(id="poll-container")
         each poll in polls
@@ -16,19 +18,20 @@ html
             br
             span(class="date")=`Created on: ${new Date(poll.timestamp).toDateString()}`
             br
+            input(id=`vote_${poll._id}` class="vote-button" data-poll-id=`${poll._id}` type="button" value="go to vote")
             input(id=`delete_${poll._id}` class="delete-button" data-poll-id=`${poll._id}` type="button" value="Delete poll")
 
-      a(classname='create' href="/create") Create a Poll &nbsp;
+      a(id='create' href="/create") Create a Poll &nbsp;
     else
       p No Polls Found!
-      a(href="/create") Create One Here
+      a(id="create" href="/create") Create One Here
 
     include footer.pug
 
   script.
-    let buttons = document.querySelectorAll('.delete-button');
+    let delBTN = document.querySelectorAll('.delete-button');
 
-    for (let button of buttons) {
+    for (let button of delBTN) {
       button.onclick = function() {
 
         let confirmed = confirm('Are you sure you want to delete this poll?');
