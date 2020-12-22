@@ -30,13 +30,3 @@ h1::before { content: "🚂 "; }
 h1::after  { content: " 🌈"; }
 
 main { width: min-content; }
-
-#create {
-    margin: 2px;
-    padding: 0.3rem;
-    border: solid 3px #0c0;
-    border-radius: 15%;
-
-    text-decoration: none;
-}
-textarea, input { font-family: inherit; }

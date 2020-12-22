@@ -46,3 +46,12 @@
 
     width: 100px;
 }
+
+#create {
+    margin: 2px;
+    padding: 0.3rem;
+    border: solid 3px #0c0;
+    border-radius: 15%;
+
+    text-decoration: none;
+}
