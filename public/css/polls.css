@@ -2,23 +2,56 @@
 #poll-container li {
     display: grid;
     grid-template-columns: [s] 1fr [m] 1fr [e];
-    grid-template-rows: 1fr;
+    grid-template-rows: [t] 1fr [b] 1fr [e];
 
-    margin: 2px;
+    margin: 5px;
     padding: 0.3rem;
     background-color: #0c0;
     border: solid 1px #0c0;
-    border-radius: 15%;
+    border-radius: 15px;
 }
+
+.title {
+    grid-column: s/m;
+    grid-row: t/b;
+}
+
 .date {
     grid-column: s/m;
+    grid-row: b/e;
 }
-.delete-button {
-    grid-row: 1;
+
+.vote-btn {
     grid-column: m/e;
-    align-self: end;
+    grid-row: 1/-1;
+    justify-self: start;
+    align-self: center;
+
+    width: 150px;
+    height: 25px;
+
+    text-decoration: none;
+    text-align: center;
+
+    /* color: black; */
+    background-color: wheat;
+    border: solid 1px #0c0;
+    border-radius: 15px;
+}
+.delete-btn {
+    grid-row: 1/-1;
+    grid-column: m/e;
+    align-self: center;
     justify-self: end;
 
     width: 100px;
-    transform: translateY(10px);
+}
+
+#create {
+    margin: 2px;
+    padding: 0.3rem;
+    border: solid 3px #0c0;
+    border-radius: 15%;
+
+    text-decoration: none;
 }

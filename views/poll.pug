@@ -8,7 +8,9 @@ html
     script(src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.3/socket.io.min.js")
     
   body
-    h1=poll.question
+    h1 The Coding Train Live Poll
+    h2=poll.question
+    
     div#results
       each val, index in poll.options
         div.option
