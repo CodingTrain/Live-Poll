@@ -1,30 +1,28 @@
 # Live-Poll
+
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-17-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ## Set Up
-1. clone repository
-2. run `npm install`
-2. rename a copy of **.env.example** to **.env**
-2. run `npm start` (production mode) or `npm run dev` (development mode)
-3. open the page in your browser (https://localhost:3000).
-It will list all the active polls.
-3. type in the username and password found in **.env**
 
+1. Clone repository
+1. Run `npm install`
+1. Copy and rename `.env.example` to `.env`
+1. Run `npm run postinstall` (optional)
+1. Run `npm run dev` (development mode) or `npm start` (production mode)
+1. Open the page in your browser (https://localhost:3000). It will list all the active polls.
+1. Type in the username and password found in `.env`
 
 ## Available Routes
-* http://localhost:3000/create to create a new poll
-* http://localhost:3000/newest to show the results of the newest poll
-* http://localhost:3000/vote/{pollId} to vote in a poll
-* http://localhost:3000/poll/{pollId} to show the results of a poll
 
-
-### optional
-Ive had trouble pushing to my repo if thats the case for you try running `npm run postinstall`
-
+- http://localhost:3000/create to create a new poll
+- http://localhost:3000/newest to show the results of the newest poll
+- http://localhost:3000/vote/{poll_id} to vote in a poll
+- http://localhost:3000/poll/{poll_id} to show the results of a poll
 
 ## Contributors ✨
+
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
