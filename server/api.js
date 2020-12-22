@@ -1,22 +1,15 @@
 const database = require("./helpers/database");
-const basicauth = require("./validation/basicauth");
+const {requiresAuthentication} = require("./validation/basicauth");
 const createNewPoll = require("./helpers/createNewPoll");
 const express = require("express");
 const router = express.Router();
 
-router.post("/new", async (request, response) => {
+router.post("/new", requiresAuthentication, async (request, response) => {
   // request body should be in this form
   // {
   //   question: string,
   //   options:  string[]
   // }
-  if (!basicauth.isAuthenticated(request, response)) {
-    response.send({
-      status: 'error',
-      message: 'Not authenticated',
-    });
-    return;
-  }
 
   let { question, options } = request.body;
 
@@ -53,12 +46,7 @@ router.get("/poll/:pollId", async (request, response) => {
 
 
 //End point to delete a poll if authenticated
-router.delete('/poll/:pollId', async function(req, res) {
-  //check for authentication before access
-  if (!basicauth.isAuthenticated(req, res)) {
-    return ;
-  }
-
+router.delete('/poll/:pollId', requiresAuthentication, async function(req, res) {
   // get poll from url
   const _id = req.params.pollId;
   const poll = await database.findOne({ _id });
