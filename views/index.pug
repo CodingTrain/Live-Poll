@@ -5,6 +5,7 @@ html
     link(rel="stylesheet" href="css/style.css")
     link(rel="stylesheet" href="css/polls.css")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js")
+
     
   body
     h1 The Coding Train Live Poll
@@ -14,12 +15,12 @@ html
       ul(id="poll-container")
         each poll in polls
           li(id=`poll-${poll._id}`)
-            a(href=`/poll/${poll._id}`)=`${poll.question}`
+            a(class="title" href=`/poll/${poll._id}`)=`${poll.question}`
             br
             span(class="date")=`Created on: ${new Date(poll.timestamp).toDateString()}`
             br
-            input(id=`vote_${poll._id}` class="vote-button" data-poll-id=`${poll._id}` type="button" value="go to vote")
-            input(id=`delete_${poll._id}` class="delete-button" data-poll-id=`${poll._id}` type="button" value="Delete poll")
+            a(class="vote-btn" href=`/vote/${poll._id}`)="Go to vote"
+            input(id=`delete_${poll._id}` class="delete-btn" data-poll-id=`${poll._id}` type="button" value="Delete poll")
 
       a(id='create' href="/create") Create a Poll &nbsp;
     else
@@ -29,7 +30,7 @@ html
     include footer.pug
 
   script.
-    let delBTN = document.querySelectorAll('.delete-button');
+    let delBTN = document.querySelectorAll('.delete-btn');
 
     for (let button of delBTN) {
       button.onclick = function() {
