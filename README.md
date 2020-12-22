@@ -5,19 +5,23 @@
 
 ## Set Up
 1. clone repository
-1. run `npm install`
-1. rename a copy of **.env.example** to **.env**
-1. run `npm run postinstall` (optional)
-1. run `npm start` (production mode) or `npm run dev` (development mode)
-1. open the page in your browser (https://localhost:3000). It will list all the active polls.
-1. type in the username and password found in **.env**
+2. run `npm install`
+2. rename a copy of **.env.example** to **.env**
+2. run `npm start` (production mode) or `npm run dev` (development mode)
+3. open the page in your browser (https://localhost:3000).
+It will list all the active polls.
+3. type in the username and password found in **.env**
 
 
 ## Available Routes
-- http://localhost:3000/create to create a new poll
-- http://localhost:3000/newest to show the results of the newest poll
-- http://localhost:3000/vote/{poll_id} to vote in a poll
-- http://localhost:3000/poll/{poll_id} to show the results of a poll
+* http://localhost:3000/create to create a new poll
+* http://localhost:3000/newest to show the results of the newest poll
+* http://localhost:3000/vote/{pollId} to vote in a poll
+* http://localhost:3000/poll/{pollId} to show the results of a poll
+
+
+### optional
+Ive had trouble pushing to my repo if thats the case for you try running `npm run postinstall`
 
 
 ## Contributors ✨

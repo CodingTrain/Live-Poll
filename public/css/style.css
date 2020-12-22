@@ -28,6 +28,3 @@ h1, h2, button, .question, #total-votes {
 }
 h1::before { content: "🚂 "; }
 h1::after  { content: " 🌈"; }
-
-/* do we need this? */
-main { width: min-content; }
