@@ -23,11 +23,8 @@ body {
     margin: 10px;
 }
 
-
 h1, h2, button, .question, #total-votes { 
     font-family: var(--codingtrain-fontface); 
 }
 h1::before { content: "🚂 "; }
 h1::after  { content: " 🌈"; }
-
-main { width: min-content; }
