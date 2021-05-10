@@ -2,86 +2,29 @@
     font-family: "cubanoregular";
     src: url("https://thecodingtrain.com/assets/fonts/cubano-regular-webfont.woff2");
 }
-
 :root {
     --codingtrain-fontface: "cubanoregular";
     --gradient: linear-gradient(90deg, red, yellow, green, blue, violet);
+    --monochrome-gradient: repeating-linear-gradient(60deg, #A42963, #A42963 10px, #F063A4 10px, #F063A4 20px);
     --no-gradient: black;
+    --progressbar-color: white;
 }
 
-html,
-body {
+/* main */
+html, body {
     width: 100%;
     margin: 0;
     padding: 0;
     background-color: rgba(0, 0, 0, 0);
 }
-
 body {
     font-family: "Open Sans";
     width: calc(100% - 40px);
     margin: 10px;
 }
 
-h1::before {
-    content: "🚂 ";
+h1, h2, button, .question, #total-votes { 
+    font-family: var(--codingtrain-fontface); 
 }
-
-h1::after {
-    content: " 🌈";
-}
-
-h1,
-button,
-#total-votes,
-.question {
-    font-family: var(--codingtrain-fontface);
-}
-
-#results {
-    width: calc(100% - 20px);
-}
-
-.progressBar {
-    margin: 0 5px 5px 0;
-    padding: 5px 20px;
-    color: white;
-    background: black;
-    transition: width 1s;
-    font-family: var(--codingtrain-fontface);
-    font-size: larger;
-    text-shadow: -1px 1px #000;
-    border-radius: 100px;
-    min-width: 20px;
-}
-
-.gradient {
-    background: linear-gradient(90deg, red, yellow, green, blue, violet);
-}
-
-main {
-    width: min-content;
-}
-
-textarea,
-input {
-    font-family: inherit;
-}
-#footer {
-    position: fixed;
-    bottom: 30px;
-
-}
-
-div#views {
-    position: absolute;
-    bottom: 0px;
-    width:98%;
-}
-
-div#views ul{
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-}
+h1::before { content: "🚂 "; }
+h1::after  { content: " 🌈"; }

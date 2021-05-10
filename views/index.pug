@@ -1,22 +1,59 @@
 doctype html
 html
   head
-    link(rel="stylesheet" href="css/style.css")
-
     title Live Coding Train Poll
+    link(rel="stylesheet" href="css/style.css")
+    link(rel="stylesheet" href="css/polls.css")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js")
+
   body
-    h1 Currently Active Polls
+    h1 The Coding Train Live Poll
+    h2 Currently Active Polls
+
     if polls.length
-      ul
+      ul(id="poll-container")
         each poll in polls
-          li
-            a(href=`/poll/${poll._id}`)=`${poll.question}`
+          li(id=`poll-${poll._id}`)
+            a(class="title" href=`/poll/${poll._id}`)=`${poll.question}`
             br
             span(class="date")=`Created on: ${new Date(poll.timestamp).toDateString()}`
-      a(href="/create") Create a Poll
+            br
+            a(class="vote-btn" href=`/vote/${poll._id}`)="Go to vote"
+            input(id=`delete_${poll._id}` class="delete-btn" data-poll-id=`${poll._id}` type="button" value="Delete poll")
+
+      a(id='create' href="/create") Create a Poll &nbsp;
     else
       p No Polls Found!
-      a(href="/create") Create One Here
+      a(id="create" href="/create") Create One Here
+
     include footer.pug
 
+  script.
+    let delBTN = document.querySelectorAll('.delete-btn');
+
+    for (let button of delBTN) {
+      button.onclick = function() {
+
+        let confirmed = confirm('Are you sure you want to delete this poll?');
+        if (!confirmed) {
+          return ;
+        }
+
+        let id = this.getAttribute('data-poll-id');
+        fetch('/api/poll/' + id, {
+          method: 'DELETE'
+        }).then(resp => resp.json()).then(data => {
+          if (data.status == 'success') {
+            alert('Deleted!');
+            let pollContainer = document.querySelector('#poll-container');
+            let pollNode = document.querySelector(`#poll-${id}`);
+            pollContainer.removeChild(pollNode);
+          } else {
+            alert('Failed to delete poll')
+          }
+        }).catch(err => {
+          alert('Failed to delete poll because of error');
+          alert(err);
+        })
+      }
+    }

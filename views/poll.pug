@@ -1,27 +1,24 @@
 doctype html
 html
   head
-    link(rel="stylesheet" href="/css/style.css")
     title Live Coding Train Poll
+    link(rel="stylesheet" href="/css/style.css")
+    link(rel="stylesheet" href="/css/poll-results.css")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.3/socket.io.min.js")
+    
   body
-    h1=poll.question
+    h1 The Coding Train Live Poll
+    h2=poll.question
+    
     div#results
       each val, index in poll.options
         div.option
           div= val
           div(id="progressBar_" + index class="progressBar")
     p#totalVotes
-    div#views
-      hr
-      ul
-        li
-          a(href="?") normal view
-        li
-          a(href="?view=overlay") overlay view
-        li
-          a(href="?view=nogradient") no gradient view
+
     script(src="/js/classes/poll.js")
     script(src="/js/sketches/poll.js")
+    
     include footer.pug

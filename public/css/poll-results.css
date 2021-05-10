@@ -1,0 +1,23 @@
+/* poll results */
+#results {
+    width: calc(100% - 20px);
+}
+
+.progressBar {
+    margin: 0 5px 5px 0;
+    padding: 5px 20px;
+
+    color: var(--progressbar-color);
+    background: var(--monochrome-gradient);
+
+    transition: width 1s;
+    font-family: var(--codingtrain-fontface);
+    font-size: larger;
+    text-shadow: -1px 1px #000;
+    border-radius: 100px;
+
+    min-width: 20px;
+}
+.gradient {
+    background: var(--gradient);
+}
