@@ -46,7 +46,12 @@ router.get("/poll/:pollId", async function (req, res) {
 router.get("/vote/:pollId", async function (req, res) {
   const _id = req.params.pollId;
 
-  const floodCheckId = _id + "_" + req.ip;
+  let ip = req.ip;
+  if (req.headers['x-forwarded-for']) {
+    ip = req.headers['x-forwarded-for'];
+  }
+
+  const floodCheckId = _id + "_" + ip;
   const hasVoted = !floodChecker.check(floodCheckId);
 
   // uncomment this to disable this check
@@ -72,7 +77,12 @@ router.get("/vote/:pollId", async function (req, res) {
 router.post("/vote/:pollId", async function (req, res) {
   const _id = req.params.pollId;
 
-  const floodCheckId = _id + "_" + req.ip;
+  let ip = req.ip;
+  if (req.headers['x-forwarded-for']) {
+    ip = req.headers['x-forwarded-for'];
+  }
+
+  const floodCheckId = _id + "_" + ip;
   const isValidVote = floodChecker.checkAndRegister(floodCheckId);
 
   // uncomment this to disable this check
@@ -108,7 +118,7 @@ router.post("/vote/:pollId", async function (req, res) {
   database.update({ _id }, poll);
 
   //Push update to all connected clients
-  global.broadcaster.updatePoll(poll);
+  req.app.get("broadcaster").updatePoll(poll);
 
   // Forward user to poll results page
   res.redirect("/poll/" + _id);
