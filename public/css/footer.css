@@ -51,3 +51,7 @@ div#views ul{
 .btn-options label:hover, .btn-options input:checked + label:hover {
     box-shadow: inset 0px 0px 15px rgba(0,0,0,0.5);
 }
+
+#vote-main .btn-selection input:checked + label:hover {
+    background-color: var(--enabled);
+}

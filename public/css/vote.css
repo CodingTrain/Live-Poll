@@ -41,7 +41,7 @@
     transition: box-shadow 200ms ease,
                 background-color 400ms ease,
                 scale 200ms ease,
-                color 400ms ease;
+                color 200ms ease;
 }
 
 #vote-main .btn-selection input:checked + label {
@@ -49,7 +49,7 @@
     color: white;
 }
 
-#vote-main .btn-selection label:hover, .btn-options input:checked + label:hover {
+#vote-main .btn-selection label:hover {
     box-shadow: 1px 1px 6px rgba(0,0,0,0.5);
     transform: scale(1.02);
 }
