@@ -10,6 +10,7 @@
     --progressbar-color: white;
     --disabled: rgb(189, 65, 65);
     --enabled: rgb(52, 168, 91);
+    --submit-button: rgb(98, 159, 238);
 }
 
 /* resets browser default styling */
@@ -27,14 +28,29 @@ html, body {
     padding: 0;
     background-color: rgba(0, 0, 0, 0);
 }
+
 body {
     font-family: "Open Sans";
     width: calc(100% - 40px);
     margin: 10px;
 }
 
+main {
+    text-align: center;
+    width: 100vw;
+}
+
 h1, h2, button, .question, #total-votes { 
     font-family: var(--codingtrain-fontface); 
 }
+
+h1 {
+    margin-bottom: 1em;
+}
+
 h1::before { content: "🚂 "; }
 h1::after  { content: " 🌈"; }
+
+h2 {
+    margin-bottom: 0.3em;
+}

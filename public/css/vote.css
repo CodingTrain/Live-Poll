@@ -1,17 +1,4 @@
 /* add styles for the voting page here */
-#voting-main {
-    text-align: center;
-    width: 100vw;
-}
-
-#voting-main h1 {
-    margin-bottom: 1em;
-}
-
-#voting-main h2 {
-    margin-bottom: 0.3em;
-}
-
 #vote {
     position: absolute;
     width: 80%;
@@ -63,10 +50,10 @@
     padding: 0.7em 1em;
     margin-top: 1em;
     text-transform: uppercase;
-    width: 100%;
+    width: 33%;
     border-radius: 8px;
     cursor: pointer;
-    background-color: aquamarine;
+    background-color: var(--submit-button);
     box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
     transition: box-shadow 300ms ease,
                 background-color 300ms ease;
