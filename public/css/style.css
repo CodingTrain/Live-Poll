@@ -40,9 +40,10 @@ h1, h2, button, .question, #total-votes, #create {
     font-family: var(--codingtrain-fontface); 
 }
 
-h1 {
+h1, h2 {
     margin-bottom: 0.3em;
 }
+
 
 h1::before { content: "🚂 "; }
 h1::after  { content: " 🌈"; }
