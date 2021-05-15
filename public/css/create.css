@@ -1,2 +1,11 @@
 /* put create poll page styles here */
-textarea, input { font-family: inherit; }
+textarea, input {
+    font-family: inherit;
+}
+
+.options input {
+    margin-bottom: 0.2em;
+    padding: 0.5em 1em;
+    border: 1px solid lightblue;
+    border-radius: 5px;
+}

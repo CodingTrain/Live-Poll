@@ -7,17 +7,19 @@ html
     script(src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js")
     
   body
-    h1 The Coding Train Live Poll
-    h2=poll.question
-    
-    form(action="/vote/" + poll._id method="post")
-      ul#vote
-        each val, index in poll.options
-          li
-            input(type="radio" name="vote" id="option_" + index value=index)
-            label(for="option_" + index)=val
-      input(class="submit-vote" type="submit" value="Vote")
+    main
+      h1 The Coding Train Live Poll
+      h2=poll.question
+      
+      form(action="/vote/" + poll._id method="post")
+        ul#vote
+          each val, index in poll.options
+            li.btn-selection
+              input(type="radio" name="vote" id="option_" + index value=index)
+              label(for="option_" + index)=val
+          input(class="submit-vote" type="submit" value="Vote")
+
+      include footer.pug
+
     script(src="/js/classes/poll.js")
     script(src="/js/sketches/vote.js")
-    
-    include footer.pug

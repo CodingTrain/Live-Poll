@@ -19,14 +19,14 @@ div#views ul{
     justify-content: space-evenly;
 }
 
-input {
+.btn-options input {
     position: absolute;
     left: -400px;
     visibility: hidden;
     overflow: hidden;
 }
 
-label {
+.btn-options label {
     display: inline-block;
     position: relative;
     padding: 0.2em 0.7em;
@@ -41,10 +41,10 @@ label {
                 background-color 300ms ease;
 }
 
-input:checked + label {
+.btn-options input:checked + label {
     background-color: var(--enabled);
 }
 
-label:hover, input:checked + label:hover {
+.btn-options label:hover, .btn-options input:checked + label:hover {
     box-shadow: inset 0px 0px 15px rgba(0,0,0,0.5);
 }

@@ -12,6 +12,14 @@
     --enabled: rgb(52, 168, 91);
 }
 
+/* resets browser default styling */
+*, ::after, ::before {
+box-sizing: border-box;
+border: 0;
+margin: 0;
+padding: 0;
+}
+
 /* main */
 html, body {
     width: 100%;

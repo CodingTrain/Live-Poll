@@ -1,1 +1,73 @@
 /* add styles for the voting page here */
+#voting-main {
+    text-align: center;
+    width: 100vw;
+}
+
+#voting-main h1 {
+    margin-bottom: 1em;
+}
+
+#voting-main h2 {
+    margin-bottom: 0.3em;
+}
+
+#vote {
+    position: absolute;
+    width: 80%;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+#vote li {
+    list-style: none;
+}
+
+
+#vote li input {
+    visibility: hidden;
+    position: absolute;
+    overflow: hidden;
+    left: -500px;
+}
+
+.btn-selection label {
+    display: inline-block;
+    position: relative;
+    padding: 0.5em 1em;
+    margin: 0.1em 0;
+    width: 100%;
+    background-color: var(--disabled);
+    text-transform: uppercase;
+    text-align: center;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: inset 0px 0px 5px rgba(0,0,0,0.5);
+    transition: box-shadow 300ms ease,
+                background-color 300ms ease;
+}
+
+.btn-selection input:checked + label {
+    background-color: var(--enabled);
+}
+
+.btn-selection label:hover, .btn-options input:checked + label:hover {
+    box-shadow: inset 0px 0px 15px rgba(0,0,0,0.5);
+}
+
+.submit-vote {
+    border: 0;
+    box-sizing: border-box;
+    position: relative;
+    padding: 0.7em 1em;
+    margin-top: 1em;
+    text-transform: uppercase;
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: aquamarine;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
+    transition: box-shadow 300ms ease,
+                background-color 300ms ease;
+}
