@@ -38,7 +38,7 @@ router.get("/poll/:pollId", async function (req, res) {
     res.status(404);
     res.render("notfound");
   } else {
-    res.render("poll", { poll });
+    res.render("poll", { poll: poll, styling: req.query });
   }
 });
 
