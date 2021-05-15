@@ -33,7 +33,7 @@
     transform: translate(-50%) scale(1);
     box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
     transition: box-shadow 200ms ease,
-                scale 200ms ease;
+                transform 200ms ease;
 }
 
 
