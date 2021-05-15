@@ -23,7 +23,6 @@
 
 /* main */
 html, body {
-    width: 100%;
     background-color: transparent;
 }
 
@@ -42,15 +41,11 @@ h1, h2, button, .question, #total-votes, #create {
 }
 
 h1 {
-    margin-bottom: 1em;
+    margin-bottom: 0.3em;
 }
 
 h1::before { content: "🚂 "; }
 h1::after  { content: " 🌈"; }
-
-h2 {
-    margin-bottom: 0.3em;
-}
 
 .noselect {
     -webkit-touch-callout: none; /* iOS Safari */
