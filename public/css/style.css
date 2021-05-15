@@ -40,7 +40,7 @@ h1, h2, button, .question, #total-votes, #create {
     font-family: var(--codingtrain-fontface); 
 }
 
-h1, h2 {
+h1 {
     margin-bottom: 0.3em;
 }
 
