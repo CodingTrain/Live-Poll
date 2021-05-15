@@ -1,11 +1,11 @@
 /* poll results */
 #poll-result-main {
     width: calc(100% - 40px);
+    text-align: left;
 }
 
 
 .bar-title {
-    margin: 0 10px;
     text-align: left;
     font-size: 20px;
 }
@@ -14,7 +14,7 @@
 .progressBar {
     position: relative;
     min-width: 21px;
-    margin: 0 5px 5px 10px;
+    margin: 0 5px 5px 0px;
     padding: 2px 15px;
     margin-bottom: 10px;
     color: var(--progressbar-color);
