@@ -1,28 +1,46 @@
 /* polls */
+#pool-main {
+    width: 100%;
+}
+
+
 #pool-main p {
     padding: 1em 0;
 }
 
+#pool-main ul {
+    margin-bottom: 20px;
+}
+
 #pool-main #poll-container li {
     display: grid;
-    grid-template-columns: [s] 1fr [m] 1fr [e];
+    grid-template-columns: [s] 2fr [m] 1fr [e];
     grid-template-rows: [t] 1fr [b] 1fr [e];
 
-    margin: 5px;
-    padding: 0.3rem;
+    margin: 0.5em 0;
+    padding: 0.5em 1em;
+    width: calc(100vw - 40px);
     background-color: var(--enabled);
     border-radius: 8px;
 }
 
 #pool-main .title {
+    text-align: left;
     grid-column: s/m;
     grid-row: t/b;
     text-decoration: none;
+    text-transform: uppercase;
+    color: black;
+    font-size: 18px;
 }
 
 #pool-main .date {
     grid-column: s/m;
     grid-row: b/e;
+    text-align: left;
+    text-transform: lowercase;
+    color: rgba(0,0,0,0.5);
+    font-size: 14px;
 }
 
 #pool-main .vote-btn {
@@ -30,32 +48,35 @@
     grid-row: 1/-1;
     justify-self: start;
     align-self: center;
-
-    width: 150px;
-    height: 25px;
-
+    padding: 0.5em 1.2em;
+    height: 35px;
     text-decoration: none;
     text-align: center;
-
-    /* color: black; */
+    color: black;
     background-color: wheat;
-    border: solid 1px var(--enabled);
-    border-radius: 15px;
+    border-radius: 8px;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
 }
 
 #pool-main .delete-btn {
     grid-row: 1/-1;
     grid-column: m/e;
     align-self: center;
+    padding: 0.5em 1.2em;
+    height: 35px;
     justify-self: end;
+    background-color:var(--disabled);
+    color: white;
+    border-radius: 8px;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
 
-    width: 100px;
 }
 
 #pool-main #create {
     position: relative;
     text-decoration: none;
     color: black;
+    text-transform: uppercase;
     font-size: 20px;
     padding: 0.3em 0.7em;
     width: 300px;
