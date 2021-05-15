@@ -30,7 +30,7 @@
     grid-row: t/b;
     text-decoration: none;
     text-transform: uppercase;
-    color: black;
+    color: white;
     font-size: 18px;
 }
 
@@ -69,6 +69,7 @@
     color: white;
     border-radius: 8px;
     box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+    cursor: pointer;
 
 }
 

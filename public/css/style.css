@@ -37,7 +37,7 @@ main {
     width: 100vw;
 }
 
-h1, h2, button, .question, #total-votes { 
+h1, h2, button, .question, #total-votes, #create { 
     font-family: var(--codingtrain-fontface); 
 }
 
