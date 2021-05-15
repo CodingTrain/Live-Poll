@@ -1,49 +1,55 @@
 /* add styles for the voting page here */
-#vote {
+#vote-main #vote {
     position: absolute;
-    width: 80%;
+    width: 70%;
     left: 50%;
     transform: translate(-50%);
 }
 
-#vote li {
+#vote-main h2 {
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    transform: translate(calc(-50% - 20px));
+}
+
+#vote-main #vote li {
     list-style: none;
 }
 
-
-#vote li input {
+#vote-main #vote li input {
     visibility: hidden;
     position: absolute;
     overflow: hidden;
     left: -500px;
 }
 
-.btn-selection label {
+#vote-main .btn-selection label {
     display: inline-block;
     position: relative;
-    padding: 0.5em 1em;
-    margin: 0.1em 0;
+    padding: 0.6em 1em;
+    margin: 0.2em 0;
     width: 100%;
-    background-color: var(--disabled);
+    background-color: whitesmoke;
     text-transform: uppercase;
     text-align: center;
-    color: white;
+    color: black;
     border-radius: 8px;
     cursor: pointer;
-    box-shadow: inset 0px 0px 5px rgba(0,0,0,0.5);
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
     transition: box-shadow 300ms ease,
                 background-color 300ms ease;
 }
 
-.btn-selection input:checked + label {
+#vote-main .btn-selection input:checked + label {
     background-color: var(--enabled);
 }
 
-.btn-selection label:hover, .btn-options input:checked + label:hover {
+#vote-main .btn-selection label:hover, .btn-options input:checked + label:hover {
     box-shadow: inset 0px 0px 15px rgba(0,0,0,0.5);
 }
 
-.submit-vote {
+#vote-main .submit-vote {
     border: 0;
     box-sizing: border-box;
     position: relative;

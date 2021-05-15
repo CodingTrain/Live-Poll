@@ -15,24 +15,21 @@
 
 /* resets browser default styling */
 *, ::after, ::before {
-box-sizing: border-box;
-border: 0;
-margin: 0;
-padding: 0;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 /* main */
 html, body {
     width: 100%;
-    margin: 0;
-    padding: 0;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
 }
 
 body {
     font-family: "Open Sans";
-    width: calc(100% - 40px);
-    margin: 10px;
+    margin: 20px;
 }
 
 main {

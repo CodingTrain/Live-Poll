@@ -1,11 +1,35 @@
 /* put create poll page styles here */
-textarea, input {
+#main-create textarea, input {
     font-family: inherit;
 }
 
-.options input {
+#main-create .options input, textarea {
+    font-size: 16px;
+    position: relative;
     margin-bottom: 0.2em;
+    width: 300px;
     padding: 0.5em 1em;
     border: 1px solid lightblue;
     border-radius: 5px;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+#main-create textarea {
+    font-size: 20px;
+    height: 80px;
+}
+
+#main-create button {
+    font-size: 20px;
+    position: relative;
+    width: 300px;
+    height: 40px;
+    margin-top: 2em;
+    background-color: var(--submit-button);
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
+    left: 50%;
+    transform: translate(-50%);
 }

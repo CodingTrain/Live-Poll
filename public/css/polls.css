@@ -1,29 +1,31 @@
 /* polls */
-#poll-container li {
+#pool-main p {
+    padding: 1em 0;
+}
+
+#pool-main #poll-container li {
     display: grid;
     grid-template-columns: [s] 1fr [m] 1fr [e];
     grid-template-rows: [t] 1fr [b] 1fr [e];
 
     margin: 5px;
     padding: 0.3rem;
-    background-color: #0c0;
-    border: solid 1px #0c0;
-    border-radius: 15px;
+    background-color: var(--enabled);
+    border-radius: 8px;
 }
 
-.title {
+#pool-main .title {
     grid-column: s/m;
     grid-row: t/b;
-
     text-decoration: none;
 }
 
-.date {
+#pool-main .date {
     grid-column: s/m;
     grid-row: b/e;
 }
 
-.vote-btn {
+#pool-main .vote-btn {
     grid-column: m/e;
     grid-row: 1/-1;
     justify-self: start;
@@ -37,10 +39,11 @@
 
     /* color: black; */
     background-color: wheat;
-    border: solid 1px #0c0;
+    border: solid 1px var(--enabled);
     border-radius: 15px;
 }
-.delete-btn {
+
+#pool-main .delete-btn {
     grid-row: 1/-1;
     grid-column: m/e;
     align-self: center;
@@ -49,10 +52,16 @@
     width: 100px;
 }
 
-#create {
-    margin: 2px;
-    padding: 0.3rem;
-    border: solid 3px #0c0;
-    border-radius: 15%;
+#pool-main #create {
+    position: relative;
     text-decoration: none;
+    color: black;
+    font-size: 20px;
+    padding: 0.3em 0.7em;
+    width: 300px;
+    height: 40px;
+    background-color: var(--submit-button);
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
 }

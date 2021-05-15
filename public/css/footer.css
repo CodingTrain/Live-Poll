@@ -3,13 +3,16 @@
     position: fixed;
     bottom: 30px;
     width: 50%;
+    left: 50%;
+    transform: translate(-50%);
 }
 
 #options-wrapper {
     display: grid;
     grid-template-columns: repeat(3, minmax(min-content, 1fr));
     justify-items: center;
-    
+    height: 45px;
+    margin-top: 1em;
 }
 
 div#views ul{
@@ -30,9 +33,9 @@ div#views ul{
     display: inline-block;
     position: relative;
     padding: 0.2em 0.7em;
-    margin: 0.5em;
-    background-color: var(--disabled);
+    height: 100%;
     text-align: center;
+    background-color: var(--disabled);
     color: white;
     border-radius: 8px;
     cursor: pointer;
