@@ -49,6 +49,12 @@ div(id="footer")
       fontToggle.checked = urlStyling.simple == 'true';
       gradientToggle.checked = urlStyling.monotone == 'true';
 
+      // checks if paramater is an 'boolean'
+      // because we need a value between 0 - 100 the boolean gets converted
+      if(urlStyling.transparent == 'true' || urlStyling.transparent == 'false') {
+        urlStyling.transparent = (urlStyling.transparent == 'true') ? 100 : 0;
+      }
+
       // transparency of 0% means the element is fully visible
       // and therefore overlayToggle.checked will be undefined (disabled)
       overlayToggle.checked = urlStyling.transparent != 0 ? 'true' : undefined;
