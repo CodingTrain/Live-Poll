@@ -24,6 +24,7 @@
     font-size: larger;
     text-shadow: -1px 1px #000;
     border-radius: 100px;
+    border: 1px solid black;
 }
 
 .gradient {
