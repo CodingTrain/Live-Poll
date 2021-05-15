@@ -18,3 +18,33 @@ div#views ul{
     flex-direction: row;
     justify-content: space-evenly;
 }
+
+input {
+    position: absolute;
+    left: -400px;
+    visibility: hidden;
+    overflow: hidden;
+}
+
+label {
+    display: inline-block;
+    position: relative;
+    padding: 0.2em 0.7em;
+    margin: 0.5em;
+    background-color: var(--disabled);
+    text-align: center;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: inset 0px 0px 5px rgba(0,0,0,0.5);
+    transition: box-shadow 300ms ease,
+                background-color 300ms ease;
+}
+
+input:checked + label {
+    background-color: var(--enabled);
+}
+
+label:hover, input:checked + label:hover {
+    box-shadow: inset 0px 0px 15px rgba(0,0,0,0.5);
+}

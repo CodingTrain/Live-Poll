@@ -8,6 +8,8 @@
     --monochrome-gradient: repeating-linear-gradient(60deg, #A42963, #A42963 10px, #F063A4 10px, #F063A4 20px);
     --no-gradient: black;
     --progressbar-color: white;
+    --disabled: rgb(189, 65, 65);
+    --enabled: rgb(52, 168, 91);
 }
 
 /* main */
