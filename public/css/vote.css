@@ -28,7 +28,7 @@
     display: inline-block;
     position: relative;
     padding: 0.6em 1em;
-    margin: 0.2em 0;
+    margin: 0.3em 0;
     width: 100%;
     background-color: whitesmoke;
     text-transform: uppercase;
@@ -36,27 +36,34 @@
     color: black;
     border-radius: 8px;
     cursor: pointer;
-    box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
-    transition: box-shadow 300ms ease,
-                background-color 300ms ease;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    transform: scale(1);
+    transition: box-shadow 200ms ease,
+                background-color 400ms ease,
+                scale 200ms ease,
+                color 400ms ease;
 }
 
 #vote-main .btn-selection input:checked + label {
     background-color: var(--enabled);
+    color: white;
 }
 
 #vote-main .btn-selection label:hover, .btn-options input:checked + label:hover {
-    box-shadow: inset 0px 0px 15px rgba(0,0,0,0.5);
+    box-shadow: 1px 1px 6px rgba(0,0,0,0.5);
+    transform: scale(1.02);
 }
 
 #vote-main .submit-vote {
     border: 0;
     box-sizing: border-box;
     position: relative;
-    padding: 0.7em 1em;
+    padding: 0.4em 1em;
     margin-top: 1em;
     text-transform: uppercase;
     width: 33%;
+    font-size: 18px;
+    font-family: var(--codingtrain-fontface);
     border-radius: 8px;
     cursor: pointer;
     background-color: var(--submit-button);
