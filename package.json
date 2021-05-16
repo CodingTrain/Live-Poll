@@ -29,7 +29,6 @@
     "nedb": "^1.8.0",
     "nedb-promises": "^4.0.4",
     "pug": "^3.0.0",
-    "qrcode-generator": "^1.4.4",
     "socket.io": "^3.0.3"
   },
   "devDependencies": {
