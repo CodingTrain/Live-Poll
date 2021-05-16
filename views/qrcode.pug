@@ -3,12 +3,13 @@ html
   head
     title Live Coding Train Poll
     link(rel="stylesheet" href="css/style.css")
-    link(rel="stylesheet" href="css/create.css")
+    link(rel="stylesheet" href="css/qrcode.css")
     script(src="/js/qrcode.js")
 
   body
     h1 The Coding Train Live Poll
     h2 QR-Code to newest Poll
+    h3.qr-question=question
     div#placeHolder
     template(data-pollurl=pollURL)
 

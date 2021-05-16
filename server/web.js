@@ -137,7 +137,7 @@ router.get("/qrcode/", async (req, res) => {
       res.status(404);
       res.render("notfound");
     } else {
-      res.render("qrcode", { pollURL });
+      res.render("qrcode", { pollURL, question: poll.question });
     }
 });
 

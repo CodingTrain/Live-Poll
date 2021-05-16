@@ -6,3 +6,9 @@
 body {
     background-color: rgba(255, 255, 255, 0);
 } 
+
+.qr-question {
+    position: relative;
+    font-size: 20px;
+    margin: 0;
+}
