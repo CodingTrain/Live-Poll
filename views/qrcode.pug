@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+    title Live Coding Train Poll
+    link(rel="stylesheet" href="css/style.css")
+    link(rel="stylesheet" href="css/create.css")
+    link(rel="stylesheet" href="/css/footer.css")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js")
+    script(src="/js/qrcode.js")
+
+  body
+    h1 The Coding Train Live Poll
+    h2 QR-Code to newest Poll
+    div#placeHolder
+    template(data-pollurl=pollURL)
+
+  script.
+      var typeNumber = 4;
+      var errorCorrectionLevel = 'L';
+      var qr = qrcode(typeNumber, errorCorrectionLevel);
+      var pollURL = document.querySelector('[data-pollurl]').dataset.pollurl;
+      qr.addData(pollURL);
+      qr.make();
+      document.querySelector('#placeHolder').innerHTML = qr.createImgTag(5);
