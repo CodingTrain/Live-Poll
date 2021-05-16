@@ -125,7 +125,7 @@ router.post("/vote/:pollId", async function (req, res) {
 });
 
 //Page to view the latest qrcode
-router.get("/qrcode/", requiresAuthentication, async (req, res) => {
+router.get("/qrcode/", async (req, res) => {
     // Get all polls, sort descending by timestamp, get the first poll
 
     const poll = (await database.find({}).sort({ timestamp: -1 }))[0];
