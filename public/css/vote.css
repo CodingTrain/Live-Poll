@@ -10,7 +10,7 @@
     position: relative;
     width: 100vw;
     left: 50%;
-    transform: translate(calc(-50% - 20px));
+    transform: translate(-50%);
 }
 
 #vote-main #vote li {
@@ -76,4 +76,29 @@
 #vote-main .submit-vote:hover {
     box-shadow: 1px 1px 6px rgba(0,0,0,0.5);
     transform: scale(1.02);
+}
+
+@media only screen and (max-width:768px) {
+    #vote-main #vote {
+        position: relative;
+        width: 100%;
+        left: 0%;
+        transform: translate(0);
+    }
+
+    #vote-main .btn-selection label {
+        padding: 1.2em 1em;
+        margin: 0.6em 0;
+        font-size: 16px;
+    }
+
+    #vote-main .submit-vote {
+        padding: 1.2em 1em;
+        margin-top: 2em;
+        width: 100%;
+    }
+
+    #footer {
+        display: none;
+    }
 }

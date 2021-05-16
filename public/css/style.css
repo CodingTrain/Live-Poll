@@ -33,7 +33,7 @@ body {
 
 main {
     text-align: center;
-    width: 100vw;
+    width: 100%;
 }
 
 h1, h2, button, .question, #total-votes, #create { 
@@ -54,10 +54,16 @@ h1::after  { content: " 🌈"; }
 
 .noselect {
     -webkit-touch-callout: none; /* iOS Safari */
-      -webkit-user-select: none; /* Safari */
-       -khtml-user-select: none; /* Konqueror HTML */
-         -moz-user-select: none; /* Old versions of Firefox */
-          -ms-user-select: none; /* Internet Explorer/Edge */
-              user-select: none; /* Non-prefixed version, currently
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
                                     supported by Chrome, Edge, Opera and Firefox */
-  }
+}
+
+@media only screen and (max-width:768px) {
+    h1, h2 {
+        font-size: 22px;
+    }
+}
