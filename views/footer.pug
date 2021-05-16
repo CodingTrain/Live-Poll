@@ -24,13 +24,13 @@ div(id="footer")
     const gradientToggle = document.querySelector('#gradient-toggle');
     const overlayToggle = document.querySelector('#overlay-toggle');
     
-    // first check url-paramaetes
-    // extacts url-styling parameters from poll.pug
+    // first check url-parameters
+    // extracts url-styling parameters from poll.pug
     const styling = document.querySelector('[data-styling]').dataset.styling;
     const urlStyling = (JSON.parse(styling));
     let transparency = null;
 
-    // check if any url-parameter was submitted
+    // check if any url-parameter was submitted (if not)
     if(Object.keys(urlStyling).length === 0) {
 
       // initial state from localStorage
@@ -49,8 +49,7 @@ div(id="footer")
       fontToggle.checked = urlStyling.simple == 'true';
       gradientToggle.checked = urlStyling.monotone == 'true';
 
-      // checks if paramater is an 'boolean'
-      // because we need a value between 0 - 100 the boolean gets converted
+      // because we need a value between 0 - 100 boolean are converted
       if(urlStyling.transparent == 'true' || urlStyling.transparent == 'false') {
         urlStyling.transparent = (urlStyling.transparent == 'true') ? 100 : 0;
       }
