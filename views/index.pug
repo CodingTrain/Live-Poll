@@ -1,34 +1,38 @@
 doctype html
 html
   head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover")
+    meta(http-equiv="X-UA-Compatible" content="ie=edge")
     title Live Coding Train Poll
     link(rel="stylesheet" href="css/style.css")
     link(rel="stylesheet" href="css/polls.css")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js")
 
   body
-    h1 The Coding Train Live Poll
-    h2 Currently Active Polls
+    main#pool-main
+      h1 The Coding Train Live Poll
+      h2 Currently Active Polls
 
-    if polls.length
-      ul(id="poll-container")
-        each poll in polls
-          li(id=`poll-${poll._id}`)
-            a(class="title" href=`/poll/${poll._id}`)=`${poll.question}`
-            br
-            span(class="date")=`Created on: ${new Date(poll.timestamp).toDateString()}`
-            br
-            a(class="vote-btn" href=`/vote/${poll._id}`)="Go to vote"
-            input(id=`delete_${poll._id}` class="delete-btn" data-poll-id=`${poll._id}` type="button" value="Delete poll")
+      if polls.length
+        ul(id="poll-container")
+          each poll in polls
+            li(id=`poll-${poll._id}`)
+              a(class="title" href=`/poll/${poll._id}`)=`${poll.question}`
+              br
+              span(class="date")=`Created on: ${new Date(poll.timestamp).toDateString()}`
+              br
+              a(class="vote-btn" href=`/vote/${poll._id}`)="Go to vote"
+              input(id=`delete_${poll._id}` class="delete-btn" data-poll-id=`${poll._id}` type="button" value="Delete poll")
 
-      a(id='create' href="/create") Create a Poll &nbsp;
-    else
-      p No Polls Found!
-      a(id="create" href="/create") Create One Here
+        a(id='create' href="/create") Create a Poll &nbsp;
+      else
+        p No Polls Found!
+        a(id="create" href="/create") Create One Here
+        
+      template(data-styling=styling)
 
-    template(data-styling=styling)
-
-    include footer.pug
+      include footer.pug
 
   script.
     let delBTN = document.querySelectorAll('.delete-btn');

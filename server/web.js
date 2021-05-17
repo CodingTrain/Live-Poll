@@ -125,4 +125,22 @@ router.post("/vote/:pollId", async function (req, res) {
   res.redirect("/poll/" + _id);
 });
 
+//Page to view the latest qrcode
+router.get("/qrcode/", async (req, res) => {
+    // Get all polls, sort descending by timestamp, get the first poll
+
+    const poll = (await database.find({}).sort({ timestamp: -1 }))[0];
+
+    const hostAddress = req.get('host');
+    const pollURL = `http://${hostAddress}/vote/${poll._id}`;
+
+    if (!poll) {
+      res.status(404);
+      res.render("notfound");
+    } else {
+      res.render("qrcode", { pollURL, question: poll.question });
+    }
+});
+
+
 module.exports = router;

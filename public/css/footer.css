@@ -2,14 +2,17 @@
 #footer {
     position: fixed;
     bottom: 30px;
-    width: 50%;
+    width: 320px;
+    left: 50%;
+    transform: translate(-50%);
 }
 
 #options-wrapper {
     display: grid;
     grid-template-columns: repeat(3, minmax(min-content, 1fr));
     justify-items: center;
-    
+    height: 45px;
+    margin-top: 1em;
 }
 
 div#views ul{
@@ -17,4 +20,39 @@ div#views ul{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+}
+
+.btn-options input {
+    position: absolute;
+    left: -400px;
+    visibility: hidden;
+    overflow: hidden;
+}
+
+.btn-options label {
+    display: inline-block;
+    position: relative;
+    padding: 0.2em 0.7em;
+    height: 100%;
+    width: 100px;
+    text-align: center;
+    background-color: var(--disabled);
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: inset 0px 0px 5px rgba(0,0,0,0.5);
+    transition: box-shadow 300ms ease,
+                background-color 300ms ease;
+}
+
+.btn-options input:checked + label {
+    background-color: var(--enabled);
+}
+
+.btn-options label:hover, .btn-options input:checked + label:hover {
+    box-shadow: inset 0px 0px 15px rgba(0,0,0,0.5);
+}
+
+#vote-main .btn-selection input:checked + label:hover {
+    background-color: var(--enabled);
 }
