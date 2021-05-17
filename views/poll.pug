@@ -1,6 +1,9 @@
 doctype html
 html
   head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover")
+    meta(http-equiv="X-UA-Compatible" content="ie=edge")
     title Live Coding Train Poll
     link(rel="stylesheet" href="/css/style.css")
     link(rel="stylesheet" href="/css/poll-results.css")
@@ -8,17 +11,18 @@ html
     script(src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.3/socket.io.min.js")
     
   body
-    h1 The Coding Train Live Poll
-    h2=poll.question
-    
-    div#results
-      each val, index in poll.options
-        div.option
-          div= val
-          div(id="progressBar_" + index class="progressBar")
-    p#totalVotes
+    main#poll-result-main
+      h1 The Coding Train Live Poll
+      h2=poll.question
+      
+      div#results
+        each val, index in poll.options
+          div.option
+            div.bar-title=val
+            div(id="progressBar_" + index class="progressBar")
+      p#totalVotes
+
+      include footer.pug
 
     script(src="/js/classes/poll.js")
     script(src="/js/sketches/poll.js")
-    
-    include footer.pug

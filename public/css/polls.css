@@ -1,59 +1,89 @@
 /* polls */
-#poll-container li {
+#pool-main {
+    width: 100%;
+}
+
+
+#pool-main p {
+    padding: 1em 0;
+}
+
+#pool-main ul {
+    margin-bottom: 20px;
+}
+
+#pool-main #poll-container li {
     display: grid;
-    grid-template-columns: [s] 1fr [m] 1fr [e];
+    grid-template-columns: [s] 2fr [m] 1fr [e];
     grid-template-rows: [t] 1fr [b] 1fr [e];
 
-    margin: 5px;
-    padding: 0.3rem;
-    background-color: #0c0;
-    border: solid 1px #0c0;
-    border-radius: 15px;
+    margin: 0.5em 0;
+    padding: 0.5em 1em;
+    width: calc(100vw - 40px);
+    background-color: var(--enabled);
+    border-radius: 8px;
 }
 
-.title {
+#pool-main .title {
+    text-align: left;
     grid-column: s/m;
     grid-row: t/b;
-
     text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    font-size: 18px;
 }
 
-.date {
+#pool-main .date {
     grid-column: s/m;
     grid-row: b/e;
+    text-align: left;
+    text-transform: lowercase;
+    color: rgba(0,0,0,0.5);
+    font-size: 14px;
 }
 
-.vote-btn {
+#pool-main .vote-btn {
     grid-column: m/e;
     grid-row: 1/-1;
     justify-self: start;
     align-self: center;
-
-    width: 150px;
-    height: 25px;
-
+    padding: 0.5em 1.2em;
+    height: 35px;
     text-decoration: none;
     text-align: center;
-
-    /* color: black; */
+    color: black;
     background-color: wheat;
-    border: solid 1px #0c0;
-    border-radius: 15px;
+    border-radius: 8px;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
 }
-.delete-btn {
+
+#pool-main .delete-btn {
     grid-row: 1/-1;
     grid-column: m/e;
     align-self: center;
+    padding: 0.5em 1.2em;
+    height: 35px;
     justify-self: end;
+    background-color:var(--disabled);
+    color: white;
+    border-radius: 8px;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+    cursor: pointer;
 
-    width: 100px;
 }
 
-#create {
-    margin: 2px;
-    padding: 0.3rem;
-    border: solid 3px #0c0;
-    border-radius: 15%;
-
+#pool-main #create {
+    position: relative;
     text-decoration: none;
+    color: black;
+    text-transform: uppercase;
+    font-size: 20px;
+    padding: 0.3em 0.7em;
+    width: 300px;
+    height: 40px;
+    background-color: var(--submit-button);
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
 }
