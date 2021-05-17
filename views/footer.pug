@@ -20,20 +20,49 @@ div(id="footer")
   script.
 
     // checkboxes
-    let fontToggle = document.querySelector('#font-toggle');
-    let gradientToggle = document.querySelector('#gradient-toggle');
-    let overlayToggle = document.querySelector('#overlay-toggle');
+    const fontToggle = document.querySelector('#font-toggle');
+    const gradientToggle = document.querySelector('#gradient-toggle');
+    const overlayToggle = document.querySelector('#overlay-toggle');
+    
+    // first check url-parameters
+    // extracts url-styling parameters from poll.pug
+    const styling = document.querySelector('[data-styling]').dataset.styling;
+    const urlStyling = (JSON.parse(styling));
+    let transparency = null;
 
-    // initial state from localStorage
-    fontToggle.checked = localStorage.getItem('font-simple') == 'true';
-    gradientToggle.checked = localStorage.getItem('no-gradient') == 'true';
-    overlayToggle.checked = localStorage.getItem('overlay-on') == 'true';
+    // check if any url-parameter was submitted (if not)
+    if(Object.keys(urlStyling).length === 0) {
+
+      // initial state from localStorage
+      fontToggle.checked = localStorage.getItem('font-simple') == 'true';
+      gradientToggle.checked = localStorage.getItem('no-gradient') == 'true';
+      overlayToggle.checked = localStorage.getItem('overlay-on') == 'true';
+
+    } else {
+
+      // removes local storage if url-parameters are used
+      localStorage.removeItem('font-simple');
+      localStorage.removeItem('no-gradient');
+      localStorage.removeItem('overlay-on');
+
+      // set states from url-paramaters
+      fontToggle.checked = urlStyling.simple == 'true';
+      gradientToggle.checked = urlStyling.monotone == 'true';
+
+      // because we need a value between 0 - 100 boolean are converted
+      if(urlStyling.transparent == 'true' || urlStyling.transparent == 'false') {
+        urlStyling.transparent = (urlStyling.transparent == 'true') ? 100 : 0;
+      }
+
+      // transparency of 0% means the element is fully visible
+      // and therefore overlayToggle.checked will be undefined (disabled)
+      overlayToggle.checked = urlStyling.transparent != 0 ? 'true' : undefined;
+      transparency = urlStyling.transparent;
+    }
 
     changeFonts(fontToggle.checked);
     changeGradient(gradientToggle.checked);
-    changeOverlay(overlayToggle.checked);
-    
-
+    changeOverlay(overlayToggle.checked, transparency);
 
     // input handlers
     fontToggle.oninput = function() {
@@ -76,11 +105,12 @@ div(id="footer")
     }
 
     // toggle the overlay
-    function changeOverlay(overlay) {
+    // default value is a transparency = 50
+    function changeOverlay(overlay, transparency = 50) {
       if (overlay)
         //set the background to semi-transperant white
-        document.body.style.background = "rgba(255,255,255,50%)"
+        document.body.style.background = `rgba(255, 255, 255, ${(100 - transparency) / 100})`;
       else
         //set the background to white
-        document.body.style.background = "rgba(255,255,255,100%)"
+        document.body.style.background = `rgba(255, 255, 255, 1)`;
     }

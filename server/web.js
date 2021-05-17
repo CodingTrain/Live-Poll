@@ -8,12 +8,13 @@ const {requiresAuthentication} = require("./validation/basicauth");
 router.get("/", requiresAuthentication, async (req, res) => {
   res.render("index", {
     polls: await database.find({}).sort({ timestamp: -1 }),
+    styling: req.query
   });
 });
 
 //Page to create a new poll
 router.get("/create", requiresAuthentication, function (req, res) {
-  res.render("create");
+  res.render("create", { styling: req.query });
 });
 
 //Route for getting the newest poll
@@ -38,7 +39,7 @@ router.get("/poll/:pollId", async function (req, res) {
     res.status(404);
     res.render("notfound");
   } else {
-    res.render("poll", { poll });
+    res.render("poll", { poll: poll, styling: req.query });
   }
 });
 
@@ -69,7 +70,7 @@ router.get("/vote/:pollId", async function (req, res) {
     res.status(404);
     res.render("notfound");
   } else {
-    res.render("vote", { poll });
+    res.render("vote", { poll: poll, styling: req.query });
   }
 });
 
