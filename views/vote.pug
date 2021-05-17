@@ -17,6 +17,9 @@ html
             input(type="radio" name="vote" id="option_" + index value=index)
             label(for="option_" + index)=val
       input(class="submit-vote" type="submit" value="Vote")
+    
+    template(data-styling=styling)
+    
     script(src="/js/classes/poll.js")
     script(src="/js/sketches/vote.js")
     
