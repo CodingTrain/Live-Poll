@@ -45,6 +45,11 @@ div(id="footer")
       localStorage.removeItem('no-gradient');
       localStorage.removeItem('overlay-on');
 
+      // activates compact design perfect for livestreams 
+      if(urlStyling.compact == 'true') {
+        document.querySelector('#poll-result-style').href = "/css/poll-results-compact.css";
+      }
+
       // set states from url-paramaters
       fontToggle.checked = urlStyling.simple == 'true';
       gradientToggle.checked = urlStyling.monotone == 'true';
