@@ -11,11 +11,14 @@ class Poll {
 
     this.pollId = matches[1];
 
-    this.socket = io({pollId: this.pollId});
+    this.socket = io({ pollId: this.pollId });
 
-    this.socket.on("connect", (function() {
-      this.socket.emit("listenForPoll", this.pollId);
-    }).bind(this))
+    this.socket.on(
+      "connect",
+      function () {
+        this.socket.emit("listenForPoll", this.pollId);
+      }.bind(this)
+    );
 
     this.socket.on("updatePoll", this.updatePollResults.bind(this));
   }
@@ -31,7 +34,7 @@ class Poll {
     }
     const pollDetails = this.getPollVotesStats();
 
-    select("#totalVotes").html(pollDetails.totalVotes + " votes");
+    select("#totalVotes").html(`${pollDetails.totalVotes} votes`);
 
     for (let i = 0; i < this.pollDetails.votes.length; i++) {
       let count = this.pollDetails.votes[i];
@@ -49,9 +52,11 @@ class Poll {
         pollDetails.totalVotes == 0
           ? 0
           : (count / pollDetails.totalVotes) * 100;
-        if (count > 0) { 
-          progressBar.html(`${count} votes (${Math.round(percent)}%)`); } 
-        else { progressBar.html(`${count}`); }
+      if (count > 0) {
+        progressBar.html(`<p>${count} votes (${Math.round(percent)}%)</p>`);
+      } else {
+        progressBar.html(`<p>${count}</p>`);
+      }
     }
   }
 
