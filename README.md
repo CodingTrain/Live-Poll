@@ -1,7 +1,9 @@
 # Live-Poll
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+
 [![All Contributors](https://img.shields.io/badge/all_contributors-17-orange.svg?style=flat-square)](#contributors-)
+
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ## Set Up
@@ -20,6 +22,33 @@
 - http://localhost:3000/newest to show the results of the newest poll
 - http://localhost:3000/vote/{poll_id} to vote in a poll
 - http://localhost:3000/poll/{poll_id} to show the results of a poll
+- http://localhost:3000/qrcode to show a qrcode with the url to newest poll
+
+## Additional URL-Parameters
+
+- monotone=boolean
+  - applies a reduced color scheme for voting bars
+  - ignored if _compact=true_ is used
+- simple=boolean
+  - applies a basic font type
+- transparent=boolean/number
+  - adds transparency to the body background
+  - _boolean_: enables / disables transparency
+  - _number_: sets transparency to a percentage value (0 - 100)
+  - ignored if _compact=true_ is used
+- compact=boolean
+  - only for _/poll/{poll_id}_ route
+  - overwrites _monotone_ and _transparent_ parameters
+  - applies a compact view especially for live streams / OBS
+
+Example usage
+
+```
+/poll/{poll_id}?monotone=true&simple=true&transparent=true
+/poll/{poll_id}?monotone=true&simple=false&transparent=80
+/poll/{poll_id}?compact=true
+/poll/{poll_id}?compact=true&simple=true
+```
 
 ## Contributors ✨
 
@@ -56,6 +85,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
