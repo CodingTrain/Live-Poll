@@ -33,7 +33,7 @@
   - applies a basic font type
 - transparent=boolean/number
   - adds transparency to the body background
-  - _boolean_: enables disables transparency
+  - _boolean_: enables / disables transparency
   - _number_: sets transparency to a percentage value (0 - 100)
   - ignored if _compact=true_ is used
 - compact=boolean
