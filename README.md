@@ -28,26 +28,17 @@
 
 - monotone=boolean
   - applies a reduced color scheme for voting bars
-  - ignored if _compact=true_ is used
+  - ignored if _overlay=true_ is used
 - simple=boolean
   - applies a basic font type
-- transparent=boolean/number
-  - adds transparency to the body background
-  - _boolean_: enables / disables transparency
-  - _number_: sets transparency to a percentage value (0 - 100)
-  - ignored if _compact=true_ is used
-- compact=boolean
-  - only for _/poll/{poll_id}_ route
-  - overwrites _monotone_ and _transparent_ parameters
+- overlay=boolean
+  - overwrites _monotone_ parameter
   - applies a compact view especially for live streams / OBS
 
 Example usage
 
 ```
-/poll/{poll_id}?monotone=true&simple=true&transparent=true
-/poll/{poll_id}?monotone=true&simple=false&transparent=80
-/poll/{poll_id}?compact=true
-/poll/{poll_id}?compact=true&simple=true
+/poll/{poll_id}?monotone=true&simple=true&overlay=true
 ```
 
 ## Contributors ✨
