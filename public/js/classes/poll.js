@@ -38,20 +38,18 @@ class Poll {
 
     for (let i = 0; i < this.pollDetails.votes.length; i++) {
       let count = this.pollDetails.votes[i];
-      let width =
-        pollDetails.totalVotes == 0
-          ? 0
-          : round(map(count, 0, pollDetails.maxVotes, 0, 100));
 
-      // Get the progress bar element
-      const progressBar = select("#progressBar_" + i);
-      // Set the width
-      progressBar.style("width", width + "%");
-      // Set the text
+      // calculate percentage values
       const percent =
         pollDetails.totalVotes == 0
           ? 0
           : (count / pollDetails.totalVotes) * 100;
+
+      // Get the progress bar element
+      // Set the width by percentage
+      const progressBar = select("#progressBar_" + i);
+      progressBar.style("width", percent + "%");
+
       if (count > 0) {
         progressBar.html(`<p>${count} votes (${Math.round(percent)}%)</p>`);
       } else {
