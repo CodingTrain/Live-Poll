@@ -1,4 +1,8 @@
 /* put create poll page styles here */
+#main-create {
+  margin: 0 20px;
+}
+
 #main-create textarea,
 input {
   font-family: inherit;
