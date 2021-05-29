@@ -1,14 +1,15 @@
 #placeHolder {
-    width: 400px;
-    height: 400px;
+  width: 400px;
+  height: 400px;
 }
 
 body {
-    background-color: rgba(255, 255, 255, 0);
-} 
+  background-color: rgba(255, 255, 255, 0);
+  margin: 20px 20px;
+}
 
 .qr-question {
-    position: relative;
-    font-size: 20px;
-    margin: 0;
+  position: relative;
+  font-size: 20px;
+  margin: 0;
 }

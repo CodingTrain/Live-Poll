@@ -20,4 +20,4 @@ html
       var pollURL = document.querySelector('[data-pollurl]').dataset.pollurl;
       qr.addData(pollURL);
       qr.make();
-      document.querySelector('#placeHolder').innerHTML = qr.createImgTag(5, 5);
+      document.querySelector('#placeHolder').innerHTML = qr.createSvgTag(5, 5);
