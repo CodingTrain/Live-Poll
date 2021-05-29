@@ -1,37 +1,46 @@
 /* poll results */
 #poll-result-main {
-    width: calc(100% - 40px);
-    text-align: left;
+  width: calc(100% - 20px);
+  text-align: left;
 }
-
 
 .bar-title {
-    text-align: left;
-    font-size: 20px;
+  text-align: left;
+  font-size: 20px;
 }
 
-
 .progressBar {
-    position: relative;
-    min-width: 21px;
-    margin: 0 5px 5px 0px;
-    padding: 2px 15px;
-    margin-bottom: 10px;
-    color: var(--progressbar-color);
-    background: var(--monochrome-gradient);
-    transition: width 1s;
-    font-family: var(--codingtrain-fontface);
-    font-size: larger;
-    text-shadow: -1px 1px #000;
-    border-radius: 100px;
-    border: 1px solid black;
+  position: relative;
+  min-width: 21px;
+  margin: 0 5px 5px 0px;
+  padding: 2px 15px;
+  margin-bottom: 10px;
+  color: var(--progressbar-color);
+  background: var(--monochrome-gradient);
+  transition: width 1s;
+  font-family: var(--codingtrain-fontface);
+  font-size: larger;
+  text-shadow: -1px 1px #000;
+  border-radius: 100px;
+  border: 1px solid black;
+}
+
+.progressBar p {
+  width: 220px;
 }
 
 .gradient {
-    background: var(--gradient);
+  background: var(--gradient);
 }
 
 #totalVotes {
-    margin: 5px;
-    font-size: 22px;
+  margin: 5px;
+  font-size: 22px;
+}
+
+@media only screen and (max-width: 768px) {
+  #poll-result-main {
+    text-align: left;
+    margin: 0 auto;
+  }
 }
