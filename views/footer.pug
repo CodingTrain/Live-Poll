@@ -47,7 +47,7 @@ div(id="footer")
       // set states from url-paramaters
       fontToggle.checked = urlStyling.simple == 'true';
       gradientToggle.checked = urlStyling.monotone == 'true';
-      overlayToggle.checked = urlStyling.overlay == 'true';
+      overlayToggle.checked = urlStyling.overlay != 'false';
     }
 
     changeFonts(fontToggle.checked);
