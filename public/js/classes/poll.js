@@ -36,6 +36,15 @@ class Poll {
 
     select("#totalVotes").html(`${pollDetails.totalVotes} votes`);
 
+    // find leading element
+    const leadingIndex = this.indexOfMax(this.pollDetails.votes);
+
+    // checks if it's a tie
+    const tie =
+      this.pollDetails.votes.filter(
+        (value) => value == this.pollDetails.votes[leadingIndex]
+      ).length != 1;
+
     for (let i = 0; i < this.pollDetails.votes.length; i++) {
       let count = this.pollDetails.votes[i];
 
@@ -55,7 +64,30 @@ class Poll {
       } else {
         progressBar.html(`<p>${count}</p>`);
       }
+
+      if (!tie && i == leadingIndex) {
+        progressBar.addClass("leading");
+      } else {
+        progressBar.removeClass("leading");
+      }
     }
+  }
+
+  indexOfMax(arr) {
+    if (arr.length === 0) {
+      return -1;
+    }
+
+    var max = arr[0];
+    var maxIndex = 0;
+
+    for (var i = 1; i < arr.length; i++) {
+      if (arr[i] > max) {
+        maxIndex = i;
+        max = arr[i];
+      }
+    }
+    return maxIndex;
   }
 
   async fetchPollResults() {

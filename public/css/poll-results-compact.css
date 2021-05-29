@@ -46,7 +46,11 @@ body {
   left: 0;
   height: 100%;
   background-color: rgb(32, 145, 170);
-  transition: width 1s ease;
+  transition: width 1s ease, background-color 1s ease;
+}
+
+.leading {
+  background-color: rgb(50, 168, 82);
 }
 
 .progressBar p {
