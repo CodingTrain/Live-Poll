@@ -1,69 +1,103 @@
 @font-face {
-    font-family: "cubanoregular";
-    src: url("https://thecodingtrain.com/assets/fonts/cubano-regular-webfont.woff2");
+  font-family: "cubanoregular";
+  src: url("https://thecodingtrain.com/assets/fonts/cubano-regular-webfont.woff2");
 }
 :root {
-    --codingtrain-fontface: "cubanoregular";
-    --gradient: linear-gradient(90deg, red, yellow, green, blue, violet);
-    --monochrome-gradient: repeating-linear-gradient(60deg, #A42963, #A42963 10px, #F063A4 10px, #F063A4 20px);
-    --no-gradient: black;
-    --progressbar-color: white;
-    --disabled: rgb(189, 65, 65);
-    --enabled: rgb(52, 168, 91);
-    --submit-button: rgb(98, 159, 238);
+  --codingtrain-fontface: "cubanoregular";
+  --gradient: linear-gradient(90deg, red, yellow, green, blue, violet);
+  --monochrome-gradient: repeating-linear-gradient(
+    60deg,
+    #a42963,
+    #a42963 10px,
+    #f063a4 10px,
+    #f063a4 20px
+  );
+  --no-gradient: black;
+  --progressbar-color: white;
+  --disabled: rgb(189, 65, 65);
+  --enabled: rgb(52, 168, 91);
+  --submit-button: rgb(98, 159, 238);
 }
 
 /* resets browser default styling */
-*, ::after, ::before {
-    border: 0;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*,
+::after,
+::before {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* main */
-html, body {
-    background-color: transparent;
+html,
+body {
+  background-color: transparent;
 }
 
 body {
-    font-family: "Open Sans";
-    margin: 20px;
+  font-family: "Open Sans";
+  margin: 20px;
 }
 
 main {
-    text-align: center;
-    width: 100%;
+  text-align: center;
+  width: 100%;
 }
 
-h1, h2, button, .question, #total-votes, #create { 
-    font-family: var(--codingtrain-fontface); 
+h1,
+h2,
+button,
+.question,
+#total-votes,
+#create {
+  font-family: var(--codingtrain-fontface);
 }
 
 h1 {
-    margin-bottom: 0.3em;
+  margin-bottom: 0.3em;
 }
 
 h2 {
-    margin-bottom: 0.5em;
+  margin-bottom: 0.5em;
 }
 
-
-h1::before { content: "🚂 "; }
-h1::after  { content: " 🌈"; }
+h1::before {
+  content: "🚂 ";
+}
+h1::after {
+  content: " 🌈";
+}
 
 .noselect {
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-    -khtml-user-select: none; /* Konqueror HTML */
-    -moz-user-select: none; /* Old versions of Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none; /* Non-prefixed version, currently
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
                                     supported by Chrome, Edge, Opera and Firefox */
 }
 
-@media only screen and (max-width:768px) {
-    h1, h2 {
-        font-size: 22px;
-    }
+@media only screen and (max-width: 768px) {
+  body {
+    margin: 20px 0px 0px 0px;
+  }
+
+  h1,
+  h2 {
+    font-size: 20px;
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+}
+
+@media only screen and (max-width: 330px) {
+  h1 {
+    font-size: 16px;
+    color: red;
+  }
 }

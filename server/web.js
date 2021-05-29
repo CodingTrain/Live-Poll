@@ -2,13 +2,13 @@ const express = require("express");
 const router = express.Router();
 const database = require("./helpers/database");
 const floodChecker = require("./validation/antipollspam");
-const {requiresAuthentication} = require("./validation/basicauth");
+const { requiresAuthentication } = require("./validation/basicauth");
 
 //Index page to have an overview of active polls (and be able to manage them perhaps) - might need some password protection
 router.get("/", requiresAuthentication, async (req, res) => {
   res.render("index", {
     polls: await database.find({}).sort({ timestamp: -1 }),
-    styling: req.query
+    styling: req.query,
   });
 });
 
@@ -48,8 +48,8 @@ router.get("/vote/:pollId", async function (req, res) {
   const _id = req.params.pollId;
 
   let ip = req.ip;
-  if (req.headers['x-forwarded-for']) {
-    ip = req.headers['x-forwarded-for'];
+  if (req.headers["x-forwarded-for"]) {
+    ip = req.headers["x-forwarded-for"];
   }
 
   const floodCheckId = _id + "_" + ip;
@@ -79,8 +79,8 @@ router.post("/vote/:pollId", async function (req, res) {
   const _id = req.params.pollId;
 
   let ip = req.ip;
-  if (req.headers['x-forwarded-for']) {
-    ip = req.headers['x-forwarded-for'];
+  if (req.headers["x-forwarded-for"]) {
+    ip = req.headers["x-forwarded-for"];
   }
 
   const floodCheckId = _id + "_" + ip;
@@ -127,20 +127,19 @@ router.post("/vote/:pollId", async function (req, res) {
 
 //Page to view the latest qrcode
 router.get("/qrcode/", async (req, res) => {
-    // Get all polls, sort descending by timestamp, get the first poll
+  // Get all polls, sort descending by timestamp, get the first poll
 
-    const poll = (await database.find({}).sort({ timestamp: -1 }))[0];
+  const poll = (await database.find({}).sort({ timestamp: -1 }))[0];
 
-    const hostAddress = req.get('host');
-    const pollURL = `http://${hostAddress}/vote/${poll._id}`;
+  const hostAddress = req.get("host");
+  const pollURL = `http://${hostAddress}/vote/${poll._id}`;
 
-    if (!poll) {
-      res.status(404);
-      res.render("notfound");
-    } else {
-      res.render("qrcode", { pollURL, question: poll.question });
-    }
+  if (!poll) {
+    res.status(404);
+    res.render("notfound");
+  } else {
+    res.render("qrcode", { pollURL, question: poll.question });
+  }
 });
-
 
 module.exports = router;
