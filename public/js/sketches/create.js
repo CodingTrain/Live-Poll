@@ -93,5 +93,14 @@ function setup() {
     Poll Voting Link: <a href="${voteLink}">${voteLink}</a><br>
     Poll Results Link: <a href="${pollLink}">${pollLink}</a><br>
     `);
+
+    // add qrcode
+    const typeNumber = 4;
+    const errorCorrectionLevel = "L";
+    const qr = qrcode(typeNumber, errorCorrectionLevel);
+    qr.addData(voteLink);
+    qr.make();
+
+    createDiv(qr.createSvgTag(5, 5));
   });
 }

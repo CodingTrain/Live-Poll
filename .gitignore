@@ -3,3 +3,4 @@ node_modules/
 database.db
 .env
 .idea
+package-lock.json

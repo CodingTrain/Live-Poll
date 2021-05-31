@@ -97,6 +97,9 @@ div(id="footer")
     // toggle the overlay
     // default value is a transparency = 50
     function changeOverlay(overlay) {
+      const style = document.querySelector('#poll-result-style');
+      if(!style) return;
+      
       if(overlay) {
         document.querySelector('#poll-result-style').href = "/css/poll-results-compact.css";
       } else {
