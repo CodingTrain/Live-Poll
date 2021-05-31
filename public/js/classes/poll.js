@@ -34,7 +34,11 @@ class Poll {
     }
     const pollDetails = this.getPollVotesStats();
 
-    select("#totalVotes").html(`${pollDetails.totalVotes} votes`);
+    const totalText =
+      pollDetails.totalVotes == 1
+        ? `${pollDetails.totalVotes} vote`
+        : `${pollDetails.totalVotes} votes`;
+    select("#totalVotes").html(totalText);
 
     // find leading element
     const leadingIndex = this.indexOfMax(this.pollDetails.votes);
@@ -59,10 +63,12 @@ class Poll {
       const progressBar = select("#progressBar_" + i);
       progressBar.style("width", percent + "%");
 
+      const voteText = count == 1 ? `${count} vote` : `${count} votes`;
+
       if (count > 0) {
-        progressBar.html(`<p>${count} votes (${Math.round(percent)}%)</p>`);
+        progressBar.html(`<p>${voteText} (${Math.round(percent)}%)</p>`);
       } else {
-        progressBar.html(`<p>${count}</p>`);
+        progressBar.html(`<p>${voteText}</p>`);
       }
 
       if (!tie && i == leadingIndex) {
