@@ -68,3 +68,7 @@ textarea {
 #main-create .removeLastOption {
   background-color: rgb(219, 97, 81);
 }
+
+#main-create svg {
+  margin-top: 20px;
+}
