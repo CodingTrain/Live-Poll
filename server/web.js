@@ -26,7 +26,7 @@ router.get("/newest", async (req, res) => {
     res.status(404);
     res.render("notfound");
   } else {
-    res.redirect("/poll/" + poll._id);
+    res.render("poll", { poll: poll, styling: req.query });
   }
 });
 
