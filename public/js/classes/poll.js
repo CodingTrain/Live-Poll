@@ -3,13 +3,9 @@
 
 class Poll {
   constructor() {
-    const matches = /\/poll\/([0-9a-zA-Z]+)/g.exec(location.href);
+    const pollId = document.querySelector("[data-id]").dataset.id;
 
-    if (!matches || matches.length !== 2) {
-      throw new Error("No pollId found");
-    }
-
-    this.pollId = matches[1];
+    this.pollId = pollId;
 
     this.socket = io({ pollId: this.pollId });
 
