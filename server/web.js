@@ -24,7 +24,7 @@ router.get("/newest", async (req, res) => {
 
   if (!poll) {
     res.status(404);
-    res.render("notfound");
+    res.render("notfound", { styling: req.query });
   } else {
     res.render("poll", { poll: poll, styling: req.query });
   }
@@ -37,7 +37,7 @@ router.get("/poll/:pollId", async function (req, res) {
 
   if (!poll) {
     res.status(404);
-    res.render("notfound");
+    res.render("notfound", { styling: req.query });
   } else {
     res.render("poll", { poll: poll, styling: req.query });
   }
