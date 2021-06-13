@@ -37,7 +37,7 @@ router.get("/vote-now", async (req, res) => {
 
   if (!poll) {
     res.status(404);
-    res.render("notfound");
+    res.render("notfound", { styling: req.query });
   } else {
     res.redirect("/vote/" + poll._id);
   }
