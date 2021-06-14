@@ -22,7 +22,7 @@ html
               label(for="option_" + index)=val
           input(class="submit-vote" type="submit" value="Vote")
 
-      template(data-styling=styling)
+      template(data-styling=styling, data-id=poll._id)
       
     script(src="/js/classes/poll.js")
     script(src="/js/sketches/vote.js")
