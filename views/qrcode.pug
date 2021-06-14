@@ -9,15 +9,21 @@ html
   body
     h1 The Coding Train Live Poll
     h2 QR-Code to newest Poll
-    h3.qr-question=question
-    div#placeHolder
-    template(data-pollurl=pollURL)
+    section.content
+      section.left
+        iframe#results()
+      section.right
+        h3.qr-question=question
+        div#placeHolder
+        template(data-pollurl=pollURL)
+
 
   script.
       var typeNumber = 4;
       var errorCorrectionLevel = 'L';
       var qr = qrcode(typeNumber, errorCorrectionLevel);
       var pollURL = document.querySelector('[data-pollurl]').dataset.pollurl;
+      results.src = pollURL.replace('/vote/', '/poll/');
       qr.addData(pollURL);
       qr.make();
       document.querySelector('#placeHolder').innerHTML = qr.createSvgTag(5, 5);
