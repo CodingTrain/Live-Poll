@@ -9,7 +9,10 @@ html
   body
     h1 The Coding Train Live Poll
     h2 QR-Code to newest Poll
-    section
+    section.content
+      section.left
+        include poll.pug
+      section.right
         h3.qr-question=question
         div#placeHolder
         template(data-pollurl=pollURL)
