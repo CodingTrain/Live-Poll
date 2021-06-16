@@ -21,7 +21,6 @@ html
             div.bar-title=val
             div(id="progressBar_" + index class="progressBar")
       p#totalVotes
-      p #{JSON.stringify(styling)}
       template(data-styling=styling, data-id=poll._id)
 
     include footer.pug
