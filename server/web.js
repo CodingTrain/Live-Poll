@@ -24,9 +24,22 @@ router.get("/newest", async (req, res) => {
 
   if (!poll) {
     res.status(404);
-    res.render("notfound");
+    res.render("notfound", { styling: req.query });
   } else {
-    res.redirect("/poll/" + poll._id);
+    res.render("poll", { poll: poll, styling: req.query });
+  }
+});
+
+//Route for getting the newest poll
+router.get("/vote-now", async (req, res) => {
+  // Get all polls, sort descending by timestamp, get the first poll
+  const poll = (await database.find({}).sort({ timestamp: -1 }))[0];
+
+  if (!poll) {
+    res.status(404);
+    res.render("notfound", { styling: req.query });
+  } else {
+    res.redirect("/vote/" + poll._id);
   }
 });
 
@@ -50,7 +63,7 @@ router.get("/poll/:pollId", async function (req, res) {
 
   if (!poll) {
     res.status(404);
-    res.render("notfound");
+    res.render("notfound", { styling: req.query });
   } else {
     res.render("poll", { poll: poll, styling: req.query });
   }
