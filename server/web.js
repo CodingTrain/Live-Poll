@@ -30,20 +30,7 @@ router.get("/newest", async (req, res) => {
   }
 });
 
-//Route for getting the newest poll
-router.get("/vote-now", async (req, res) => {
-  // Get all polls, sort descending by timestamp, get the first poll
-  const poll = (await database.find({}).sort({ timestamp: -1 }))[0];
-
-  if (!poll) {
-    res.status(404);
-    res.render("notfound", { styling: req.query });
-  } else {
-    res.redirect("/vote/" + poll._id);
-  }
-});
-
-//Route for getting the newest poll
+//Route for getting page to voting in the newest poll
 router.get("/vote-now", async (req, res) => {
   // Get all polls, sort descending by timestamp, get the first poll
   const poll = (await database.find({}).sort({ timestamp: -1 }))[0];
