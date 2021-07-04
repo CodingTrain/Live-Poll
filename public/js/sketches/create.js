@@ -64,7 +64,13 @@ function setup() {
     }
 
     if (!question) return alert("You need to enter a question.");
-    if (options.length < 2)
+    let actualOptions = [];
+    for (let option of options) {
+      if (option != "") {
+        actualOptions.push(option);
+      }
+    }
+    if (actualOptions.length < 2)
       return alert("You need to mention at least two valid options.");
 
     const response = await fetch("/api/new", {
