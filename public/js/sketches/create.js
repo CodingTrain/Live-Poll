@@ -80,7 +80,7 @@ function setup() {
       },
       body: JSON.stringify({
         question,
-        options,
+        actualOptions,
       }),
     });
     const { id } = await response.json();
