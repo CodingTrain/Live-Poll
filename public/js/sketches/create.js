@@ -3,19 +3,23 @@
 // Feel free to give a better name to this file
 // This Javascript is powering /createPoll
 
+let inputsDiv;
+
 function setup() {
   noCanvas();
   const textarea = createElement("textarea");
   textarea.attribute("placeholder", "Enter question here");
 
   const defaultOptions = 5;
-  const inputsDiv = createElement("div").addClass("options");
+  inputsDiv = createElement("div").addClass("options");
   inputsDiv.id("inputsDiv");
   for (let i = 0; i < defaultOptions; i++) {
     const newInput = createInput().attribute(
       "placeholder",
       "Option " + (i + 1)
     );
+
+    newInput.id(`option-${i}`);
 
     inputsDiv.child(newInput);
   }
@@ -39,6 +43,9 @@ function setup() {
       "placeholder",
       "Option " + (currentOptionsLength + 1)
     );
+
+
+    newInput.id(`option-${currentOptionsLength}`);
 
     inputsDiv.child(newInput);
   });
@@ -109,4 +116,28 @@ function setup() {
 
     createDiv(qr.createSvgTag(5, 5));
   });
+}
+
+function keyPressed() {
+  let isOptionRegx = /option-\d+/;
+  if (keyCode == 13 && isOptionRegx.test(document.activeElement.id)) {
+    const currentOptionsLength =
+      document.getElementById("inputsDiv").children.length;
+    const id = document.activeElement.id;
+    const optionNum = int(id.substring(7, id.length));
+    if (optionNum == currentOptionsLength - 1) {
+      const newInput = createInput().attribute(
+        "placeholder",
+        "Option " + (currentOptionsLength + 1)
+      );
+
+
+      newInput.id(`option-${currentOptionsLength}`);
+
+      inputsDiv.child(newInput);
+      newInput.elt.focus();
+    } else {
+      select(`#option-${optionNum + 1}`).elt.focus();
+    }
+  }
 }
