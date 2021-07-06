@@ -34,6 +34,10 @@
 - overlay=boolean
   - overwrites _monotone_ parameter
   - applies a compact view especially for live streams / OBS
+- results=boolean
+  - *only applicable to the* `/qrcode` *route*
+  - Displays the results of a poll next to the QR Code which links to the vote page
+  - Useful for streaming overlays :sunglasses:
 
 Example usage
 

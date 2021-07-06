@@ -30,7 +30,7 @@ router.get("/newest", async (req, res) => {
   }
 });
 
-//Route for getting the newest poll
+//Route for getting page to voting in the newest poll
 router.get("/vote-now", async (req, res) => {
   // Get all polls, sort descending by timestamp, get the first poll
   const poll = (await database.find({}).sort({ timestamp: -1 }))[0];
@@ -138,10 +138,19 @@ router.post("/vote/:pollId", async function (req, res) {
   res.redirect("/poll/" + _id);
 });
 
-//Page to view the latest qrcode
+// Function that determines if a query parameter is 'truthy'
+// Allows for everything except undefined, 'false', '0', 0, and null
+function queryParameterTruthy(parameter) {
+  return (
+    parameter &&
+    String(parameter).toLowerCase() !== "false" &&
+    Number(parameter) !== 0
+  );
+}
+
+//Page to view the qrcode that links to the latest poll's voting page
 router.get("/qrcode/", async (req, res) => {
   // Get all polls, sort descending by timestamp, get the first poll
-
   const poll = (await database.find({}).sort({ timestamp: -1 }))[0];
 
   const hostAddress = req.get("host");
@@ -150,7 +159,21 @@ router.get("/qrcode/", async (req, res) => {
   if (!poll) {
     res.status(404);
     res.render("notfound");
+  } else if (queryParameterTruthy(req.query.results)) {
+    // if results are specified, display the QRCode to vote with the results of the poll
+
+    // in order to display default styling, we need to have an empty object
+    // we remove the results key to make sure if no other params are set the object is empty
+    delete req.query.results;
+
+    res.render("qrcode-results", {
+      pollURL,
+      poll,
+      styling: req.query,
+      question: poll.question,
+    });
   } else {
+    // Just render the QR Code for the voting page
     res.render("qrcode", { pollURL, question: poll.question });
   }
 });

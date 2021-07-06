@@ -9,22 +9,21 @@ html
     link(rel="stylesheet" id="poll-result-style" href="/css/poll-results.css")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.3/socket.io.min.js")
-    
+
   body
     main#poll-result-main
       h1 The Coding Train Live Poll
       h2=poll.question
-      
+
       div#results
         each val, index in poll.options
           div.option
             div.bar-title=val
             div(id="progressBar_" + index class="progressBar")
       p#totalVotes
-
       template(data-styling=styling, data-id=poll._id)
 
     include footer.pug
-    
+
     script(src="/js/classes/poll.js")
     script(src="/js/sketches/poll.js")
