@@ -2,9 +2,9 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
-const http = require('http').createServer(app)
+const http = require("http").createServer(app);
 const io = require("socket.io")(http);
-broadcaster = require("./helpers/broadcaster");
+const broadcaster = require("./helpers/broadcaster");
 
 app.set("views", "./views");
 app.set("view engine", "pug");
@@ -24,13 +24,13 @@ app.use("/api", apiRoutes);
 // const createNewPoll = require("./helpers/createNewPoll");
 // createNewPoll("Your question here", ["Option A", "Option B", "Option C"]);
 
-io.on('connection', (socket) => {
-  socket.on('listenForPoll', (pollId) => {
+io.on("connection", (socket) => {
+  socket.on("listenForPoll", (pollId) => {
     broadcaster.registerSocket(pollId, socket);
   });
-  socket.on('disconnect', () => {
-    broadcaster.unregisterSocket(socket.id)
-  })
+  socket.on("disconnect", () => {
+    broadcaster.unregisterSocket(socket.id);
+  });
 });
 
 const port = process.env.PORT || 3000;

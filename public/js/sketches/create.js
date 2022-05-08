@@ -66,7 +66,7 @@ function setup() {
     if (!question) return alert("You need to enter a question.");
     let actualOptions = [];
     for (let option of options) {
-      if (option != "") {
+      if (option != "" && actualOptions.indexOf(option) == -1) {
         actualOptions.push(option);
       }
     }
@@ -80,7 +80,7 @@ function setup() {
       },
       body: JSON.stringify({
         question,
-        actualOptions,
+        options: actualOptions,
       }),
     });
     const { id } = await response.json();
